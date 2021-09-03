@@ -1,5 +1,5 @@
 import './Nav.css';
-import NavList from './nav-list/NavList';
+import NavList from './nav-list/NavList.jsx';
 
 function Nav() {
   return (

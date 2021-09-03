@@ -1,6 +1,6 @@
-import SearchInput from './search-input/SearchInput';
+import SearchInput from './search-input/SearchInput.jsx';
 import './Header.css';
-import Nav from './nav/Nav';
+import Nav from './nav/Nav.jsx';
 
 function Header() {
   return (

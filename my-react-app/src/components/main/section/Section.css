@@ -9,7 +9,15 @@
 }
 
 .section {
+  height: 44vh;
+}
 
+.section__head-img {
+  height: 60px;
+
+  margin-bottom: 5px;
+
+  overflow: hidden;
 }
 
 .section__title {

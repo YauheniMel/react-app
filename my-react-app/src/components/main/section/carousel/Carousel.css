@@ -1,0 +1,53 @@
+.carousel__wrap {
+  position: relative;
+}
+
+.carousel {
+  height: 180px;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel__page-wrap {
+  display: inline-block;
+
+  height: 160px;
+  width: 160px;
+
+  overflow: hidden;
+
+  margin: 10px 6px;
+}
+
+.carousel__page {
+  height: 160px;
+}
+
+.carousel__btn {
+  position: absolute;
+
+  top: 0;
+
+  height: 100%;
+  width: 40px;
+
+  font-size: 30px;
+
+  border: none;
+  opacity: 0.8;
+}
+
+.carousel__btn:hover {
+  opacity: 1;
+
+  border: 1px solid gray;
+}
+
+.carousel__btn-left {
+  left: 0;
+}
+
+.carousel__btn-right {
+  right: 0;
+}
