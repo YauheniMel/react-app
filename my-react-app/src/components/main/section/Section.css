@@ -1,0 +1,24 @@
+.section__wrap {
+  display: inline-block;
+  background: white;
+
+  vertical-align: top;
+  margin: 5px auto;
+
+  width: 73%;
+}
+
+.section {
+
+}
+
+.section__title {
+  background-color: lightblue;
+  color: darkblue;
+
+  padding: 20px;
+}
+
+.section__body {
+  padding: 10px;
+}

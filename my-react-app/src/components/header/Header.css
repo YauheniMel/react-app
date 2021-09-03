@@ -1,0 +1,22 @@
+.header {
+  background: darkblue;
+
+  padding: 20px 10px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title {
+  color: lightblue;
+}
+
+.header__search-input {
+  width: 300px;
+  height: 30px;
+
+  border: none;
+  border-radius: 4px;
+}

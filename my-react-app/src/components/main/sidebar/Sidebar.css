@@ -1,0 +1,35 @@
+.aside {
+  display: inline-block;
+
+  margin: 5px;
+
+  border-radius: 6px;
+
+  height: 72vh;
+  width: 25%;
+
+  background: blue;
+}
+
+.aside__list {
+  list-style: none;
+}
+
+.aside__item {
+  font-size: 18px;
+}
+
+.aside__link {
+  display: block;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 15px;
+}
+
+.aside__link:hover {
+  background-color: lightblue;
+  color: blue;
+}

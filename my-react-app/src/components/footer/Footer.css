@@ -1,0 +1,9 @@
+.footer {
+  background: darkblue;
+
+  color: white;
+}
+
+.footer__container {
+  padding: 20px 0;
+}
