@@ -1,14 +1,15 @@
-import SearchInput from './search-input/SearchInput.jsx';
-import './Header.css';
+import style from './Header.module.css';
+
+import Input from './input/Input.jsx';
 import Nav from './nav/Nav.jsx';
 
 function Header() {
   return (
     <div>
-      <header className="header">
-        <div className="container header__container">
-          <h2 className="header__title">React project</h2>
-          <SearchInput />
+      <header className={ style.header }>
+        <div className={ style.container }>
+          <h2 className={ style.logo }>React project</h2>
+          <Input />
         </div>
       </header>
       <Nav />

@@ -1,10 +1,10 @@
-import Section from './section/Section';
 import Sidebar from './sidebar/Sidebar';
+import Section from './section/Section';
 
 function Main() {
   return (
-    <main className="main">
-      <div className="container main__container">
+    <main>
+      <div className="container">
         <Sidebar />
         <Section />
       </div>

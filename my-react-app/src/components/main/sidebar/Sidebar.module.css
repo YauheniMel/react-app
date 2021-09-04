@@ -11,15 +11,15 @@
   background: blue;
 }
 
-.aside__list {
+.list {
   list-style: none;
 }
 
-.aside__item {
+.item {
   font-size: 18px;
 }
 
-.aside__link {
+.link {
   display: block;
 
   color: white;
@@ -29,7 +29,7 @@
   padding: 15px;
 }
 
-.aside__link:hover {
+.link:hover {
   background-color: lightblue;
   color: blue;
 }

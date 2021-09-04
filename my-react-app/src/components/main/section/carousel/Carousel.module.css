@@ -1,4 +1,4 @@
-.carousel__wrap {
+.carousel_wrap {
   position: relative;
 }
 
@@ -9,7 +9,7 @@
   white-space: nowrap;
 }
 
-.carousel__page-wrap {
+.image_wrap {
   display: inline-block;
 
   height: 160px;
@@ -20,11 +20,11 @@
   margin: 10px 6px;
 }
 
-.carousel__page {
+.image {
   height: 160px;
 }
 
-.carousel__btn {
+.button {
   position: absolute;
 
   top: 0;
@@ -38,16 +38,16 @@
   opacity: 0.8;
 }
 
-.carousel__btn:hover {
+.button:hover {
   opacity: 1;
 
   border: 1px solid gray;
 }
 
-.carousel__btn-left {
+.button_left {
   left: 0;
 }
 
-.carousel__btn-right {
+.button_right {
   right: 0;
 }

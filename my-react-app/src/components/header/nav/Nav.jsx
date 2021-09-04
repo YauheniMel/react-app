@@ -1,10 +1,11 @@
-import './Nav.css';
+import style from './Nav.module.css';
+
 import NavList from './nav-list/NavList.jsx';
 
 function Nav() {
   return (
-    <nav className="nav">
-      <div className="container">
+    <nav className={ style.nav }>
+      <div className={ style.container }>
         <NavList />
       </div>
     </nav>

@@ -1,8 +1,10 @@
+import style from '../Section.module.css';
+
 function Head() {
   return (
-    <div className="section__head">
-      <p className="section__head-name">Yauheni Melnik</p>
-      <p className="section__head-date">29.06.1991</p>
+    <div className={ style.user }>
+      <p>Yauheni Melnik</p>
+      <p>29.06.1991</p>
     </div>
   );
 }

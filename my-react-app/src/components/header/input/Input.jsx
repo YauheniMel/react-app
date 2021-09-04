@@ -1,8 +1,10 @@
+import style from '../Header.module.css'
+
 function SearchInput() {
   return (
-    <div className="header__search-input">
+    <div>
       <input
-            className="header__search-input"
+            className={ style.input }
             type="text" />
     </div>
   );

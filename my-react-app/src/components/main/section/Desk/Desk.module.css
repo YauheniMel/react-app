@@ -1,8 +1,8 @@
-.body {
-
+.desk {
+  margin: 10px;
 }
 
-.body__image-wrap {
+.image_wrap {
   display: inline-block;
 
   border: 3px solid blue;
@@ -14,11 +14,11 @@
   overflow: hidden;
 }
 
-.body__image {
+.image {
   height: 170px;
 }
 
-.body__info {
+.info {
   display: inline-block;
 
   vertical-align: top;
@@ -28,7 +28,3 @@
   font-size: 20px;
 }
 
-.body__credo-content, .body__hobby-content {
-  font-size: 24px;
-  color: blue;
-}

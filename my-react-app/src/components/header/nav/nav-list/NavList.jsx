@@ -1,9 +1,11 @@
+import style from '../Nav.module.css';
+
 function NavList() {
   return (
-    <ul className="nav__list">
-      <li className="nav__item"><a href="https://learn.javascript.ru" className="nav__link">LearnJS</a></li>
-      <li className="nav__item"><a href="https://ru.reactjs.org/" className="nav__link">React</a></li>
-      <li className="nav__item"><a href="https://vuejs.org" className="nav__link">VueJS</a></li>
+    <ul className={ style.list }>
+      <li className={ style.item }><a href="https://learn.javascript.ru" className={ style.link }>LearnJS</a></li>
+      <li className={ style.item }><a href="https://ru.reactjs.org/" className={ style.link }>React</a></li>
+      <li className={ style.item }><a href="https://vuejs.org" className={ style.link }>VueJS</a></li>
     </ul>
   );
 }

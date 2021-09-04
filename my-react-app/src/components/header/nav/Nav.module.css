@@ -2,14 +2,19 @@
   background: blue;
 }
 
-.nav__list {
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.list {
   list-style: none;
 
   display: flex;
   justify-content: space-between;
 }
 
-.nav__item {
+.item {
   width: 100%;
 
   text-align: center;
@@ -17,7 +22,7 @@
   font-weight: 400;
 }
 
-.nav__link {
+.link {
   display: block;
 
   text-decoration: none;
@@ -27,7 +32,7 @@
   padding: 5px 5px;
 }
 
-.nav__link:hover {
+.link:hover {
   background-color: lightblue;
   color: blue;
 }
