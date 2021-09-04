@@ -20,11 +20,14 @@
   overflow: hidden;
 }
 
-.section__title {
+.section__head {
+  display: flex;
+  justify-content: space-between;
+
   background-color: lightblue;
   color: darkblue;
 
-  padding: 20px;
+  padding: 10px;
 }
 
 .section__body {

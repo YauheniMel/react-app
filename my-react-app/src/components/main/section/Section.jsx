@@ -1,4 +1,6 @@
+import Body from './body/Body';
 import Carousel from './carousel/Carousel';
+import Head from './head/Head';
 import './Section.css';
 
 function Section() {
@@ -8,13 +10,8 @@ function Section() {
         <div className="section__head-img">
           <img alt="background" src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" />
         </div>
-        <div className="section__title">
-          <h3>Hello world!</h3>
-        </div>
-        <div className="section__body">
-          Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!
-          Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!Hello world!
-        </div>
+        <Head />
+        <Body />
       </section>
       <Carousel />
     </div>
