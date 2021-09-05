@@ -1,0 +1,17 @@
+.column {
+  display: inline-block;
+
+  width: 30%;
+  height: 72vh;
+
+  padding: 0 4px;
+
+  border: 2px solid lightblue;
+  border-radius: 3px;
+
+  vertical-align: top;
+}
+
+.column div:first-child {
+  border: none;
+}

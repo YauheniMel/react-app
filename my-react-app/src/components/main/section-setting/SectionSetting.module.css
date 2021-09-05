@@ -1,0 +1,17 @@
+.section_wrap {
+  display: inline-block;
+
+  vertical-align: top;
+  margin: 5px auto;
+
+  width: 73%;
+  height: 72vh;
+
+  overflow: auto;
+}
+
+.section {
+  margin: 30px;
+
+  text-align: center;
+}

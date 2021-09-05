@@ -1,0 +1,49 @@
+.section_wrap {
+  display: inline-block;
+
+  vertical-align: top;
+  margin: 5px auto;
+
+  width: 73%;
+  height: 72vh;
+
+  overflow: auto;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+}
+
+.friend {
+  margin: 3px;
+
+  height: 130px;
+  width: 190px;
+
+  background: lightblue;
+}
+
+.photo_wrap {
+  height: 90px;
+  width: 190px;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.photo {
+  width: 190px;
+}
+
+.name {
+  margin: 10px;
+
+  font-weight: 500;
+  font-size: 16px;
+
+  text-align: center;
+}

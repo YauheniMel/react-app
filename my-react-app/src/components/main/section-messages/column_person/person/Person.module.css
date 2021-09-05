@@ -1,0 +1,7 @@
+.person {
+  border-top: 1px solid lightblue;
+  padding: 3px 4px;
+
+  font-size: 16px;
+  font-weight: 500;
+}

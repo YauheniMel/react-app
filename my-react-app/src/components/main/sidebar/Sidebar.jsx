@@ -4,10 +4,11 @@ function Sidebar() {
   return (
     <aside className={ style.aside }>
       <ul className={ style.list }>
-        <li className={ style.item }><a className={ style.link } href="#j">Introduction</a></li>
-        <li className={ style.item }><a className={ style.link } href="#j">Elementary level</a></li>
-        <li className={ style.item }><a className={ style.link } href="#j">Middle level</a></li>
-        <li className={ style.item }><a className={ style.link } href="#j">Advanced level</a></li>
+        <li className={ style.item }><a className={ style.link } href="#j">Home</a></li>
+        <li className={ style.item }><a className={ style.link } href="#j">Messages</a></li>
+        <li className={ style.item }><a className={ style.link } href="#j">My friends</a></li>
+        <li className={ style.item }><a className={ style.link } href="#j">Photos</a></li>
+        <li className={ style.item }><a className={ style.link } href="#j">Setting</a></li>
       </ul>
     </aside>
   );

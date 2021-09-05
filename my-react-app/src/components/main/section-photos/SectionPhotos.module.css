@@ -1,0 +1,33 @@
+.section_wrap {
+  display: inline-block;
+
+  vertical-align: top;
+  margin: 5px auto;
+
+  width: 73%;
+  height: 72vh;
+
+  overflow: auto;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+
+  flex-wrap: wrap;
+}
+
+.photo_wrap {
+  margin: 3px;
+
+  height: 200px;
+  width: 190px;
+
+  overflow: hidden;
+
+  border: 1px solid lightgray;
+}
+
+.photo {
+  width: 190px;
+}
