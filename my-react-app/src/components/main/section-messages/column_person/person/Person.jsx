@@ -1,9 +1,11 @@
 import style from './Person.module.css';
 
+import { NavLink } from 'react-router-dom';
+
 function Person(props) {
   return (
     <div className={ style.person }>
-      { props.firstName } { props.lastName }
+      <NavLink to={ "/messages/" + props.id } className={ style.link }>{ props.firstName } { props.lastName }</NavLink>
     </div>
   );
 }

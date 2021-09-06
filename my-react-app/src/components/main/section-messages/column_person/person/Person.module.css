@@ -5,3 +5,10 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+.link {
+  text-decoration: none;
+
+  color: gray;
+  font-size: 16px;
+}

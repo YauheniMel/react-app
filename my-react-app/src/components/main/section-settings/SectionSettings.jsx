@@ -1,6 +1,6 @@
-import style from './SectionSetting.module.css';
+import style from './SectionSettings.module.css';
 
-function SectionSetting() {
+function SectionSettings() {
   return (
     <div className={ style.section_wrap }>
       <section className={ style.section }>
@@ -12,4 +12,4 @@ function SectionSetting() {
   );
 }
 
-export default SectionSetting;
+export default SectionSettings;
