@@ -4,7 +4,7 @@ import style from './SectionMessages.module.css';
 
 function SectionMessages(props) {
   return (
-    <div className={ style.section_wrap }>
+    <div className="section_wrap">
       <section className={ style.section }>
         <ColumnPerson persons={ props.persons }/>
         <ColumnDialog messages={ props.messages }/>

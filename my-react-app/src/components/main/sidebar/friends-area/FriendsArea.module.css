@@ -1,0 +1,44 @@
+.friends_area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  margin: 10px auto;
+
+  background-color: lightblue;
+
+  width: 260px;
+  height: 200px;
+
+  overflow: auto;
+
+  opacity: 0.6;
+}
+
+.friends_area:hover {
+  opacity: 1;
+}
+
+.friend {
+  margin: 3px;
+
+  width: 65px;
+  height: 100px;
+}
+
+.photo_wrap {
+  border-radius: 50%;
+
+  height: 65px;
+  width: 65px;
+
+  overflow: hidden;
+}
+
+.photo {
+  height: 65px;
+}
+
+.friend p {
+  text-align: center;
+}

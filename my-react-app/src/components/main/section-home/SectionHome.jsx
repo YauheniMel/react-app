@@ -6,7 +6,7 @@ import Carousel from './carousel/Carousel';
 
 function SectionHome() {
   return (
-    <div className={ style.section_wrap }>
+    <div className="section_wrap">
       <section className={ style.section }>
         <div className={ style.panorama }>
           <img alt="background" src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" />

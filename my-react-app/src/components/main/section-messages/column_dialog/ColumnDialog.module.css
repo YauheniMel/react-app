@@ -2,13 +2,8 @@
   display: inline-block;
 
   width: 68%;
-  height: 72vh;
 
-
-  border-radius: 0 3px 3px 0;
-  border: 2px solid lightblue;
-  border-left: none;
-
+  vertical-align: top;
   overflow-x: auto;
 }
 

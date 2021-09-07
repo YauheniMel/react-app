@@ -7,7 +7,7 @@ function SectionPhotos(props) {
   });
 
   return (
-    <div className={ style.section_wrap }>
+    <div className="section_wrap">
       <section className={ style.section }>
         { photos }
       </section>

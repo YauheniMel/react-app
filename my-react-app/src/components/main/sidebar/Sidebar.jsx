@@ -1,8 +1,9 @@
 import style from './Sidebar.module.css';
 
 import { NavLink } from 'react-router-dom';
+import FriendsArea from './friends-area/FriendsArea';
 
-function Sidebar() {
+function Sidebar(props) {
   return (
     <aside className={ style.aside }>
       <ul className={ style.list }>
@@ -12,6 +13,7 @@ function Sidebar() {
         <li className={ style.item }><NavLink className={ style.link } to="/photos" activeClassName={ style.active }>Photos</NavLink></li>
         <li className={ style.item }><NavLink className={ style.link } to="/settings" activeClassName={ style.active }>Settings</NavLink></li>
       </ul>
+      <FriendsArea data={ props.friends } />
     </aside>
   );
 }

@@ -2,7 +2,7 @@ import style from './SectionSettings.module.css';
 
 function SectionSettings() {
   return (
-    <div className={ style.section_wrap }>
+    <div className="section_wrap">
       <section className={ style.section }>
         <h2>
           setting
