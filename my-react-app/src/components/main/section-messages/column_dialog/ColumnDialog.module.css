@@ -1,7 +1,7 @@
 .column {
   display: inline-block;
 
-  width: 69%;
+  width: 68%;
   height: 72vh;
 
 
@@ -20,14 +20,14 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(247, 243, 243);
 }
 
 .message_received p {
   font-size: 14px;
 }
 
-.message_sent {
+.message {
   display: flex;
   justify-content: end;
 }
@@ -38,7 +38,7 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(247, 243, 243);
 
   width: 300px;
 

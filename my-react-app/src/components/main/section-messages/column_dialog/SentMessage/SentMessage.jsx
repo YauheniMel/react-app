@@ -3,9 +3,9 @@ import style from '../ColumnDialog.module.css';
 function SentMessage(props) {
   return (
     <div className={ style.message_sent }>
-      <p>
-        { props.text }
-      </p>
+      <div className={ style.message }>
+        <p>{ props.data.content }</p>
+      </div>
     </div>
   );
 }

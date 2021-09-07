@@ -1,9 +1,9 @@
 import style from '../SectionPhotos.module.css';
 
-function Photo() {
+function Photo(props) {
   return (
     <div className={ style.photo_wrap }>
-      <img src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" alt="album" className={ style.photo }/>
+      <img src={ props.data.url } alt="album" className={ style.photo }/>
     </div>
   );
 }

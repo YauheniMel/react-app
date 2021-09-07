@@ -3,9 +3,10 @@ import style from './Person.module.css';
 import { NavLink } from 'react-router-dom';
 
 function Person(props) {
+
   return (
     <div className={ style.person }>
-      <NavLink to={ "/messages/" + props.id } className={ style.link }>{ props.firstName } { props.lastName }</NavLink>
+      <NavLink to={ "/messages/" + props.data.id } className={ style.link }>{ props.data.firstName } { props.data.lastName }</NavLink>
     </div>
   );
 }
