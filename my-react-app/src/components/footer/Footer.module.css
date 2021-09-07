@@ -1,0 +1,12 @@
+.footer {
+  background: darkblue;
+
+  color: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+
+  padding: 20px 0;
+}
