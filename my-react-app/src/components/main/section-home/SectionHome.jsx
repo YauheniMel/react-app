@@ -4,7 +4,7 @@ import Head from './head/Head';
 import Desk from './desk/Desk';
 import Carousel from './carousel/Carousel';
 
-function SectionHome() {
+function SectionHome(props) {
   return (
     <div className="section_wrap">
       <section className={ style.section }>
@@ -14,7 +14,7 @@ function SectionHome() {
         <Head name="Yaheni Melnik" date="29.06.1991" />
         <Desk />
       </section>
-      <Carousel />
+      <Carousel photos={ props.photos }/>
     </div>
   );
 }

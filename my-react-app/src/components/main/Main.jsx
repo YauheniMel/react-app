@@ -11,7 +11,7 @@ function Main(props) {
     <main>
       <div className="container">
         <Sidebar friends={ props.data.friends }/>
-        <Route path="/home" component={ SectionHome }/>
+        <Route path="/home" render={ () => <SectionHome photos={ props.data.photos }/> }/>
         <Route path="/messages" render={ () => <SectionMessages messages={ props.data.messages } persons={ props.data.persons }/> }/>
         <Route path="/photos" render={ () => <SectionPhotos photos={ props.data.photos }/> }/>
         <Route path="/my_friends" render={ () => <SectionMyFriends friends={ props.data.friends }/> }/>

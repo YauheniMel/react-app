@@ -39,3 +39,9 @@
 
   font-size: 14px;
 }
+
+.redactor {
+  height: 80px;
+
+  background-color: red;
+}
