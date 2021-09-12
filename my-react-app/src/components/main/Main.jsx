@@ -1,6 +1,6 @@
 import Sidebar from './sidebar/Sidebar';
 import SectionHome from './section-home/SectionHome';
-import SectionMessages from './section-messages/SectionMessages';
+import SectionDialogs from './section-dialogs/SectionDialogs';
 import SectionPhotos from './section-photos/SectionPhotos';
 import SectionMyFriends from './section-my-friends/SectionMyFriends';
 import SectionSettings from './section-settings/SectionSettings';
@@ -10,11 +10,17 @@ function Main(props) {
   return (
     <main>
       <div className="container">
-        <Sidebar friends={ props.data.friends }/>
-        <Route path="/home" render={ () => <SectionHome photos={ props.data.photos }/> }/>
-        <Route path="/messages" render={ () => <SectionMessages messages={ props.data.messages } persons={ props.data.persons }/> }/>
-        <Route path="/photos" render={ () => <SectionPhotos photos={ props.data.photos }/> }/>
-        <Route path="/my_friends" render={ () => <SectionMyFriends friends={ props.data.friends }/> }/>
+        <Sidebar state={ props.state.friendsPage }/>
+        <Route path="/home" render={ () => {
+          return <SectionHome state={ props.state.homePage } dispatch={ props.dispatch }/>
+        }}/>
+        <Route path="/dialogs" render={ () => {
+          return <SectionDialogs state={ props.state.dialogsPage }
+                                  dispatch={ props.dispatch }
+                                  />
+        }}/>
+        <Route path="/photos" render={ () => <SectionPhotos state={ props.state.photosPage }/> }/>
+        <Route path="/my_friends" render={ () => <SectionMyFriends state={ props.state.friendsPage }/> }/>
         <Route path="/settings" component={ SectionSettings }/>
       </div>
     </main>

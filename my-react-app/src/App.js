@@ -9,7 +9,9 @@ function App(props) {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Main data={ props.data }/>
+        <Main state={ props.state }
+              dispatch={ props.dispatch }
+              />
         <Footer />
       </div>
     </BrowserRouter>

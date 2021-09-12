@@ -8,12 +8,12 @@ function Sidebar(props) {
     <aside className={ style.aside }>
       <ul className={ style.list }>
         <li className={ style.item }><NavLink className={ style.link } to="/home" activeClassName={ style.active }>Home</NavLink></li>
-        <li className={ style.item }><NavLink className={ style.link } to="/messages" activeClassName={ style.active }>Messages</NavLink></li>
+        <li className={ style.item }><NavLink className={ style.link } to="/dialogs" activeClassName={ style.active }>Dialogs</NavLink></li>
         <li className={ style.item }><NavLink className={ style.link } to="/my_friends" activeClassName={ style.active }>My friends</NavLink></li>
         <li className={ style.item }><NavLink className={ style.link } to="/photos" activeClassName={ style.active }>Photos</NavLink></li>
         <li className={ style.item }><NavLink className={ style.link } to="/settings" activeClassName={ style.active }>Settings</NavLink></li>
       </ul>
-      <FriendsArea data={ props.friends } />
+      <FriendsArea friends={ props.state.friends } />
     </aside>
   );
 }

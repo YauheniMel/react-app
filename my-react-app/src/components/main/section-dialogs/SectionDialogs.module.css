@@ -1,0 +1,10 @@
+.section {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-areas:
+    "column_person column_dialog"
+    "column_person column_dialog"
+    "column_person redactor"
+  ;
+}
+

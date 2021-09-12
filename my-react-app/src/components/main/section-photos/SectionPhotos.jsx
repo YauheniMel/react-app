@@ -2,7 +2,7 @@ import Photo from './photo/Photo';
 import style from './SectionPhotos.module.css';
 
 function SectionPhotos(props) {
-  const photos = props.photos.map((photo) => {
+  const photos = props.state.photos.map((photo) => {
     return <Photo key={ photo.id } data={ photo } />
   });
 

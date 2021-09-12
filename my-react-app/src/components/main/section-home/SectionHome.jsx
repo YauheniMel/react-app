@@ -11,10 +11,10 @@ function SectionHome(props) {
         <div className={ style.panorama }>
           <img alt="background" src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" />
         </div>
-        <Head name="Yaheni Melnik" date="29.06.1991" />
-        <Desk />
+        <Head firstName={ props.state.firstName } lastName={ props.state.lastName } date={ props.state.date } />
+        <Desk hobby={ props.state.hobbyContent } credo={ props.state.credoContent } dispatch={ props.dispatch }/>
       </section>
-      <Carousel photos={ props.photos }/>
+      <Carousel photos={ props.state.photos }/>
     </div>
   );
 }

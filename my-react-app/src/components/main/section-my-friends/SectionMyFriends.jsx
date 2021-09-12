@@ -2,7 +2,7 @@ import Friend from './friend/Friend';
 import style from './SectionMyFriends.module.css';
 
 function SectionMyFriends(props) {
-  const friends = props.friends.map((friend) => {
+  const friends = props.state.friends.map((friend) => {
     return <Friend key={ friend.id } data={ friend }/>
   });
 

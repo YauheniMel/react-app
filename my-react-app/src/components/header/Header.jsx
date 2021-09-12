@@ -5,16 +5,13 @@ import Nav from './nav/Nav.jsx';
 
 function Header() {
   return (
-    <div>
-      <header className={ style.header }>
-        <div className={ style.container }>
-          <h2 className={ style.logo }>React project</h2>
-          <Input />
-        </div>
-      </header>
+    <header className={ style.header }>
+      <div className={ style.container }>
+        <h2 className={ style.logo }>React project</h2>
+        <Input />
+      </div>
       <Nav />
-    </div>
-
+    </header>
   );
 }
 
