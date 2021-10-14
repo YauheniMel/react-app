@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/store';
+import store from './redux/redux-store';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
 
-function rerenderReactDom(store) {
+function rerenderReactDom(state) {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={ store.getState() }
+      <App state={ state }
            dispatch={ store.dispatch.bind(store) }
            />
     </React.StrictMode>,
@@ -16,9 +16,14 @@ function rerenderReactDom(store) {
   );
 }
 
-rerenderReactDom(store);
+rerenderReactDom(store.getState());
 
-store.reassignMethod(rerenderReactDom);
+store.subscribe(() => {
+  const state = store.getState();
+  rerenderReactDom(state);
+});
+
+// store.reassignMethod(rerenderReactDom);
 
 export default rerenderReactDom;
 

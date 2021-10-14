@@ -1,6 +1,5 @@
-import credoReducer from './credo-reducer';
+import homeReducer from './home-reducer';
 import dialogsReducer from './dialogs-reducer';
-import postReducer from './post-reducer';
 
 let store = {
   _state: {
@@ -90,16 +89,10 @@ let store = {
   },
   dispatch(action) {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-    this._state.homePage = postReducer(this._state.homePage, action);
-    this._state.homePage = credoReducer(this._state.homePage, action);
+    this._state.homePage = homeReducer(this._state.homePage, action);
 
     this._rerenderReactDom(this);
   },
-  _createCredo(content) {
-    this._state.homePage.credoContent = content;
-
-    this._rerenderReactDom(this);
-  }
 }
 
 export default store;

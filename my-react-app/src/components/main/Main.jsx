@@ -10,7 +10,7 @@ function Main(props) {
   return (
     <main>
       <div className="container">
-        <Sidebar state={ props.state.friendsPage }/>
+        <Sidebar state={ props.state.friendPage }/>
         <Route path="/home" render={ () => {
           return <SectionHome state={ props.state.homePage } dispatch={ props.dispatch }/>
         }}/>
@@ -19,8 +19,8 @@ function Main(props) {
                                   dispatch={ props.dispatch }
                                   />
         }}/>
-        <Route path="/photos" render={ () => <SectionPhotos state={ props.state.photosPage }/> }/>
-        <Route path="/my_friends" render={ () => <SectionMyFriends state={ props.state.friendsPage }/> }/>
+        <Route path="/photos" render={ () => <SectionPhotos state={ props.state.photoPage }/> }/>
+        <Route path="/my_friends" render={ () => <SectionMyFriends state={ props.state.friendPage }/> }/>
         <Route path="/settings" component={ SectionSettings }/>
       </div>
     </main>

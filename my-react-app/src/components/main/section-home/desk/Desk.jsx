@@ -1,6 +1,5 @@
 import React from 'react';
-import { addCredoContent } from '../../../../redux/credo-reducer';
-import { addPostContent } from '../../../../redux/post-reducer';
+import { addCredoContent, addPostContent } from '../../../../redux/home-reducer';
 
 import style from './Desk.module.css';
 
