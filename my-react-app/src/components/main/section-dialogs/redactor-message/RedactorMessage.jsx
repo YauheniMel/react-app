@@ -1,5 +1,5 @@
 import React from 'react';
-import { addMessageContent, sendMessageCreator } from '../../../../redux/state';
+import { addMessageContent, sendMessageCreator } from '../../../../redux/dialogs-reducer';
 import style from './RedactorMessage.module.css';
 
 function RedactorMessage(props) {

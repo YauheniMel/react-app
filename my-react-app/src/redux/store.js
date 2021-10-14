@@ -1,38 +1,6 @@
-export function sendMessageCreator() {
-  return (
-    {
-      type: 'SEND-MESSAGE',
-    }
-  );
-}
-
-export function addMessageContent(content) {
-  return (
-    {
-      type: 'ADD-MESSAGE-CONTENT',
-      content: content,
-    }
-  );
-}
-
-export function addHobbyContent(content) {
-  return (
-    {
-      type: 'ADD-HOBBY-CONTENT',
-      content: content,
-    }
-  );
-}
-
-export function addCredoContent(content) {
-  return (
-    {
-      type: 'ADD-CREDO-CONTENT',
-      content: content,
-    }
-  );
-}
-
+import credoReducer from './credo-reducer';
+import dialogsReducer from './dialogs-reducer';
+import postReducer from './post-reducer';
 
 let store = {
   _state: {
@@ -40,7 +8,7 @@ let store = {
       firstName: 'Yauheni',
       lastName: 'Melnik',
       date: '29.06.1991',
-      hobbyContent: 'guitar',
+      postContent: 'play guitar',
       credoContent: 'always work on yourself',
       photos: [
         { id: 1, url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg' },
@@ -116,47 +84,18 @@ let store = {
   getState() {
     return this._state;
   },
-  _addMessageContent(content) {
-    this._state.dialogsPage.messageContent = content;
-
-    this._rerenderReactDom(this);
-  },
-  _sendMessage() {
-    const newMessage = {
-      id: +new Date(),
-      content: this._state.dialogsPage.messageContent,
-      isMy: true,
-    }
-
-    this._state.dialogsPage.messages.push(newMessage);
-
-    this._rerenderReactDom(this);
-
-    this._state.dialogsPage.messageContent = '';
-  },
-  _rerenderReactDom() {
-    console.log('Changed');
-  },
+  _rerenderReactDom() {},
   reassignMethod(func) {
     this._rerenderReactDom = func;
   },
   dispatch(action) {
-    if(action.type === 'SEND-MESSAGE') {
-      this._sendMessage();
-    } else if(action.type === 'ADD-MESSAGE-CONTENT') {
-      this._addMessageContent(action.content);
-    } else if(action.type === 'ADD-HOBBY-CONTENT') {
-      this._postHobby(action.content);
-    } else if(action.type === 'ADD-CREDO-CONTENT') {
-      this._postCredo(action.content);
-    }
-  },
-  _postHobby(content) {
-    this._state.homePage.hobbyContent = content;
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.homePage = postReducer(this._state.homePage, action);
+    this._state.homePage = credoReducer(this._state.homePage, action);
 
     this._rerenderReactDom(this);
   },
-  _postCredo(content) {
+  _createCredo(content) {
     this._state.homePage.credoContent = content;
 
     this._rerenderReactDom(this);

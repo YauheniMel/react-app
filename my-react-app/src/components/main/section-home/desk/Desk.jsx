@@ -1,11 +1,12 @@
 import React from 'react';
-import { addCredoContent, addHobbyContent } from '../../../../redux/state';
+import { addCredoContent } from '../../../../redux/credo-reducer';
+import { addPostContent } from '../../../../redux/post-reducer';
 
 import style from './Desk.module.css';
 
 function Desk(props) {
   const credoInputEl = React.createRef();
-  const hobbyInputEl = React.createRef();
+  const postInputEl = React.createRef();
 
   function setCredoValue(event) {
     event.preventDefault();
@@ -17,12 +18,12 @@ function Desk(props) {
     props.dispatch(action);
   }
 
-  function setHobbyValue(event) {
+  function setPostValue(event) {
     event.preventDefault();
 
-    const value = hobbyInputEl.current.value;
+    const value = postInputEl.current.value;
 
-    const action = addHobbyContent(value);
+    const action = addPostContent(value);
 
     props.dispatch(action);
   }
@@ -38,10 +39,10 @@ function Desk(props) {
           <input ref={ credoInputEl } type="text" className={ style.input_credo }/>
           <button type="submit" className={ style.button_credo }>+</button>
         </form>
-        <p>My hobby: <span>{ props.hobby }</span></p>
-        <form onSubmit={ setHobbyValue } className={ style.form }>
-          <input ref={ hobbyInputEl } type="text" className={ style.input_hobby }/>
-          <button type="submit" className={ style.button_hobby }>+</button>
+        <p>My post: <span>{ props.post }</span></p>
+        <form onSubmit={ setPostValue } className={ style.form }>
+          <input ref={ postInputEl } type="text" className={ style.input_post }/>
+          <button type="submit" className={ style.button_post }>+</button>
         </form>
       </div>
     </div>
