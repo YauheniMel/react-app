@@ -1,5 +1,5 @@
 import Friend from './friend/Friend';
-import style from './FriendsArea.module.css';
+import style from './FriendsArea.module.scss';
 
 function FriendsArea(props) {
   const listFriends = props.friends.map((dataItem) => {

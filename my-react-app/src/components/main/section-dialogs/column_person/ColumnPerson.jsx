@@ -1,4 +1,4 @@
-import style from './ColumnPerson.module.css';
+import style from './ColumnPerson.module.scss';
 import Person from './person/Person';
 
 function ColumnPerson(props) {

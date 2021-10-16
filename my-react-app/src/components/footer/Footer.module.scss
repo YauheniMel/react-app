@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: $bg_dark;
+  color: $tx_primary;
+}
+
+.container {
+  padding: 15px 0;
+}

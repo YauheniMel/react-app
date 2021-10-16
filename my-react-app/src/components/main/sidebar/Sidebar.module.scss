@@ -1,11 +1,14 @@
+@import '../../../styles/variables';
+
 .aside {
   display: inline-block;
 
   margin: 5px;
 
-  width: 25%;
+  width: 20%;
+  height: 100%;
 
-  background: blue;
+  background-color: $bg_main;
 }
 
 .list {
@@ -19,7 +22,7 @@
 .link {
   display: block;
 
-  color: white;
+  color: $tx_primary;
 
   text-decoration: none;
 
@@ -27,12 +30,12 @@
 }
 
 .link:hover {
-  background-color: lightblue;
-  color: blue;
+  background-color: $bg_active;
+  color: $tx_active;
 }
 
 .active {
-  background-color: rgba(177, 222, 236, 0.9);
-  color: blue;
+  background-color: $bg_active;
+  color: $tx_active;
   font-weight: 500;
 }

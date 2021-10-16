@@ -1,4 +1,4 @@
-import style from '../Carousel.module.css';
+import style from '../Carousel.module.scss';
 
 function CarouselItem(props) {
   return (

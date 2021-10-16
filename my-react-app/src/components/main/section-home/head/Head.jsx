@@ -1,4 +1,4 @@
-import style from '../SectionHome.module.css';
+import style from '../SectionHome.module.scss';
 
 function Head(props) {
   return (

@@ -1,5 +1,4 @@
 .section {
-  margin: 30px;
-
+  height: inherit;
   text-align: center;
 }

@@ -1,4 +1,4 @@
-import style from '../ColumnDialog.module.css';
+import style from '../ColumnDialog.module.scss';
 
 function SentMessage(props) {
   return (

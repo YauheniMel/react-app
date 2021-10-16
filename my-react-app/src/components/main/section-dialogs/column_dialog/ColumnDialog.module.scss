@@ -1,7 +1,9 @@
+@import '../../../../styles/variables';
+
 .column {
   vertical-align: top;
   overflow-x: auto;
-  height: 457px;
+  height: 100%;
   grid-area: column_dialog;
 
   overflow: auto;
@@ -15,7 +17,7 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: rgb(247, 243, 243);
+  background-color: $bg_light;
 }
 
 .message_received p {
@@ -33,7 +35,7 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: rgb(247, 243, 243);
+  background-color: $bg_light;
 
   width: 300px;
 
@@ -43,5 +45,5 @@
 .redactor {
   height: 80px;
 
-  background-color: red;
+  background-color: $bg_main;
 }

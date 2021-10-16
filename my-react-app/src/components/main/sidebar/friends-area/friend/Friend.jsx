@@ -1,4 +1,4 @@
-import style from '../FriendsArea.module.css';
+import style from '../FriendsArea.module.scss';
 
 function Friend(props) {
   return (

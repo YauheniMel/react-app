@@ -1,5 +1,5 @@
 import CarouselItem from './carousel-item/CarouselItem';
-import style from './Carousel.module.css';
+import style from './Carousel.module.scss';
 
 function Carousel(props) {
 
@@ -8,9 +8,9 @@ function Carousel(props) {
   });
 
   return (
-    <div className={ style.carousel_wrap }>
+    <div className={ style.carousel }>
       <button className={`${style.button} ${style.button_left}`}>◄</button>
-      <div className={ style.carousel }>
+      <div className={ style.photos }>
         { photos }
       </div>
       <button className={`${style.button} ${style.button_right}`}>►</button>

@@ -1,0 +1,92 @@
+@import '../../styles/variables';
+
+.wrapper {
+  display: flex;
+  column-gap: 10px;
+}
+
+.title {
+  align-self: center;
+  margin: 0;
+
+  color: $tx_primary;
+}
+
+.toggleContainer {
+  position: relative;
+  display: inline-block;
+
+  font-family: 'Jost', sans-serif;
+
+  width: 76px;
+  white-space: nowrap;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+}
+
+.label {
+  display: block;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.after,
+.before {
+  display: inline-block;
+  height: 34px;
+  width: 80px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 35px;
+  box-sizing: border-box;
+}
+
+.before {
+  margin-left: -80px;
+  transition: all 0.3s ease-in;
+
+  padding-left: 10px;
+  background-color: $bg_main;
+  color: $tx_primary;
+}
+
+.after {
+  padding-right: 14px;
+  background-color: $bg_light;
+  color: $tx_dark;
+  text-align: right;
+}
+
+.switch {
+  position: absolute;
+  top: 0;
+  right: 46px;
+
+  display: block;
+  width: 34px;
+  height: 34px;
+
+  border: 0 solid;
+  border-radius: 20px;
+
+  background: $dark_color;
+  transition: right 0.3s ease-in;
+}
+
+.checkbox:checked + .label {
+  .before {
+    margin-left: 0;
+  }
+
+  .switch {
+    right: -8px;
+  }
+}

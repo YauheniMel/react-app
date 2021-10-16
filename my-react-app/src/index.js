@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './redux/redux-store';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import './index.scss';
 import App from './App';
 
 function rerenderReactDom(state) {

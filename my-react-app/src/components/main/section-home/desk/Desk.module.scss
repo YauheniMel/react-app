@@ -1,3 +1,5 @@
+@import '../../../../styles/variables';
+
 .desk {
   margin: 10px;
 }
@@ -5,7 +7,7 @@
 .image_wrap {
   display: inline-block;
 
-  border: 3px solid blue;
+  border: 1px solid $bg_main;
   border-radius: 50%;
 
   height: 170px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './ColumnDialog.module.css';
+import style from './ColumnDialog.module.scss';
 import ReceivedMessage from './ReceivedMessage/ReceivedMessage';
 import SentMessage from './SentMessage/SentMessage';
 

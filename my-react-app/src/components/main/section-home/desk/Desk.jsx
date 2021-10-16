@@ -1,7 +1,7 @@
 import React from 'react';
 import { addCredoContent, addPostContent } from '../../../../redux/home-reducer';
 
-import style from './Desk.module.css';
+import style from './Desk.module.scss';
 
 function Desk(props) {
   const credoInputEl = React.createRef();
@@ -30,7 +30,7 @@ function Desk(props) {
   return (
     <div className={ style.desk }>
       <div className={ style.image_wrap }>
-        <img className={ style.image } src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" alt="foto" />
+        <img className={ style.image } src="shared/photo.jpg" alt="foto" />
       </div>
       <div className={ style.info }>
         <p>My credo: <span>{ props.credo }</span></p>

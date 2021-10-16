@@ -1,4 +1,4 @@
-import style from './Sidebar.module.css';
+import style from './Sidebar.module.scss';
 
 import { NavLink } from 'react-router-dom';
 import FriendsArea from './friends-area/FriendsArea';

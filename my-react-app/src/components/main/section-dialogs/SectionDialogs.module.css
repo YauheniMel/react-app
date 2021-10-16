@@ -6,5 +6,7 @@
     "column_person column_dialog"
     "column_person redactor"
   ;
+
+  height: inherit;
 }
 

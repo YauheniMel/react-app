@@ -1,10 +1,7 @@
-.nav {
-  background: blue;
-}
+@import '../../../styles/variables';
 
-.container {
-  max-width: 1100px;
-  margin: auto;
+.nav {
+  background-color: $bg_main;
 }
 
 .list {
@@ -27,12 +24,12 @@
 
   text-decoration: none;
 
-  color: white;
+  color: $tx_primary;
 
   padding: 5px 5px;
 }
 
 .link:hover {
-  background-color: lightblue;
-  color: blue;
+  background-color: $bg_active;
+  color: $tx_active;
 }

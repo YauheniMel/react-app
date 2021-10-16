@@ -1,4 +1,4 @@
-import style from './Person.module.css';
+import style from './Person.module.scss';
 
 import { NavLink } from 'react-router-dom';
 

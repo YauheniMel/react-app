@@ -1,14 +1,17 @@
+@import '../../../../styles/variables';
+
 .friends_area {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 
-  margin: 10px auto;
+  margin: auto;
+  margin-top: 30px;
 
-  background-color: lightblue;
+  background-color: $bg_light;
 
-  width: 260px;
-  height: 200px;
+  width: 96%;
+  height: 35vh;
 
   overflow: auto;
 

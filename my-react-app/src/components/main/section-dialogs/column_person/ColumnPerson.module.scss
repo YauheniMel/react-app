@@ -1,7 +1,11 @@
+@import '../../../../styles/variables';
+
 .column {
   padding: 0 4px;
 
-  background: rgb(243, 243, 243);
+  background-color: $bg_light;
+
+  color: $tx_dark;
 
   vertical-align: top;
   overflow: auto;

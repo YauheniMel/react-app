@@ -1,6 +1,6 @@
 import React from 'react';
 import { addMessageContent, sendMessageCreator } from '../../../../redux/dialogs-reducer';
-import style from './RedactorMessage.module.css';
+import style from './RedactorMessage.module.scss';
 
 function RedactorMessage(props) {
   const textareaMessageEl = React.createRef();

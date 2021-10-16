@@ -1,9 +1,10 @@
-.carousel_wrap {
-  margin-top: 20px;
+@import '../../../../styles/variables';
+
+.carousel {
   position: relative;
 }
 
-.carousel {
+.photos {
   height: 180px;
 
   overflow: hidden;
@@ -37,12 +38,12 @@
 
   border: none;
   opacity: 0.8;
+  background-color: $bg_main;
 }
 
 .button:hover {
   opacity: 1;
-
-  border: 1px solid gray;
+  background-color: $bg_main;
 }
 
 .button_left {

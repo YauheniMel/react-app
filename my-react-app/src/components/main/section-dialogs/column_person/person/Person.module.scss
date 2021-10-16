@@ -1,5 +1,7 @@
+@import '../../../../../styles/variables';
+
 .person {
-  border-top: 1px solid lightblue;
+  border-top: 2px solid $bg_main;
   padding: 3px 4px;
 
   font-size: 16px;
@@ -9,6 +11,6 @@
 .link {
   text-decoration: none;
 
-  color: gray;
+  color: $tx_dark;
   font-size: 16px;
 }
