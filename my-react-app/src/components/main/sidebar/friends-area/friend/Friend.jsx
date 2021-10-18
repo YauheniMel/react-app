@@ -1,14 +1,12 @@
 import style from '../FriendsArea.module.scss';
 
-function Friend(props) {
+export default function Friend({ data }) {
   return (
     <div className={ style.friend }>
       <div className={ style.photo_wrap }>
-        <img className={ style.photo } src={ props.data.photo } alt="friend" />
+        <img className={ style.photo } src={ data.photo } alt="friend" />
       </div>
-      <p>{`${ props.data.firstName } ${ props.data.lastName }`}</p>
+      <p>{`${ data.firstName } ${ data.lastName }`}</p>
     </div>
   );
 }
-
-export default Friend;

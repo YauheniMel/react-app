@@ -5,7 +5,7 @@ import FriendsArea from './friends-area/FriendsArea';
 import { LinguaContext } from '../../../contexts/LinguaContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 
-function Sidebar(props) {
+function Sidebar({ state }) {
   return (
     <LinguaContext.Consumer>
       { ({language}) => (
@@ -19,7 +19,7 @@ function Sidebar(props) {
                 <li className={ style.item }><NavLink className={ style.link } to="/photos" activeClassName={ style.active }>{ language.sidebar.photos }</NavLink></li>
                 <li className={ style.item }><NavLink className={ style.link } to="/settings" activeClassName={ style.active }>{ language.sidebar.settings }</NavLink></li>
               </ul>
-              <FriendsArea friends={ props.state.friends } />
+              <FriendsArea friends={ state.friends } />
             </aside>
           )}
         </ThemeContext.Consumer>

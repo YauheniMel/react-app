@@ -5,7 +5,7 @@ import style from './Header.module.scss';
 import Input from './input/Input.jsx';
 import Nav from './nav/Nav.jsx';
 
-function Header() {
+export default function Header() {
   return (
     <ThemeContext.Consumer>
       {({theme}) => (
@@ -44,5 +44,3 @@ function Header() {
     </ThemeContext.Consumer>
   );
 }
-
-export default Header;
