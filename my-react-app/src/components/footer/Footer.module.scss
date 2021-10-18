@@ -4,10 +4,21 @@
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: $bg_dark;
-  color: $tx_primary;
 }
 
 .container {
   padding: 15px 0;
 }
+
+//light theme
+.light {
+  background-color: $bg_dark;
+  color: $tx_primary-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_dark;
+  color: $tx_primary-dark;
+}
+

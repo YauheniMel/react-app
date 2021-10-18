@@ -1,3 +1,15 @@
+@import '../../styles/variables';
+
 .container {
-  height: 76vh;
+  height: 80vh;
+}
+
+//light theme
+.light {
+  background-color: $bg_light-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_main-dark;
 }
