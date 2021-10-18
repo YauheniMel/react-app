@@ -1,7 +1,6 @@
 @import '../../../styles/variables';
 
 .nav {
-  background-color: $bg_main;
 }
 
 .list {
@@ -24,12 +23,25 @@
 
   text-decoration: none;
 
-  color: $tx_primary;
+  color: $tx_primary-light;
 
   padding: 5px 5px;
 }
 
 .link:hover {
-  background-color: $bg_active;
-  color: $tx_active;
+  background-color: $bg_active-light;
+  color: $tx_active-light;
 }
+
+//light theme
+.light {
+  background-color: $bg_main-light;
+  color: $tx_primary-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_main-dark;
+  color: $tx_primary-dark;
+}
+

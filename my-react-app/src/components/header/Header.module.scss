@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 
 .header {
-  background-color: $bg_dark;
 }
 
 .container {
@@ -12,7 +11,6 @@
 }
 
 .logo {
-  color: $tx_primary;
 }
 
 .input {
@@ -21,4 +19,16 @@
 
   border: none;
   border-radius: 4px;
+}
+
+//light theme
+.light {
+  background-color: $bg_dark;
+  color: $tx_primary-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_dark;
+  color: $tx_primary-dark;
 }

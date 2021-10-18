@@ -1,15 +1,18 @@
 import style from './Nav.module.scss';
 
 import NavList from './nav-list/NavList.jsx';
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
-function Nav() {
+export default function Nav() {
   return (
-    <nav className={ style.nav }>
-      <div className='container'>
-        <NavList />
-      </div>
-    </nav>
+    <ThemeContext.Consumer>
+      {({theme}) => (
+        <nav className={ `${style.nav} ${style[theme]}` }>
+          <div className='container'>
+            <NavList />
+          </div>
+        </nav>
+      )}
+    </ThemeContext.Consumer>
   );
 }
-
-export default Nav;

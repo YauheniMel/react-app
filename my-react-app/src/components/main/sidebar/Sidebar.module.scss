@@ -6,9 +6,7 @@
   margin: 5px;
 
   width: 20%;
-  height: 100%;
-
-  background-color: $bg_main;
+  height: 98%;
 }
 
 .list {
@@ -22,7 +20,7 @@
 .link {
   display: block;
 
-  color: $tx_primary;
+  color: $tx_primary-light;
 
   text-decoration: none;
 
@@ -30,12 +28,22 @@
 }
 
 .link:hover {
-  background-color: $bg_active;
-  color: $tx_active;
+  background-color: $bg_active-light;
+  color: $tx_active-light;
 }
 
 .active {
-  background-color: $bg_active;
-  color: $tx_active;
+  background-color: $bg_active-light;
+  color: $tx_active-light;
   font-weight: 500;
+}
+
+//light theme
+.light {
+  background-color: $bg_main-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_dark;
 }

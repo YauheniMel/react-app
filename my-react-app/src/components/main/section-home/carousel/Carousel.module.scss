@@ -38,12 +38,12 @@
 
   border: none;
   opacity: 0.8;
-  background-color: $bg_main;
+  background-color: $bg_main-light;
 }
 
 .button:hover {
   opacity: 1;
-  background-color: $bg_main;
+  background-color: $bg_main-light;
 }
 
 .button_left {

@@ -17,7 +17,7 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: $bg_light;
+  background-color: $bg_light-light;
 }
 
 .message_received p {
@@ -35,7 +35,7 @@
   padding: 5px;
   margin: 3px;
 
-  background-color: $bg_light;
+  background-color: $bg_light-light;
 
   width: 300px;
 
@@ -45,5 +45,5 @@
 .redactor {
   height: 80px;
 
-  background-color: $bg_main;
+  background-color: $bg_main-light;
 }
