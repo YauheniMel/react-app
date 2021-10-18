@@ -1,8 +1,8 @@
 import Friend from './friend/Friend';
 import style from './SectionMyFriends.module.css';
 
-function SectionMyFriends(props) {
-  const friends = props.state.friends.map((friend) => {
+export default function SectionMyFriends({ state }) {
+  const friends = state.friends.map((friend) => {
     return <Friend key={ friend.id } data={ friend }/>
   });
 
@@ -14,5 +14,3 @@ function SectionMyFriends(props) {
     </div>
   );
 }
-
-export default SectionMyFriends;

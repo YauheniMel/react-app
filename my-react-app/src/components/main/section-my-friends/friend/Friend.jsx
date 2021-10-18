@@ -1,14 +1,12 @@
 import style from '../SectionMyFriends.module.css';
 
-function Friend(props) {
+export default function Friend({ data }) {
   return (
     <div className={ style.friend }>
       <div className={ style.photo_wrap }>
-        <img src={ props.data.photo } alt="friend" className={ style.photo } />
+        <img src={ data.photo } alt="friend" className={ style.photo } />
       </div>
-      <p className={ style.name }>{ props.data.firstName } { props.data.lastName }</p>
+      <p className={ style.name }>{ data.firstName } { data.lastName }</p>
     </div>
   );
 }
-
-export default Friend;

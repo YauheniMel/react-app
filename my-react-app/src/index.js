@@ -23,8 +23,6 @@ store.subscribe(() => {
   rerenderReactDom(state);
 });
 
-// store.reassignMethod(rerenderReactDom);
-
 export default rerenderReactDom;
 
 // If you want to start measuring performance in your app, pass a function

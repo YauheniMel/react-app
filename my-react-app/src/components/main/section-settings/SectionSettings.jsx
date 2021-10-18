@@ -1,6 +1,6 @@
 import style from './SectionSettings.module.css';
 
-function SectionSettings() {
+export default function SectionSettings() {
   return (
     <div className="section_wrap">
       <section className={ style.section }>
@@ -11,5 +11,3 @@ function SectionSettings() {
     </div>
   );
 }
-
-export default SectionSettings;

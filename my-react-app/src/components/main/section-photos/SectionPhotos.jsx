@@ -1,8 +1,8 @@
 import Photo from './photo/Photo';
 import style from './SectionPhotos.module.css';
 
-function SectionPhotos(props) {
-  const photos = props.state.photos.map((photo) => {
+export default function SectionPhotos({ state }) {
+  const photos = state.photos.map((photo) => {
     return <Photo key={ photo.id } data={ photo } />
   });
 
@@ -14,5 +14,3 @@ function SectionPhotos(props) {
     </div>
   );
 }
-
-export default SectionPhotos
