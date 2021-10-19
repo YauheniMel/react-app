@@ -1,49 +1,49 @@
 .info {
-  display: inline-block;
-  min-width: 300px;
-  font-size: 20px;
+	display: inline-block;
+	font-size: 20px;
+	min-width: 300px;
 
-  .title {
-    position: relative;
-    display: inline-block;
-  }
+	.title {
+		display: inline-block;
+		position: relative;
+	}
 
-  .form {
-    position: absolute;
-    top: 0;
-    right: -100%;
+	.form {
+		position: absolute;
+		right: -100%;
+		top: 0;
 
-    .input {
-      width: 30px;
-      background-color: transparent;
-      // border: none;
-      outline: none;
+		.input {
+			background-color: transparent;
+			// border: none;
+			outline: none;
+			width: 30px;
 
-      &:hover {
-        border: none;
-      }
-    }
+			&:hover {
+				border: none;
+			}
+		}
 
-    .button {
-      background-color: transparent;
-      border: none;
-    }
+		.button {
+			background-color: transparent;
+			border: none;
+		}
 
-    .input:focus + .button {
-      opacity: 0;
-    }
-  }
+		.input:focus + .button {
+			opacity: 0;
+		}
+	}
 
-  .btn_editor {
-    opacity: 0.3;
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    transform: rotate(90deg);
+	.btn_editor {
+		background-color: transparent;
+		border: none;
+		font-size: 16px;
+		opacity: 0.3;
+		transform: rotate(90deg);
 
-    &:hover {
-      opacity: 1;
-    }
-  }
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
 

@@ -11,12 +11,12 @@ export const languages = {
       dialogs: 'Диалоги',
       myFriends: 'Мои друзья',
       photos: 'Фото',
-      settings: 'Настройки'
+      settings: 'Настройки',
     },
     desk: {
       credo: 'Мое кредо:',
-      post: 'Мой пост:'
-    }
+      post: 'Мой пост:',
+    },
   },
   on: {
     header: {
@@ -28,13 +28,13 @@ export const languages = {
       dialogs: 'Dialogs',
       myFriends: 'My friend',
       photos: 'Photos',
-      settings: 'Settings'
+      settings: 'Settings',
     },
     desk: {
       credo: 'My credo:',
-      post: 'My post:'
-    }
-  }
-}
+      post: 'My post:',
+    },
+  },
+};
 
 export const LinguaContext = React.createContext();

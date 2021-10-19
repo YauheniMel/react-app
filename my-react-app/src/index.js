@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './redux/redux-store';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './index.scss';
 import App from './App';
 
-function rerenderReactDom(state) {
+function rerenderReactDom() {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={ state }
-           dispatch={ store.dispatch.bind(store) }
-           />
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );
@@ -19,8 +23,7 @@ function rerenderReactDom(state) {
 rerenderReactDom(store.getState());
 
 store.subscribe(() => {
-  const state = store.getState();
-  rerenderReactDom(state);
+  rerenderReactDom();
 });
 
 export default rerenderReactDom;

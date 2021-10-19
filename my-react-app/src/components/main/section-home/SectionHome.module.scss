@@ -1,30 +1,30 @@
 @import '../../../styles/variables';
 
 .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: inherit;
+	display: flex;
+	flex-direction: column;
+	height: inherit;
+	justify-content: space-between;
 }
 
 .panorama {
-  height: 80px;
+	height: 80px;
 
-  margin-bottom: 5px;
+	margin-bottom: 5px;
 
-  overflow: hidden;
+	overflow: hidden;
 
-  & img {
-    width: 100%;
-  }
+	& img {
+		width: 100%;
+	}
 }
 
 .user {
-  display: flex;
-  justify-content: space-between;
 
-  background-color: $bg_light-light;
-  color: $tx_dark;
+	background-color: $bg_light-light;
+	color: $tx_dark;
+	display: flex;
+	justify-content: space-between;
 
-  padding: 10px;
+	padding: 10px;
 }

@@ -1,49 +1,30 @@
 @import '../../../styles/variables';
 
 .aside {
-  display: inline-block;
+	display: inline-block;
+	height: 98%;
 
-  margin: 5px;
+	margin: 5px;
 
-  width: 20%;
-  height: 98%;
+	width: 20%;
 }
 
 .list {
-  list-style: none;
+	list-style: none;
 }
 
 .item {
-  font-size: 18px;
-}
-
-.link {
-  display: block;
-
-  color: $tx_primary-light;
-
-  text-decoration: none;
-
-  padding: 15px;
-}
-
-.link:hover {
-  background-color: $bg_active-light;
-  color: $tx_active-light;
-}
-
-.active {
-  background-color: $bg_active-light;
-  color: $tx_active-light;
-  font-weight: 500;
+	font-size: 18px;
 }
 
 //light theme
+
 .light {
-  background-color: $bg_main-light;
+	background-color: $bg_main-light;
 }
 
 //dark theme
+
 .dark {
-  background-color: $bg_dark;
+	background-color: $bg_dark;
 }

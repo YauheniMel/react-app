@@ -1,18 +1,18 @@
 @import '../../../../styles/variables';
 
 .column {
-  padding: 0 4px;
 
-  background-color: $bg_light-light;
+	background-color: $bg_light-light;
 
-  color: $tx_dark;
+	color: $tx_dark;
 
-  vertical-align: top;
-  overflow: auto;
+	grid-area: column_person;
+	overflow: auto;
+	padding: 0 4px;
 
-  grid-area: column_person;
+	vertical-align: top;
 }
 
 .column div:first-child {
-  border: none;
+	border: none;
 }

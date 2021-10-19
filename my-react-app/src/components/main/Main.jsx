@@ -1,31 +1,25 @@
-import Sidebar from './sidebar/Sidebar';
-import SectionHome from './section-home/SectionHome';
-import SectionDialogs from './section-dialogs/SectionDialogs';
-import SectionPhotos from './section-photos/SectionPhotos';
-import SectionMyFriends from './section-my-friends/SectionMyFriends';
-import SectionSettings from './section-settings/SectionSettings';
 import { Route } from 'react-router-dom';
 import style from './Main.module.scss';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { SidebarContainer } from './sidebar/SidebarContainer';
+import { SectionHomeContainer } from './section-home/SectionHomeContainer';
+import { SectionMyFriendsContainer } from './section-my-friends/SectionMyFriendsContainer';
+import { SectionDialogsContainer } from './section-dialogs/SectionDialogsContainer';
+import { SectionPhotosContainer } from './section-photos/SectionPhotosContainer';
+import { SectionSettingsContainer } from './section-settings/SectionSettingsContainer';
 
-function Main(props) {
+function Main() {
   return (
     <ThemeContext.Consumer>
-      {({theme}) => (
+      {({ theme }) => (
         <main className={`${style.main} ${style[theme]}`}>
-          <div className={`${ style.container } container`}>
-            <Sidebar state={ props.state.friendPage }/>
-            <Route path="/home" render={ () => {
-              return <SectionHome state={ props.state.homePage } dispatch={ props.dispatch }/>
-            }}/>
-            <Route path="/dialogs" render={ () => {
-              return <SectionDialogs state={ props.state.dialogsPage }
-                                      dispatch={ props.dispatch }
-                                      />
-            }}/>
-            <Route path="/photos" render={ () => <SectionPhotos state={ props.state.photoPage }/> }/>
-            <Route path="/my_friends" render={ () => <SectionMyFriends state={ props.state.friendPage }/> }/>
-            <Route path="/settings" component={ SectionSettings }/>
+          <div className={`${style.container} container`}>
+            <SidebarContainer />
+            <Route path="/home" render={() => <SectionHomeContainer />} />
+            <Route path="/dialogs" render={() => <SectionDialogsContainer />} />
+            <Route path="/my_friends" render={() => <SectionMyFriendsContainer />} />
+            <Route path="/photos" render={() => <SectionPhotosContainer />} />
+            <Route path="/settings" render={() => <SectionSettingsContainer />} />
           </div>
         </main>
       )}

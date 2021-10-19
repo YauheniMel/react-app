@@ -1,47 +1,47 @@
 @import '../../../../styles/variables';
 
 .friends_area {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 
-  margin: auto;
-  margin-top: 30px;
+	background-color: $bg_light-light;
+	display: flex;
+	flex-wrap: wrap;
+	height: 35vh;
+	justify-content: space-around;
 
-  background-color: $bg_light-light;
+	margin: auto;
+	margin-top: 30px;
 
-  width: 96%;
-  height: 35vh;
+	opacity: 0.6;
 
-  overflow: auto;
+	overflow: auto;
 
-  opacity: 0.6;
+	width: 96%;
 }
 
 .friends_area:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 .friend {
-  margin: 3px;
+	height: 100px;
+	margin: 3px;
 
-  width: 65px;
-  height: 100px;
+	width: 65px;
 }
 
 .photo_wrap {
-  border-radius: 50%;
+	border-radius: 50%;
 
-  height: 65px;
-  width: 65px;
+	height: 65px;
 
-  overflow: hidden;
+	overflow: hidden;
+	width: 65px;
 }
 
 .photo {
-  height: 65px;
+	height: 65px;
 }
 
 .friend p {
-  text-align: center;
+	text-align: center;
 }

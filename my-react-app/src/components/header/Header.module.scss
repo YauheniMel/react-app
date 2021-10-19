@@ -4,31 +4,33 @@
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 
-  padding: 15px 0;
+	padding: 15px 0;
 }
 
 .logo {
 }
 
 .input {
-  width: 300px;
-  height: 30px;
 
-  border: none;
-  border-radius: 4px;
+	border: none;
+	border-radius: 4px;
+	height: 30px;
+	width: 300px;
 }
 
 //light theme
+
 .light {
-  background-color: $bg_dark;
-  color: $tx_primary-light;
+	background-color: $bg_dark;
+	color: $tx_primary-light;
 }
 
 //dark theme
+
 .dark {
-  background-color: $bg_dark;
-  color: $tx_primary-dark;
+	background-color: $bg_dark;
+	color: $tx_primary-dark;
 }

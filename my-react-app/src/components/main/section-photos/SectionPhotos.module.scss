@@ -1,0 +1,24 @@
+.section {
+	display: flex;
+
+	flex-wrap: wrap;
+
+	height: inherit;
+	justify-content: space-around;
+	overflow: auto;
+}
+
+.photo_wrap {
+
+	border: 1px solid lightgray;
+
+	height: 200px;
+	margin: 3px;
+
+	overflow: hidden;
+	width: 190px;
+}
+
+.photo {
+	width: 190px;
+}

@@ -6,9 +6,9 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 export default function Nav() {
   return (
     <ThemeContext.Consumer>
-      {({theme}) => (
-        <nav className={ `${style.nav} ${style[theme]}` }>
-          <div className='container'>
+      {({ theme }) => (
+        <nav className={`${style.nav} ${style[theme]}`}>
+          <div className="container">
             <NavList />
           </div>
         </nav>
