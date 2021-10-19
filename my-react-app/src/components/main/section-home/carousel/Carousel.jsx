@@ -1,9 +1,9 @@
 import CarouselItem from './carousel-item/CarouselItem';
 import style from './Carousel.module.scss';
 
-function Carousel(props) {
+export default function Carousel({ photos }) {
 
-  const photos = props.photos.map((photo) => {
+  const photoList = photos.map((photo) => {
     return <CarouselItem key={ photo.id } data={ photo }/>
   });
 
@@ -11,11 +11,9 @@ function Carousel(props) {
     <div className={ style.carousel }>
       <button className={`${style.button} ${style.button_left}`}>◄</button>
       <div className={ style.photos }>
-        { photos }
+        { photoList }
       </div>
       <button className={`${style.button} ${style.button_right}`}>►</button>
     </div>
   );
 }
-
-export default Carousel;

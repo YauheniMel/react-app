@@ -2,11 +2,11 @@
 
 .wrapper {
   display: flex;
+  align-items: center;
   column-gap: 10px;
 }
 
 .title {
-  align-self: center;
   margin: 0;
 
   color: $tx_primary-light;
