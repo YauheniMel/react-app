@@ -1,0 +1,49 @@
+.info {
+  display: inline-block;
+  min-width: 300px;
+  font-size: 20px;
+
+  .title {
+    position: relative;
+    display: inline-block;
+  }
+
+  .form {
+    position: absolute;
+    top: 0;
+    right: -100%;
+
+    .input {
+      width: 30px;
+      background-color: transparent;
+      // border: none;
+      outline: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    .button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .input:focus + .button {
+      opacity: 0;
+    }
+  }
+
+  .btn_editor {
+    opacity: 0.3;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    transform: rotate(90deg);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+

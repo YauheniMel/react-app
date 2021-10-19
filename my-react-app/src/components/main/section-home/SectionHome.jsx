@@ -1,8 +1,8 @@
 import style from './SectionHome.module.scss';
 
 import Head from './head/Head';
-import Desk from './desk/Desk';
 import Carousel from './carousel/Carousel';
+import DeskContainer from './desk/DeskContainer';
 
 export default function SectionHome({ state, dispatch }) {
   return (
@@ -16,12 +16,12 @@ export default function SectionHome({ state, dispatch }) {
           lastName={ state.lastName }
           date={ state.date }
         />
-        <Desk
+        <DeskContainer
           post={ state.postContent }
           credo={ state.credoContent }
           dispatch={ dispatch }
         />
-        <Carousel photos={ props.state.photos }/>
+        <Carousel photos={ state.photos }/>
       </section>
     </div>
   );

@@ -1,6 +1,10 @@
 @import '../../../../styles/variables';
 
 .desk {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 30px;
   margin: 10px;
 }
 
@@ -20,14 +24,8 @@
   height: 170px;
 }
 
-.info {
-  position: relative;
-
-  display: inline-block;
-
-  vertical-align: top;
-
-  margin: 30px;
-
-  font-size: 20px;
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
