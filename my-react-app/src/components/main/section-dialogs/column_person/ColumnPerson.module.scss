@@ -1,0 +1,18 @@
+@import '../../../../styles/variables';
+
+.column {
+
+	background-color: $bg_light-light;
+
+	color: $tx_dark;
+
+	grid-area: column_person;
+	overflow: auto;
+	padding: 0 4px;
+
+	vertical-align: top;
+}
+
+.column div:first-child {
+	border: none;
+}

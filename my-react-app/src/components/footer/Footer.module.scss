@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.footer {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}
+
+.container {
+	padding: 15px 0;
+}
+
+//light theme
+
+.light {
+	background-color: $bg_dark;
+	color: $tx_primary-light;
+}
+
+//dark theme
+
+.dark {
+	background-color: $bg_dark;
+	color: $tx_primary-dark;
+}
+
