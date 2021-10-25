@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './RedactorMessage.module.scss';
 
-export default function RedactorMessage({ messageContent, createMessage, setMessageContent }) {
+export default function RedactorMessage({ messageContent, sendMessage, createMessage }) {
   const textareaMessageEl = React.createRef();
 
   return (
     <div className={style.redactor}>
-      <form onSubmit={createMessage} className={style.form_redactor}>
+      <form onSubmit={sendMessage} className={style.form_redactor}>
         <textarea
-          onChange={() => setMessageContent(textareaMessageEl)}
+          onChange={() => createMessage(textareaMessageEl)}
           ref={textareaMessageEl}
           className={style.textarea_redactor}
           value={messageContent}

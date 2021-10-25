@@ -1,14 +1,18 @@
-export function sendMessageCreator() {
-  return {
-    type: 'SEND-MESSAGE',
-  };
+export function sendMessage() {
+  return (
+    {
+      type: 'SEND-MESSAGE',
+    }
+  );
 }
 
-export function addMessageContent(content) {
-  return {
-    type: 'ADD-MESSAGE-CONTENT',
-    content: content,
-  };
+export function createMessage(content) {
+  return (
+    {
+      type: 'CREATE-MESSAGE',
+      content: content,
+    }
+  );
 }
 
 const initState = {
@@ -79,24 +83,31 @@ const initState = {
   messageContent: '',
 };
 
+
 function dialogsReducer(state = initState, action) {
-  switch (action.type) {
-    case 'SEND-MESSAGE':
+  switch(action.type) {
+    case 'SEND-MESSAGE': {
       const newMessage = {
         id: +new Date(),
         content: state.messageContent,
         isMy: true,
-      };
+      }
 
-      state.messages.push(newMessage);
+      const stateCopy = {
+        ...state,
+        messages: [...state.messages, newMessage]
+      }
 
-      state.messageContent = '';
+      stateCopy.messageContent = '';
 
-      return state;
-    case 'ADD-MESSAGE-CONTENT':
-      state.messageContent = action.content;
+      return stateCopy;
+    }
+    case 'CREATE-MESSAGE': {
+      const stateCopy = {...state};
+      stateCopy.messageContent = action.content;
 
-      return state;
+      return stateCopy;
+    }
     default:
       return state;
   }

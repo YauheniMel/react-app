@@ -2,7 +2,7 @@ import style from './SectionHome.module.scss';
 
 import Head from './head/Head';
 import Carousel from './carousel/Carousel';
-import DeskContainer from './desk/DeskContainer';
+import { DeskContainer } from './desk/DeskContainer';
 
 export default function SectionHome({ state, dispatch }) {
   return (
@@ -12,7 +12,7 @@ export default function SectionHome({ state, dispatch }) {
           <img alt="background" src="shared/photo.jpg" />
         </div>
         <Head firstName={state.firstName} lastName={state.lastName} date={state.date} />
-        <DeskContainer post={state.postContent} credo={state.credoContent} dispatch={dispatch} />
+        <DeskContainer />
         <Carousel photos={state.photos} />
       </section>
     </div>

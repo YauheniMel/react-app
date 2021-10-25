@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './TextInput.module.scss';
 
-export default function TextInput({ title, content, setValue, callback }) {
+export default function TextInput({ title, content, value, onSubmit, onChange }) {
   const ref = React.createRef();
 
   return (
@@ -9,8 +9,8 @@ export default function TextInput({ title, content, setValue, callback }) {
       <div>
         <p className={style.title}>
           {title}
-          <form onSubmit={() => setValue(ref, callback)} className={style.form}>
-            <input ref={ref} type="text" className={style.input} />
+          <form onSubmit={onSubmit} className={style.form}>
+            <input ref={ref} onChange={() => onChange(ref)} type="text" className={style.input} value={value} />
             <button type="submit" className={style.button}></button>
           </form>
         </p>

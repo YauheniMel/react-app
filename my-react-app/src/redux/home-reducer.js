@@ -1,14 +1,26 @@
-export function addCredoContent(content) {
+export function createCredoContent(content) {
   return {
-    type: 'ADD-CREDO-CONTENT',
+    type: 'CREATE-CREDO-CONTENT',
     content: content,
   };
 }
 
-export function addPostContent(content) {
+export function createPostContent(content) {
   return {
-    type: 'ADD-POST-CONTENT',
+    type: 'CREATE-POST-CONTENT',
     content: content,
+  };
+}
+
+export function setCredoContent() {
+  return {
+    type: 'SET-CREDO-CONTENT',
+  };
+}
+
+export function setPostContent() {
+  return {
+    type: 'SET-POST-CONTENT',
   };
 }
 
@@ -18,6 +30,8 @@ const initState = {
   date: '29.06.1991',
   postContent: 'play guitar',
   credoContent: 'always work on yourself',
+  initPost: '',
+  initCredo: '',
   photos: [
     {
       id: 1,
@@ -72,12 +86,28 @@ const initState = {
 
 function homeReducer(state = initState, action) {
   switch (action.type) {
-    case 'ADD-CREDO-CONTENT':
-      state.credoContent = action.content;
-      return state;
-    case 'ADD-POST-CONTENT':
-      state.postContent = action.content;
-      return state;
+    case 'CREATE-CREDO-CONTENT': {
+      const stateCopy = {...state};
+      stateCopy.initCredo = action.content;
+      return stateCopy;
+    }
+    case 'CREATE-POST-CONTENT': {
+      const stateCopy = {...state};
+      stateCopy.initPost = action.content;
+      return stateCopy;
+    }
+    case 'SET-CREDO-CONTENT': {
+      const stateCopy = {...state};
+      stateCopy.credoContent = state.initCredo;
+      stateCopy.initCredo = '';
+      return stateCopy;
+    }
+    case 'SET-POST-CONTENT': {
+      const stateCopy = {...state};
+      stateCopy.postContent = state.initPost;
+      stateCopy.initPost = '';
+      return stateCopy;
+    }
     default:
       return state;
   }

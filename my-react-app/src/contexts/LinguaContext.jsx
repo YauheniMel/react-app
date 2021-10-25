@@ -12,11 +12,20 @@ export const languages = {
       myFriends: 'Мои друзья',
       photos: 'Фото',
       settings: 'Настройки',
+      users: 'Пользователи'
     },
     desk: {
       credo: 'Мое кредо:',
       post: 'Мой пост:',
     },
+    redactorDialog: {
+      send: 'Отправить',
+      cancel: 'Отмена',
+    },
+    usersCard: {
+      follow: 'Дружить',
+      unfollow: 'Не дружить',
+    }
   },
   on: {
     header: {
@@ -29,11 +38,20 @@ export const languages = {
       myFriends: 'My friend',
       photos: 'Photos',
       settings: 'Settings',
+      users: 'Users'
     },
     desk: {
       credo: 'My credo:',
       post: 'My post:',
     },
+    redactorDialog: {
+      send: 'Send',
+      cancel: 'Cancel',
+    },
+    usersCard: {
+      follow: 'Follow',
+      unfollow: 'Unfollow',
+    }
   },
 };
 

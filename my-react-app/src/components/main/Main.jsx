@@ -7,6 +7,7 @@ import { SectionMyFriendsContainer } from './section-my-friends/SectionMyFriends
 import { SectionDialogsContainer } from './section-dialogs/SectionDialogsContainer';
 import { SectionPhotosContainer } from './section-photos/SectionPhotosContainer';
 import { SectionSettingsContainer } from './section-settings/SectionSettingsContainer';
+import { SectionUsersContainer } from './section-users/SectionUsersContainer';
 
 function Main() {
   return (
@@ -18,6 +19,7 @@ function Main() {
             <Route path="/home" render={() => <SectionHomeContainer />} />
             <Route path="/dialogs" render={() => <SectionDialogsContainer />} />
             <Route path="/my_friends" render={() => <SectionMyFriendsContainer />} />
+            <Route path="/users" render={() => <SectionUsersContainer />} />
             <Route path="/photos" render={() => <SectionPhotosContainer />} />
             <Route path="/settings" render={() => <SectionSettingsContainer />} />
           </div>

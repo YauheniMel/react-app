@@ -1,3 +1,7 @@
+export function getPhotos() {
+  return
+}
+
 const initState = {
   photos: [
     {
@@ -50,6 +54,7 @@ const initState = {
     },
   ],
 };
+
 
 function photoReducer(state = initState) {
   return state;

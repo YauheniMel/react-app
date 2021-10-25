@@ -24,6 +24,9 @@ function Sidebar({ state }) {
                   <Link path="/my_friends">{language.sidebar.myFriends}</Link>
                 </li>
                 <li className={style.item}>
+                  <Link path="/users">{language.sidebar.users}</Link>
+                </li>
+                <li className={style.item}>
                   <Link path="/photos">{language.sidebar.photos}</Link>
                 </li>
                 <li className={style.item}>

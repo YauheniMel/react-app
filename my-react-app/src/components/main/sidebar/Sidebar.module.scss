@@ -1,12 +1,9 @@
 @import '../../../styles/variables';
 
 .aside {
-	display: inline-block;
-	height: 98%;
-
 	margin: 5px;
 
-	width: 20%;
+	max-width: 300px;
 }
 
 .list {
