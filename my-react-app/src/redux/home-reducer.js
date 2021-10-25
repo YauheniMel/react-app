@@ -30,8 +30,8 @@ const initState = {
   date: '29.06.1991',
   postContent: 'play guitar',
   credoContent: 'always work on yourself',
-  initPost: '',
   initCredo: '',
+  initPost: '',
   photos: [
     {
       id: 1,

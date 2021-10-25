@@ -1,4 +1,5 @@
 import { createMessage, sendMessage } from '../../../../redux/dialogs-reducer';
+
 import RedactorMessage from './RedactorMessage';
 import { connect } from 'react-redux';
 

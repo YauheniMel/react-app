@@ -36,6 +36,7 @@ function mapDispatchToProps(dispatch) {
 
       const action = setPostContent();
 
+
       dispatch(action);
     },
   };
