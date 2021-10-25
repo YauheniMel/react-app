@@ -55,10 +55,6 @@ const initState = {
   ],
 };
 
-
-  ],
-};
-
 function photoReducer(state = initState) {
   return state;
 }
