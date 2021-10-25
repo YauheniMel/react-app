@@ -7,5 +7,4 @@ function mapStateToProps(state) {
   };
 }
 
-export const SectionMyFriendsContainer =
-  connect(mapStateToProps)(SectionMyFriends);
+export const SectionMyFriendsContainer = connect(mapStateToProps)(SectionMyFriends);

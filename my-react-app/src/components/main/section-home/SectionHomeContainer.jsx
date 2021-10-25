@@ -13,7 +13,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export const SectionHomeContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SectionHome);
+export const SectionHomeContainer = connect(mapStateToProps, mapDispatchToProps)(SectionHome);

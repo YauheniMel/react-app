@@ -1,18 +1,10 @@
-// import SectionPhotos from './SectionPhotos';
-// import { connect } from 'react-redux';
+import SectionPhotos from './SectionPhotos';
+import { connect } from 'react-redux';
 
-// function mapStateToProps(state) {
-//   return {
-//     photos: state.photoPage.photos,
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    photos: state.photoPage.photos,
+  };
+}
 
-// // function mapStateToProps(dispatch) {
-// //   return {
-// //     getPhotos: (dispatch) => {
-
-// //     }
-// //   }
-// // }
-
-// export const SectionPhotosContainer = connect(mapStateToProps)(SectionPhotos);
+export const SectionPhotosContainer = connect(mapStateToProps)(SectionPhotos);

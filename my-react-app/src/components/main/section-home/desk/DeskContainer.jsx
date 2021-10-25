@@ -1,47 +1,41 @@
-import { connect } from 'react-redux';
 import Desk from './Desk';
-import {
-  createCredoContent,
-  createPostContent,
-  setCredoContent,
-  setPostContent
-} from '../../../../redux/home-reducer';
+import { connect } from 'react-redux';
+import { createCredoContent, createPostContent, setCredoContent, setPostContent } from '../../../../redux/home-reducer';
 
 function mapStateToProps(state) {
   return {
     state: state.homePage,
-    inputCredo: state.homePage.initCredo,
-    inputPost: state.homePage.initPost,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    createPost: (elem) => {
-      const content = elem.current.value;
+    createCredoContent: (elem) => {
+      const value = elem.current.value;
 
-      const action = createPostContent(content);
-
-      dispatch(action);
-    },
-    createCredo: (elem) => {
-      const content = elem.current.value;
-
-      const action = createCredoContent(content);
+      const action = createCredoContent(value);
 
       dispatch(action);
     },
-    setPost: (event) => {
+    createPostContent: (elem) => {
+      const value = elem.current.value;
+
+      const action = createPostContent(value);
+
+      dispatch(action);
+    },
+    setCredo: () => {
+      event.preventDefault();
+
+      const action = setCredoContent();
+
+      dispatch(action);
+    },
+    setPost: () => {
       event.preventDefault();
 
       const action = setPostContent();
 
-      dispatch(action);
-    },
-    setCredo: (event) => {
-      event.preventDefault();
-
-      const action = setCredoContent();
 
       dispatch(action);
     },

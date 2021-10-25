@@ -1,20 +1,44 @@
-import style from './Sidebar.module.css';
+import style from './Sidebar.module.scss';
 
-import { NavLink } from 'react-router-dom';
 import FriendsArea from './friends-area/FriendsArea';
+import { LinguaContext } from '../../../contexts/LinguaContext';
+import { ThemeContext } from '../../../contexts/ThemeContext';
+import Link from '../../../common/Link/Link';
 
-function Sidebar(props) {
+function Sidebar({ state }) {
+  console.log(state);
   return (
-    <aside className={ style.aside }>
-      <ul className={ style.list }>
-        <li className={ style.item }><NavLink className={ style.link } to="/home" activeClassName={ style.active }>Home</NavLink></li>
-        <li className={ style.item }><NavLink className={ style.link } to="/dialogs" activeClassName={ style.active }>Dialogs</NavLink></li>
-        <li className={ style.item }><NavLink className={ style.link } to="/my_friends" activeClassName={ style.active }>My friends</NavLink></li>
-        <li className={ style.item }><NavLink className={ style.link } to="/photos" activeClassName={ style.active }>Photos</NavLink></li>
-        <li className={ style.item }><NavLink className={ style.link } to="/settings" activeClassName={ style.active }>Settings</NavLink></li>
-      </ul>
-      <FriendsArea friends={ props.state.friends } />
-    </aside>
+    <LinguaContext.Consumer>
+      {({ language }) => (
+        <ThemeContext.Consumer>
+          {({ theme }) => (
+            <aside className={`${style.aside} ${style[theme]}`}>
+              <ul className={style.list}>
+                <li className={style.item}>
+                  <Link path="/home">{language.sidebar.home}</Link>
+                </li>
+                <li className={style.item}>
+                  <Link path="/dialogs">{language.sidebar.dialogs}</Link>
+                </li>
+                <li className={style.item}>
+                  <Link path="/my_friends">{language.sidebar.myFriends}</Link>
+                </li>
+                <li className={style.item}>
+                  <Link path="/users">{language.sidebar.users}</Link>
+                </li>
+                <li className={style.item}>
+                  <Link path="/photos">{language.sidebar.photos}</Link>
+                </li>
+                <li className={style.item}>
+                  <Link path="/settings">{language.sidebar.settings}</Link>
+                </li>
+              </ul>
+              <FriendsArea friends={state.friends} />
+            </aside>
+          )}
+        </ThemeContext.Consumer>
+      )}
+    </LinguaContext.Consumer>
   );
 }
 

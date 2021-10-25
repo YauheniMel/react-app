@@ -1,7 +1,5 @@
-import {
-  addMessageContent,
-  sendMessage,
-} from '../../../../redux/dialogs-reducer';
+import { createMessage, sendMessage } from '../../../../redux/dialogs-reducer';
+
 import RedactorMessage from './RedactorMessage';
 import { connect } from 'react-redux';
 
@@ -13,24 +11,21 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    createMessage: (event) => {
+    sendMessage: () => {
       event.preventDefault();
 
       const action = sendMessage();
 
       dispatch(action);
     },
-    setMessage: (elem) => {
-      const content = elem.current.value;
+    createMessage: (elem) => {
+      const value = elem.current.value;
 
-      const action = addMessageContent(content);
+      const action = createMessage(value);
 
       dispatch(action);
-    },
-  };
+    }
+  }
 }
 
-export const RedactorMessageContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RedactorMessage);
+export const RedactorMessageContainer = connect(mapStateToProps, mapDispatchToProps)(RedactorMessage);

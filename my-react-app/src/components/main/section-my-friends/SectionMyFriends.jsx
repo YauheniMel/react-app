@@ -1,18 +1,14 @@
 import Friend from './friend/Friend';
-import style from './SectionMyFriends.module.css';
+import style from './SectionMyFriends.module.scss';
 
-function SectionMyFriends(props) {
-  const friends = props.state.friends.map((friend) => {
-    return <Friend key={ friend.id } data={ friend }/>
+export default function SectionMyFriends({ friends }) {
+  const friendList = friends.map((friend) => {
+    return <Friend key={friend.id} data={friend} />;
   });
 
   return (
     <div className="section_wrap">
-      <section className={ style.section }>
-        { friends }
-      </section>
+      <section className={style.section}>{friendList}</section>
     </div>
   );
 }
-
-export default SectionMyFriends;

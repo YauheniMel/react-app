@@ -1,18 +1,14 @@
 import Photo from './photo/Photo';
-import style from './SectionPhotos.module.css';
+import style from './SectionPhotos.module.scss';
 
-function SectionPhotos(props) {
-  const photos = props.state.photos.map((photo) => {
-    return <Photo key={ photo.id } data={ photo } />
+export default function SectionPhotos({ photos }) {
+  const photoList = photos.map((photo) => {
+    return <Photo key={photo.id} data={photo} />;
   });
 
   return (
     <div className="section_wrap">
-      <section className={ style.section }>
-        { photos }
-      </section>
+      <section className={style.section}>{photoList}</section>
     </div>
   );
 }
-
-export default SectionPhotos

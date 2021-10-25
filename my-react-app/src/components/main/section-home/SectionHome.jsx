@@ -1,22 +1,20 @@
-import style from './SectionHome.module.css';
+import style from './SectionHome.module.scss';
 
 import Head from './head/Head';
-import Desk from './desk/Desk';
 import Carousel from './carousel/Carousel';
+import { DeskContainer } from './desk/DeskContainer';
 
-function SectionHome(props) {
+export default function SectionHome({ state, dispatch }) {
   return (
     <div className="section_wrap">
-      <section className={ style.section }>
-        <div className={ style.panorama }>
-          <img alt="background" src="https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg" />
+      <section className={style.section}>
+        <div className={style.panorama}>
+          <img alt="background" src="shared/photo.jpg" />
         </div>
-        <Head firstName={ props.state.firstName } lastName={ props.state.lastName } date={ props.state.date } />
-        <Desk post={ props.state.postContent } credo={ props.state.credoContent } dispatch={ props.dispatch }/>
+        <Head firstName={state.firstName} lastName={state.lastName} date={state.date} />
+        <DeskContainer />
+        <Carousel photos={state.photos} />
       </section>
-      <Carousel photos={ props.state.photos }/>
     </div>
   );
 }
-
-export default SectionHome;

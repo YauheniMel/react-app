@@ -1,11 +1,9 @@
-import style from '../Carousel.module.css';
+import style from '../Carousel.module.scss';
 
-function CarouselItem(props) {
+export default function CarouselItem({ data }) {
   return (
-    <div className={ style.image_wrap }>
-      <img className={ style.image } alt="my images" src={ props.data.url } />
+    <div className={style.image_wrap}>
+      <img className={style.image} alt="my images" src={data.url} />
     </div>
   );
 }
-
-export default CarouselItem;
