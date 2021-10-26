@@ -87,23 +87,23 @@ const initState = {
 function homeReducer(state = initState, action) {
   switch (action.type) {
     case 'CREATE-CREDO-CONTENT': {
-      const stateCopy = {...state};
+      const stateCopy = { ...state };
       stateCopy.initCredo = action.content;
       return stateCopy;
     }
     case 'CREATE-POST-CONTENT': {
-      const stateCopy = {...state};
+      const stateCopy = { ...state };
       stateCopy.initPost = action.content;
       return stateCopy;
     }
     case 'SET-CREDO-CONTENT': {
-      const stateCopy = {...state};
+      const stateCopy = { ...state };
       stateCopy.credoContent = state.initCredo;
       stateCopy.initCredo = '';
       return stateCopy;
     }
     case 'SET-POST-CONTENT': {
-      const stateCopy = {...state};
+      const stateCopy = { ...state };
       stateCopy.postContent = state.initPost;
       stateCopy.initPost = '';
       return stateCopy;

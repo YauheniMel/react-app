@@ -33,7 +33,7 @@ function Sidebar({ state }) {
                   <Link path="/settings">{language.sidebar.settings}</Link>
                 </li>
               </ul>
-              <FriendsArea friends={state.friends} />
+              {/* <FriendsArea friends={state.friends} /> */}
             </aside>
           )}
         </ThemeContext.Consumer>

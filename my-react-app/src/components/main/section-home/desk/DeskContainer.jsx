@@ -1,6 +1,11 @@
 import Desk from './Desk';
 import { connect } from 'react-redux';
-import { createCredoContent, createPostContent, setCredoContent, setPostContent } from '../../../../redux/home-reducer';
+import {
+  createCredoContent,
+  createPostContent,
+  setCredoContent,
+  setPostContent,
+} from '../../../../redux/home-reducer';
 
 function mapStateToProps(state) {
   return {
@@ -35,7 +40,6 @@ function mapDispatchToProps(dispatch) {
       event.preventDefault();
 
       const action = setPostContent();
-
 
       dispatch(action);
     },

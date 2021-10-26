@@ -1,93 +1,25 @@
+export function getFriends(arr) {
+  return {
+    type: 'GET-FRIENDS',
+    content: arr,
+  };
+}
+
 const initState = {
-  friends: [
-    {
-      firstName: 'Dima',
-      lastName: 'Muller',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '1',
-    },
-    {
-      firstName: 'Serg',
-      lastName: 'Melnik',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '2',
-    },
-    {
-      firstName: 'Max',
-      lastName: 'Kotov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '3',
-    },
-    {
-      firstName: 'Bill',
-      lastName: 'Smirnov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '4',
-    },
-    {
-      firstName: 'Tom',
-      lastName: 'Ivanov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '5',
-    },
-    {
-      firstName: 'Bob',
-      lastName: 'Miron',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '6',
-    },
-    {
-      firstName: 'Tom',
-      lastName: 'Ivanov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '7',
-    },
-    {
-      firstName: 'Bob',
-      lastName: 'Miron',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '8',
-    },
-    {
-      firstName: 'Tom',
-      lastName: 'Ivanov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '9',
-    },
-    {
-      firstName: 'Bob',
-      lastName: 'Miron',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '10',
-    },
-    {
-      firstName: 'Tom',
-      lastName: 'Ivanov',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '11',
-    },
-    {
-      firstName: 'Bob',
-      lastName: 'Miron',
-      photo:
-        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-      id: '12',
-    },
-  ],
+  friends: [],
 };
 
-function friendReducer(state = initState) {
+function friendReducer(state = initState, action) {
+  switch (action.type) {
+    case 'GET-FRIENDS': {
+      const stateCopy = {
+        ...state,
+        friends: [...action.content],
+      };
+      console.log(stateCopy);
+      return stateCopy;
+    }
+  }
   return state;
 }
 

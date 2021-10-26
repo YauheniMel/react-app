@@ -1,18 +1,14 @@
 export function sendMessage() {
-  return (
-    {
-      type: 'SEND-MESSAGE',
-    }
-  );
+  return {
+    type: 'SEND-MESSAGE',
+  };
 }
 
 export function createMessage(content) {
-  return (
-    {
-      type: 'CREATE-MESSAGE',
-      content: content,
-    }
-  );
+  return {
+    type: 'CREATE-MESSAGE',
+    content: content,
+  };
 }
 
 const initState = {
@@ -20,44 +16,51 @@ const initState = {
     {
       firstName: 'Dima',
       lastName: 'Muller',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '1',
     },
     {
       firstName: 'Serg',
       lastName: 'Melnik',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '2',
     },
     {
       firstName: 'Max',
       lastName: 'Kotov',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '3',
     },
     {
       firstName: 'Bill',
       lastName: 'Smirnov',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '4',
     },
     {
       firstName: 'Tom',
       lastName: 'Ivanov',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '5',
     },
     {
       firstName: 'Bob',
       lastName: 'Miron',
-      photo: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
+      photo:
+        'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
       id: '6',
     },
   ],
   messages: [
     {
       id: '1',
-      content: 'Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?',
+      content:
+        'Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?',
       isMy: true,
     },
     { id: '2', content: 'Привет. Нормально. А у тебя?', isMy: false },
@@ -83,27 +86,26 @@ const initState = {
   messageContent: '',
 };
 
-
 function dialogsReducer(state = initState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'SEND-MESSAGE': {
       const newMessage = {
         id: +new Date(),
         content: state.messageContent,
         isMy: true,
-      }
+      };
 
       const stateCopy = {
         ...state,
-        messages: [...state.messages, newMessage]
-      }
+        messages: [...state.messages, newMessage],
+      };
 
       stateCopy.messageContent = '';
 
       return stateCopy;
     }
     case 'CREATE-MESSAGE': {
-      const stateCopy = {...state};
+      const stateCopy = { ...state };
       stateCopy.messageContent = action.content;
 
       return stateCopy;

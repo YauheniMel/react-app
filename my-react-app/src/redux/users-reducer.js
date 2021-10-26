@@ -2,21 +2,21 @@ export function followUser(id) {
   return {
     type: 'FOLLOW-USER',
     id: id,
-  }
+  };
 }
 
 export function unFollowUser(id) {
   return {
     type: 'UNFOLLOW-USER',
     id: id,
-  }
+  };
 }
 
 export function getUsers(arr) {
   return {
     type: 'GET-USERS',
     users: arr,
-  }
+  };
 }
 
 const initState = {
@@ -28,30 +28,30 @@ function usersReducer(state = initState, action) {
     case 'FOLLOW-USER': {
       const stateCopy = {
         ...state,
-        users: [...state.users]
+        users: [...state.users],
       };
-      stateCopy.users = state.users.map(item => {
-        if(item.id === action.id) {
+      stateCopy.users = state.users.map((item) => {
+        if (item.id === action.id) {
           item.isFriend = true;
           return item;
         }
         return item;
-      })
+      });
 
       return stateCopy;
     }
     case 'UNFOLLOW-USER': {
       const stateCopy = {
         ...state,
-        users: [...state.users]
+        users: [...state.users],
       };
-      stateCopy.users = state.users.map(item => {
-        if(item.id === action.id) {
+      stateCopy.users = state.users.map((item) => {
+        if (item.id === action.id) {
           item.isFriend = false;
           return item;
         }
         return item;
-      })
+      });
 
       console.log(stateCopy);
 
@@ -60,8 +60,8 @@ function usersReducer(state = initState, action) {
     case 'GET-USERS': {
       const stateCopy = {
         ...state,
-        users: [...action.users]
-      }
+        users: [...action.users],
+      };
 
       return stateCopy;
     }

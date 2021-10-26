@@ -18,10 +18,16 @@ function Main() {
             <SidebarContainer />
             <Route path="/home" render={() => <SectionHomeContainer />} />
             <Route path="/dialogs" render={() => <SectionDialogsContainer />} />
-            <Route path="/my_friends" render={() => <SectionMyFriendsContainer />} />
+            <Route
+              path="/my_friends"
+              render={() => <SectionMyFriendsContainer />}
+            />
             <Route path="/users" render={() => <SectionUsersContainer />} />
             <Route path="/photos" render={() => <SectionPhotosContainer />} />
-            <Route path="/settings" render={() => <SectionSettingsContainer />} />
+            <Route
+              path="/settings"
+              render={() => <SectionSettingsContainer />}
+            />
           </div>
         </main>
       )}

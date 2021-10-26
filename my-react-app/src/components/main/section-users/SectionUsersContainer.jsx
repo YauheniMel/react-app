@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-import { followUser, getUsers, unFollowUser } from '../../../redux/users-reducer';
-import SectionUsers from './SectionUsers';
+import {
+  followUser,
+  getUsers,
+  unFollowUser,
+} from '../../../redux/users-reducer';
+import SectionUsersAPIContainer from './SectionUsersAPIContainer';
 
 function mapStateToProps(state) {
   return {
     users: state.usersPage.users,
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -24,8 +28,11 @@ function mapDispatchToProps(dispatch) {
       const action = getUsers(arr);
 
       dispatch(action);
-    }
-  }
+    },
+  };
 }
 
-export const SectionUsersContainer = connect(mapStateToProps, mapDispatchToProps)(SectionUsers);
+export const SectionUsersContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SectionUsersAPIContainer);

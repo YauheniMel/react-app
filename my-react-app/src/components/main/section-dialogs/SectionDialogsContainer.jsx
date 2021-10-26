@@ -9,8 +9,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch: dispatch
-  }
+    dispatch: dispatch,
+  };
 }
 
-export const SectionDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(SectionDialogs);
+export const SectionDialogsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SectionDialogs);
