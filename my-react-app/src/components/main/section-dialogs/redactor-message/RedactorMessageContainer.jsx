@@ -24,8 +24,11 @@ function mapDispatchToProps(dispatch) {
       const action = createMessage(value);
 
       dispatch(action);
-    }
-  }
+    },
+  };
 }
 
-export const RedactorMessageContainer = connect(mapStateToProps, mapDispatchToProps)(RedactorMessage);
+export const RedactorMessageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RedactorMessage);

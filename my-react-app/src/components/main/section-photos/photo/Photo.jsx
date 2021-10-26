@@ -1,9 +1,10 @@
 import style from '../SectionPhotos.module.scss';
 
-export default function Photo({ data }) {
+export default function Photo({ photoURL, content }) {
   return (
     <div className={style.photo_wrap}>
-      <img src={data.url} alt="album" className={style.photo} />
+      <img src={photoURL} alt="album" className={style.photo} />
+      {content}
     </div>
   );
 }

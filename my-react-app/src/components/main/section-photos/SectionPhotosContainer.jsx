@@ -1,5 +1,6 @@
-import SectionPhotos from './SectionPhotos';
+import SectionPhotosAPIContainer from './SectionPhotosAPIContainer';
 import { connect } from 'react-redux';
+import { getPhotos } from '../../../redux/photo-reducer';
 
 function mapStateToProps(state) {
   return {
@@ -7,4 +8,17 @@ function mapStateToProps(state) {
   };
 }
 
-export const SectionPhotosContainer = connect(mapStateToProps)(SectionPhotos);
+function mapDispatchToProps(dispatch) {
+  return {
+    getPhotos: (arr) => {
+      const action = getPhotos(arr);
+
+      dispatch(action);
+    },
+  };
+}
+
+export const SectionPhotosContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SectionPhotosAPIContainer);

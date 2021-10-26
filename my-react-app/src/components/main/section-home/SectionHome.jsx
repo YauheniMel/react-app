@@ -11,7 +11,11 @@ export default function SectionHome({ state, dispatch }) {
         <div className={style.panorama}>
           <img alt="background" src="shared/photo.jpg" />
         </div>
-        <Head firstName={state.firstName} lastName={state.lastName} date={state.date} />
+        <Head
+          firstName={state.firstName}
+          lastName={state.lastName}
+          date={state.date}
+        />
         <DeskContainer />
         <Carousel photos={state.photos} />
       </section>

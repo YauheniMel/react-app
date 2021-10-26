@@ -12,7 +12,7 @@ export const languages = {
       myFriends: 'Мои друзья',
       photos: 'Фото',
       settings: 'Настройки',
-      users: 'Пользователи'
+      users: 'Пользователи',
     },
     desk: {
       credo: 'Мое кредо:',
@@ -25,7 +25,7 @@ export const languages = {
     usersCard: {
       follow: 'Дружить',
       unfollow: 'Не дружить',
-    }
+    },
   },
   on: {
     header: {
@@ -38,7 +38,7 @@ export const languages = {
       myFriends: 'My friend',
       photos: 'Photos',
       settings: 'Settings',
-      users: 'Users'
+      users: 'Users',
     },
     desk: {
       credo: 'My credo:',
@@ -51,7 +51,7 @@ export const languages = {
     usersCard: {
       follow: 'Follow',
       unfollow: 'Unfollow',
-    }
+    },
   },
 };
 

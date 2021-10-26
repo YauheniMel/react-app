@@ -10,7 +10,9 @@ function App() {
   const [theme, setTheme] = useState(themes.on);
 
   return (
-    <LinguaContext.Provider value={{ language: language, setLanguage: setLanguage }}>
+    <LinguaContext.Provider
+      value={{ language: language, setLanguage: setLanguage }}
+    >
       <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
         <div className="App">
           <Header />
