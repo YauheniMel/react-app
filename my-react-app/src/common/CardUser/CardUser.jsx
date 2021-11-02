@@ -4,7 +4,8 @@ import { LinguaContext } from '../../contexts/LinguaContext';
 
 export default function CardUser({
   photo,
-  name,
+  firstName,
+  lastName,
   post,
   isFriend,
   setFollow,
@@ -17,7 +18,9 @@ export default function CardUser({
         <div className={style.wrap}>
           <img className={style.photo} src={photo} alt="photo user" />
           <div className={style.info}>
-            <h5>{name}</h5>
+            <h5>
+              {firstName} {lastName}
+            </h5>
             <p>
               Minsk: <span>Belarus</span>
             </p>

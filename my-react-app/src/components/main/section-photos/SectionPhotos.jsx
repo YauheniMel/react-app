@@ -3,11 +3,14 @@ import Photo from './photo/Photo';
 import style from './SectionPhotos.module.scss';
 import Spinner from '../../../common/Spinner/Spinner';
 
-export default function SectionPhotos({ photos, currentPage, setCurrentPage, isLoading }) {
+export default function SectionPhotos({
+  photos,
+  currentPage,
+  setCurrentPage,
+  isLoading,
+}) {
   const photoList = photos.map((photo) => {
-    return (
-      <Photo key={photo.id} content={photo.title} photoURL={photo.photoURL} />
-    );
+    return <Photo key={photo.id} content={photo.title} photoURL={photo.url} />;
   });
 
   return (
