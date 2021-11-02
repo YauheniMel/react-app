@@ -1,25 +1,32 @@
 .wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(128, 128, 128, 0.3);
+	background-color: rgba(128, 128, 128, 0.3);
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 .spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
 
-  animation: rotating 0.5s linear infinite;
+	animation: rotating 0.5s linear infinite;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+
+	img {
+		height: 80px;
+		width: auto;
+	}
 }
 
 @keyframes rotating {
-  from{
-      -webkit-transform: rotate(0deg);
-  }
-  to{
-      -webkit-transform: rotate(360deg);
-  }
+
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }

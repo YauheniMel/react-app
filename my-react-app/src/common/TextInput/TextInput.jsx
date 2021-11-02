@@ -13,7 +13,7 @@ export default function TextInput({
   return (
     <div className={style.info}>
       <div>
-        <p className={style.title}>
+        <div className={style.title}>
           {title}
           <form onSubmit={onSubmit} className={style.form}>
             <input
@@ -25,7 +25,7 @@ export default function TextInput({
             />
             <button type="submit" className={style.button}></button>
           </form>
-        </p>
+        </div>
         <span>{content}</span>
         <button type="submit" className={style.btn_editor}>
           &#9998;

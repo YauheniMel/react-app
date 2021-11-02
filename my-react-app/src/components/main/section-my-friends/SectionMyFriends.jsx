@@ -5,7 +5,6 @@ import axios from 'axios';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { useEffect } from 'react';
-import photoURL from '../../../assets/images/user_photo.png';
 export default function SectionMyFriends({ friends, getFriends }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
@@ -13,15 +12,9 @@ export default function SectionMyFriends({ friends, getFriends }) {
   function handleChangePage(num) {
     setIsLoading(true);
     axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${num}/comments`)
+      .get('/friends')
       .then((response) => response.data)
-      .then((data) => {
-        data = data.map((item) => {
-          item.photoURL = photoURL;
-          return item;
-        });
-        getFriends(data);
-      })
+      .then((data) => getFriends(data))
       .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));
   }
@@ -32,7 +25,12 @@ export default function SectionMyFriends({ friends, getFriends }) {
 
   const friendList = friends.map((friend) => {
     return (
-      <Friend key={friend.id} name={friend.email} photoURL={friend.photoURL} />
+      <Friend
+        key={friend.id}
+        firstName={friend.firstName}
+        lastName={friend.lastName}
+        photoURL={friend.photo}
+      />
     );
   });
 

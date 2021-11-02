@@ -1,0 +1,80 @@
+[
+  {
+    "persons": [
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 1
+      },
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 2
+      },
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 3
+      },
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 4
+      },
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 5
+      },
+      {
+        "firstName": "Dima",
+        "lastName": "Muller",
+        "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg",
+        "id": 6
+      }
+    ],
+    "messages": [
+      {
+        "id": 1,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": false
+      },
+      {
+        "id": 2,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": true
+      },
+      {
+        "id": 3,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": false
+      },
+      {
+        "id": 4,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": true
+      },
+      {
+        "id": 5,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": false
+      },
+      {
+        "id": 6,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": true
+      },
+      {
+        "id": 7,
+        "content": "Привет! Как дела? Привет. Нормально. А у тебя? Привет. Нормально. А у тебя?",
+        "isMy": true
+      }
+    ],
+    "messageContent": ""
+  }
+]

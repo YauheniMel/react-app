@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 6,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  },
+  {
+    "id": 8,
+    "firstName": "Yauheni",
+    "lastName": "Melnik",
+    "body": "Some text Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome",
+    "isFriend": false,
+    "photo": "https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg"
+  }
+]

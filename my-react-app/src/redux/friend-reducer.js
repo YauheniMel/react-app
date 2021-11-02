@@ -16,7 +16,6 @@ function friendReducer(state = initState, action) {
         ...state,
         friends: [...action.content],
       };
-      console.log(stateCopy);
       return stateCopy;
     }
   }

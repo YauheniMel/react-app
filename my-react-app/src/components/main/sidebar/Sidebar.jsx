@@ -6,7 +6,6 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 import Link from '../../../common/Link/Link';
 
 function Sidebar({ state }) {
-  console.log(state);
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
