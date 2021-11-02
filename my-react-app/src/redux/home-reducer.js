@@ -24,6 +24,13 @@ export function setPostContent() {
   };
 }
 
+export function getPhotos(arr) {
+  return {
+    type: 'GET-PHOTOS',
+    content: arr
+  };
+}
+
 const initState = {
   firstName: 'Yauheni',
   lastName: 'Melnik',
@@ -32,56 +39,7 @@ const initState = {
   credoContent: 'always work on yourself',
   initCredo: '',
   initPost: '',
-  photos: [
-    {
-      id: 1,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 2,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 3,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 4,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 5,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 6,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 7,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 8,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 9,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 10,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 11,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-    {
-      id: 12,
-      url: 'https://images.wallpaperscraft.ru/image/akvarel_pyatna_yarkij_rozovyj_117076_2560x1440.jpg',
-    },
-  ],
+  photos: []
 };
 
 function homeReducer(state = initState, action) {
@@ -106,6 +64,13 @@ function homeReducer(state = initState, action) {
       const stateCopy = { ...state };
       stateCopy.postContent = state.initPost;
       stateCopy.initPost = '';
+      return stateCopy;
+    }
+    case 'GET-PHOTOS': {
+      const stateCopy = {
+        ...state,
+        photos: [...action.content]
+      };
       return stateCopy;
     }
     default:

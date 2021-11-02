@@ -1,6 +1,10 @@
 @import '../../styles/variables';
 
 .header {
+	position: sticky;
+	z-index: 1;
+	height: 13vh;
+	top: 0;
 }
 
 .container {

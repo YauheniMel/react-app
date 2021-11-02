@@ -12,7 +12,7 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
 }
 
@@ -23,7 +23,6 @@ body {
 
 .section_wrap {
 	display: inline-block;
-	height: 98%;
 	margin: 5px auto;
 
 	vertical-align: top;

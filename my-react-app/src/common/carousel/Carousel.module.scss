@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import '../../styles/variables';
 
 .carousel {
 	position: relative;
@@ -7,7 +7,7 @@
 .photos {
 	height: 180px;
 
-	overflow: hidden;
+	overflow-x: auto;
 	white-space: nowrap;
 }
 

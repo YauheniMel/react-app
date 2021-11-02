@@ -5,7 +5,7 @@ import { LinguaContext } from '../../../contexts/LinguaContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import Link from '../../../common/Link/Link';
 
-function Sidebar({ state }) {
+function Sidebar({ state, isLoading }) {
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
@@ -32,7 +32,7 @@ function Sidebar({ state }) {
                   <Link path="/settings">{language.sidebar.settings}</Link>
                 </li>
               </ul>
-              {/* <FriendsArea friends={state.friends} /> */}
+              <FriendsArea friends={state.friends} isLoading={isLoading} />
             </aside>
           )}
         </ThemeContext.Consumer>
