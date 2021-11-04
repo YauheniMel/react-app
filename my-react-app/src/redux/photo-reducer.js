@@ -36,6 +36,7 @@ function photoReducer(state = initState, action) {
       return stateCopy;
     }
   }
+
   return state;
 }
 
