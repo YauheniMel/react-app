@@ -1,13 +1,13 @@
-@import '../../../../styles/variables';
+@import '../../styles/variables';
 
 .carousel {
 	position: relative;
 }
 
 .photos {
-	height: 180px;
+	height: 186px;
 
-	overflow: hidden;
+	overflow-x: auto;
 	white-space: nowrap;
 }
 

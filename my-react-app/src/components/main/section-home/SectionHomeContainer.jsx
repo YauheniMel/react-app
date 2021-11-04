@@ -1,5 +1,25 @@
 import SectionHome from './SectionHome';
 import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { getPhotos } from '../../../redux/home-reducer';
+
+function SectionHomeApiContainer({ state, dispatch, getPhotos }) {
+  const [isLoading, setIsLoading] = useState();
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    axios
+      .get('/photos')
+      .then((response) => response.data)
+      .finally(() => setIsLoading(false))
+      .then((data) => getPhotos(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  return <SectionHome state={state} dispatch={dispatch} />;
+}
 
 function mapStateToProps(state) {
   return {
@@ -10,7 +30,15 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     dispatch: dispatch,
+    getPhotos: (arr) => {
+      const action = getPhotos(arr);
+
+      dispatch(action);
+    },
   };
 }
 
-export const SectionHomeContainer = connect(mapStateToProps, mapDispatchToProps)(SectionHome);
+export const SectionHomeContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SectionHomeApiContainer);
