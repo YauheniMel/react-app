@@ -1,8 +1,10 @@
 @import '../../../styles/variables';
 
 .aside {
+	align-self: baseline;
 	margin: 5px;
-
+	position: sticky;
+	top: 105px;
 	width: 300px;
 }
 

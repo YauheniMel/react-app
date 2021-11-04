@@ -1,7 +1,7 @@
 import style from './SectionHome.module.scss';
 
 import Head from './head/Head';
-import Carousel from './carousel/Carousel';
+import Carousel from '../../../common/carousel/Carousel';
 import { DeskContainer } from './desk/DeskContainer';
 
 export default function SectionHome({ state, dispatch }) {

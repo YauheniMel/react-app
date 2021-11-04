@@ -3,7 +3,7 @@ import style from './Main.module.scss';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { SidebarContainer } from './sidebar/SidebarContainer';
 import { SectionHomeContainer } from './section-home/SectionHomeContainer';
-import { SectionMyFriendsContainer } from './section-my-friends/SectionMyFriendsContainer';
+import { SectionFriendsContainer } from './section-my-friends/SectionFriendsContainer';
 import { SectionDialogsContainer } from './section-dialogs/SectionDialogsContainer';
 import { SectionPhotosContainer } from './section-photos/SectionPhotosContainer';
 import { SectionSettingsContainer } from './section-settings/SectionSettingsContainer';
@@ -19,11 +19,17 @@ function Main() {
             <Route path="/home" render={() => <SectionHomeContainer />} />
             <Route path="/dialogs" render={() => <SectionDialogsContainer />} />
             <Route
-              path="/my_friends"
-              render={() => <SectionMyFriendsContainer />}
+              path="/friends/:friendId?"
+              render={() => <SectionFriendsContainer />}
             />
-            <Route path="/users" render={() => <SectionUsersContainer />} />
-            <Route path="/photos" render={() => <SectionPhotosContainer />} />
+            <Route
+              path="/users/:userId?"
+              render={() => <SectionUsersContainer />}
+            />
+            <Route
+              path="/photos/:photoId?"
+              render={() => <SectionPhotosContainer />}
+            />
             <Route
               path="/settings"
               render={() => <SectionSettingsContainer />}

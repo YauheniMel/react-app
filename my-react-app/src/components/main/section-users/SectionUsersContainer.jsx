@@ -7,6 +7,7 @@ import {
 import { useEffect, useState } from 'react';
 import SectionUsers from './SectionUsers';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 function mapStateToProps(state) {
   return {
@@ -34,18 +35,25 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function SectionUsersAPIContainer({ users, follow, unfollow, getUsers }) {
+function SectionUsersAPIContainer({
+  users,
+  follow,
+  unfollow,
+  getUsers,
+  match,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
 
   function handleChangePage(num) {
     setIsLoading(true);
+
     axios
-      .get('/users')
+      .get(`/users/${num}`)
       .finally(() => setIsLoading(false))
       .then((response) => response.data)
       .then((data) => getUsers(data))
-      .catch((err) => console.error(`Error: ${err}`));
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
@@ -60,11 +68,14 @@ function SectionUsersAPIContainer({ users, follow, unfollow, getUsers }) {
       users={users}
       follow={follow}
       unfollow={unfollow}
+      match={match}
     />
   );
 }
 
+// const x = withRouter(SectionUsersAPIContainer);
+
 export const SectionUsersContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SectionUsersAPIContainer);
+)(withRouter(SectionUsersAPIContainer));
