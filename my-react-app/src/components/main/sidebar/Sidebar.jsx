@@ -1,11 +1,10 @@
 import style from './Sidebar.module.scss';
-
-import FriendsArea from './friends-area/FriendsArea';
+import GamesArea from './Games-Area/GamesArea';
 import { LinguaContext } from '../../../contexts/LinguaContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import Link from '../../../common/Link/Link';
 
-function Sidebar({ state, isLoading }) {
+function Sidebar({ state }) {
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
@@ -20,7 +19,7 @@ function Sidebar({ state, isLoading }) {
                   <Link path="/dialogs">{language.sidebar.dialogs}</Link>
                 </li>
                 <li className={style.item}>
-                  <Link path="/my_friends">{language.sidebar.myFriends}</Link>
+                  <Link path="/friends">{language.sidebar.myFriends}</Link>
                 </li>
                 <li className={style.item}>
                   <Link path="/users">{language.sidebar.users}</Link>
@@ -32,7 +31,7 @@ function Sidebar({ state, isLoading }) {
                   <Link path="/settings">{language.sidebar.settings}</Link>
                 </li>
               </ul>
-              <FriendsArea friends={state.friends} isLoading={isLoading} />
+              <GamesArea friends={state.friends} />
             </aside>
           )}
         </ThemeContext.Consumer>

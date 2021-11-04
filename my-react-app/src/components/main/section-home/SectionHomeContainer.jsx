@@ -13,17 +13,12 @@ function SectionHomeApiContainer({ state, dispatch, getPhotos }) {
     axios
       .get('/photos')
       .then((response) => response.data)
+      .finally(() => setIsLoading(false))
       .then((data) => getPhotos(data))
-      .catch((err) => console.error(err))
-      .finally(() => setIsLoading(false));
-  }, [])
+      .catch((err) => console.error(err));
+  }, []);
 
-  return (
-    <SectionHome
-      state={state}
-      dispatch={dispatch}
-    />
-  );
+  return <SectionHome state={state} dispatch={dispatch} />;
 }
 
 function mapStateToProps(state) {
@@ -39,7 +34,7 @@ function mapDispatchToProps(dispatch) {
       const action = getPhotos(arr);
 
       dispatch(action);
-    }
+    },
   };
 }
 

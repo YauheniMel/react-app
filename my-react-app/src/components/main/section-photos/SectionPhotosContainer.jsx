@@ -3,6 +3,7 @@ import { getPhotos } from '../../../redux/photo-reducer';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SectionPhotos from './SectionPhotos';
+import { withRouter } from 'react-router';
 
 function mapStateToProps(state) {
   return {
@@ -20,18 +21,18 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function SectionPhotosAPIContainer({ photos, getPhotos }) {
+function SectionPhotosAPIContainer({ photos, getPhotos, match }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
 
   function handleChangePage(num) {
     setIsLoading(true);
     axios
-      .get('/photos')
+      .get(`/photos/${currentPage}`)
+      .finally(() => setIsLoading(false))
       .then((response) => response.data)
       .then((data) => getPhotos(data))
-      .catch((err) => console.error(err))
-      .finally(() => setIsLoading(false));
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
@@ -44,6 +45,7 @@ function SectionPhotosAPIContainer({ photos, getPhotos }) {
       currentPage={currentPage}
       setCurrentPage={setCurrentPage}
       isLoading={isLoading}
+      match={match}
     />
   );
 }
@@ -51,4 +53,4 @@ function SectionPhotosAPIContainer({ photos, getPhotos }) {
 export const SectionPhotosContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SectionPhotosAPIContainer);
+)(withRouter(SectionPhotosAPIContainer));

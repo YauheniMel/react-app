@@ -27,7 +27,7 @@ export function setPostContent() {
 export function getPhotos(arr) {
   return {
     type: 'GET-PHOTOS',
-    content: arr
+    content: arr,
   };
 }
 
@@ -39,7 +39,7 @@ const initState = {
   credoContent: 'always work on yourself',
   initCredo: '',
   initPost: '',
-  photos: []
+  photos: [],
 };
 
 function homeReducer(state = initState, action) {
@@ -69,7 +69,7 @@ function homeReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content]
+        photos: [...action.content],
       };
       return stateCopy;
     }

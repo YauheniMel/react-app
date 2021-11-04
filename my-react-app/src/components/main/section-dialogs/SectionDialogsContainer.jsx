@@ -13,10 +13,8 @@ function SectionDialogsApiContainer({ state, dispatch, getDialogs }) {
       .get('/dialogs')
       .finally(() => setIsLoading(false))
       .then((response) => response.data)
-      .then((data) => {
-        getDialogs(...data);
-      })
-      .catch((err) => console.error(`Error: ${err}`));
+      .then((data) => getDialogs(...data))
+      .catch((err) => console.error(err));
   }, []);
 
   return <SectionDialogs state={state} dispatch={dispatch} />;

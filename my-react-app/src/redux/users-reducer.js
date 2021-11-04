@@ -19,8 +19,16 @@ export function getUsers(arr) {
   };
 }
 
+export function getTargetUser(obj) {
+  return {
+    type: 'GET-TARGET-USER',
+    targetUser: obj,
+  };
+}
+
 const initState = {
   users: [],
+  targetUser: {},
 };
 
 function usersReducer(state = initState, action) {
@@ -61,6 +69,14 @@ function usersReducer(state = initState, action) {
       const stateCopy = {
         ...state,
         users: [...action.users],
+      };
+
+      return stateCopy;
+    }
+    case 'GET-TARGET-USER': {
+      const stateCopy = {
+        ...state,
+        targetUser: { ...action.targetUser },
       };
 
       return stateCopy;

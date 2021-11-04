@@ -1,6 +1,6 @@
-import style from '../SectionMyFriends.module.scss';
+import style from './FriendModule.module.scss';
 
-export default function Friend({ firstName, lastName, photoURL }) {
+export default function FriendModule({ firstName, lastName, photoURL }) {
   return (
     <div className={style.friend}>
       <div className={style.photo_wrap}>

@@ -1,10 +1,11 @@
 import React from 'react';
-import style from '../SectionPhotos.module.scss';
+import style from './PhotoCard.module.scss';
 
-export default function PhotoCard({ data }) {
+export default function PhotoCard({ photoURL, content }) {
   return (
     <div className={style.photo_wrap}>
-      <img src={data.url} alt="album" className={style.photo} />
+      <img src={photoURL} alt="album" className={style.photo} />
+      <p>{content}</p>
     </div>
   );
 }
