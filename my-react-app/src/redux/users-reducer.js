@@ -1,30 +1,19 @@
-export function followUser(id) {
-  return {
-    type: 'FOLLOW-USER',
-    id: id,
-  };
-}
-
-export function unFollowUser(id) {
-  return {
-    type: 'UNFOLLOW-USER',
-    id: id,
-  };
-}
-
-export function getUsers(arr) {
-  return {
-    type: 'GET-USERS',
-    users: arr,
-  };
-}
-
-export function getTargetUser(obj) {
-  return {
-    type: 'GET-TARGET-USER',
-    targetUser: obj,
-  };
-}
+export const followUser = (id) => ({
+  type: 'FOLLOW-USER',
+  id,
+});
+export const unFollowUser = (id) => ({
+  type: 'UNFOLLOW-USER',
+  id,
+});
+export const getUsers = (content) => ({
+  type: 'GET-USERS',
+  content,
+});
+export const getTargetUser = (content) => ({
+  type: 'GET-TARGET-USER',
+  content,
+});
 
 const initState = {
   users: [],
@@ -60,8 +49,6 @@ function usersReducer(state = initState, action) {
         }
         return item;
       });
-
-      console.log(stateCopy);
 
       return stateCopy;
     }

@@ -25,7 +25,7 @@ function SectionPhotosAPIContainer({ photos, getPhotos, match }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
 
-  function handleChangePage(num) {
+  function handleChangePage() {
     setIsLoading(true);
     axios
       .get(`/photos/${currentPage}`)

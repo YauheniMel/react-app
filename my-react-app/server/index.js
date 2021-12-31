@@ -1,8 +1,14 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+// const cors = require('cors'); // How can I use it?
 const app = express();
 const port = process.env.PORT || 5000;
+const encrypt = require('./encrypt');
+
+app.use(express.json());
+app.use(express.urlencoded());
+// app.use(cors());
 
 const photoData = path.resolve(__dirname, './data/photo-data.json');
 const friendsData = path.resolve(__dirname, './data/friends-data.json');
@@ -103,6 +109,30 @@ app.get('/dialogs', (req, res) => {
 
 app.get('*', (req, res) => {
   res.status(404).send('Resource not found');
+});
+
+//Security Page
+
+app.post('/login', (req, res) => {
+  const data = req.body.body;
+  const authData = JSON.parse(data);
+  const code = encrypt(authData.login, authData.password);
+
+  fs.readFile(usersData, (err, data) => {
+    if (err) throw new Error(err);
+
+    let users = JSON.parse(data);
+    const user = users.filter((item) => item.code == code)[0];
+
+    if (user) {
+      // check login
+      res.status(200).send({
+        ...user,
+      });
+    } else {
+      res.status(300).send('Fail'); // what kind of error?
+    }
+  });
 });
 
 app.listen(port, () => {

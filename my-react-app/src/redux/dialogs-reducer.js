@@ -1,22 +1,12 @@
-export function sendMessage() {
-  return {
-    type: 'SEND-MESSAGE',
-  };
-}
-
-export function createMessage(content) {
-  return {
-    type: 'CREATE-MESSAGE',
-    content: content,
-  };
-}
-
-export function getDialogs(obj) {
-  return {
-    type: 'GET-DIALOGS',
-    content: obj,
-  };
-}
+export const sendMessage = () => ({ type: 'SEND-MESSAGE' });
+export const createMessage = (content) => ({
+  type: 'CREATE-MESSAGE',
+  content,
+});
+export const getDialogs = (content) => ({
+  type: 'GET-DIALOGS',
+  content,
+});
 
 const initState = {
   persons: [],

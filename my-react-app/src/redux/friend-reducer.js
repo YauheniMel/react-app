@@ -1,16 +1,11 @@
-export function getFriends(arr) {
-  return {
-    type: 'GET-FRIENDS',
-    content: arr,
-  };
-}
-
-export function getTargetFriend(obj) {
-  return {
-    type: 'GET-TARGET-FRIEND',
-    content: obj,
-  };
-}
+export const getFriends = (content) => ({
+  type: 'GET-FRIENDS',
+  content,
+});
+export const getTargetFriend = (content) => ({
+  type: 'GET-TARGET-FRIEND',
+  content,
+});
 
 const initState = {
   friends: [],
