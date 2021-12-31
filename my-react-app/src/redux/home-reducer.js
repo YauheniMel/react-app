@@ -1,35 +1,17 @@
-export function createCredoContent(content) {
-  return {
-    type: 'CREATE-CREDO-CONTENT',
-    content: content,
-  };
-}
-
-export function createPostContent(content) {
-  return {
-    type: 'CREATE-POST-CONTENT',
-    content: content,
-  };
-}
-
-export function setCredoContent() {
-  return {
-    type: 'SET-CREDO-CONTENT',
-  };
-}
-
-export function setPostContent() {
-  return {
-    type: 'SET-POST-CONTENT',
-  };
-}
-
-export function getPhotos(arr) {
-  return {
-    type: 'GET-PHOTOS',
-    content: arr,
-  };
-}
+export const createCredoContent = (content) => ({
+  type: 'CREATE-CREDO-CONTENT',
+  content,
+});
+export const createPostContent = (content) => ({
+  type: 'CREATE-POST-CONTENT',
+  content,
+});
+export const setCredoContent = () => ({ type: 'SET-CREDO-CONTENT' });
+export const setPostContent = () => ({ type: 'SET-POST-CONTENT' });
+export const getPhotos = (content) => ({
+  type: 'GET-PHOTOS',
+  content,
+});
 
 const initState = {
   firstName: 'Yauheni',

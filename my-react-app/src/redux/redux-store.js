@@ -4,6 +4,7 @@ import dialogsReducer from './dialogs-reducer';
 import friendReducer from './friend-reducer';
 import photoReducer from './photo-reducer';
 import usersReducer from './users-reducer';
+import authReducer from './auth-reducer';
 
 let reducers = combineReducers({
   dialogsPage: dialogsReducer,
@@ -11,6 +12,7 @@ let reducers = combineReducers({
   friendPage: friendReducer,
   photoPage: photoReducer,
   usersPage: usersReducer,
+  auth: authReducer,
 });
 
 let store = createStore(reducers);

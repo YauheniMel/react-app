@@ -1,16 +1,11 @@
-export function getPhotos(arr) {
-  return {
-    type: 'GET-PHOTOS',
-    content: arr,
-  };
-}
-
-export function getTargetPhoto(obj) {
-  return {
-    type: 'GET-TARGET-PHOTO',
-    content: obj,
-  };
-}
+export const getPhotos = (content) => ({
+  type: 'GET-PHOTOS',
+  content,
+});
+export const getTargetPhoto = (content) => ({
+  type: 'GET-TARGET-PHOTO',
+  content,
+});
 
 const initState = {
   photos: [],
@@ -22,7 +17,7 @@ function photoReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content],
+        photos: [...action.content.photos], // bad path
       };
 
       return stateCopy;

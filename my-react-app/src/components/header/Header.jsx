@@ -37,6 +37,7 @@ export default function Header() {
               )}
             </LinguaContext.Consumer>
             <Input />
+            <h3>#####</h3>
           </div>
           <Nav />
         </header>

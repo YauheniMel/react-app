@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+.wrapper {
+
+	background-color: $bg_light-light;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+
+	width: 100%;
+
+	form {
+
+		background-color: $bg_main-light;
+
+		border-radius: 12px;
+		left: 40%;
+		padding: 20px;
+		position: fixed;
+		top: 10%;
+
+		width: 400px;
+	}
+
+	input {
+		border: 1px solid $dark_color;
+		display: block;
+		height: 30px;
+		margin: 30px 0;
+		width: 200px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import style from './Main.module.scss';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { SidebarContainer } from './sidebar/SidebarContainer';
@@ -16,24 +16,32 @@ function Main() {
         <main className={`${style.main} ${style[theme]}`}>
           <div className={`${style.container} container`}>
             <SidebarContainer />
-            <Route path="/home" render={() => <SectionHomeContainer />} />
-            <Route path="/dialogs" render={() => <SectionDialogsContainer />} />
-            <Route
-              path="/friends/:friendId?"
-              render={() => <SectionFriendsContainer />}
-            />
-            <Route
-              path="/users/:userId?"
-              render={() => <SectionUsersContainer />}
-            />
-            <Route
-              path="/photos/:photoId?"
-              render={() => <SectionPhotosContainer />}
-            />
-            <Route
-              path="/settings"
-              render={() => <SectionSettingsContainer />}
-            />
+            <Switch>
+              <Route
+                path="/reactproject/home"
+                render={() => <SectionHomeContainer />}
+              />
+              <Route
+                path="/reactproject/dialogs"
+                render={() => <SectionDialogsContainer />}
+              />
+              <Route
+                path="/reactproject/friends/:friendId?"
+                render={() => <SectionFriendsContainer />}
+              />
+              <Route
+                path="/reactproject/users/:userId?"
+                render={() => <SectionUsersContainer />}
+              />
+              <Route
+                path="/reactproject/photos/:photoId?"
+                render={() => <SectionPhotosContainer />}
+              />
+              <Route
+                path="/reactproject/settings"
+                render={() => <SectionSettingsContainer />}
+              />
+            </Switch>
           </div>
         </main>
       )}
