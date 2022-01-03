@@ -18,7 +18,7 @@ export default function SectionFriends({
         <FriendModule
           firstName={friend.firstName}
           lastName={friend.lastName}
-          photoURL={friend.photo}
+          photoURL={friend.avatar}
         />
       </Link>
     );

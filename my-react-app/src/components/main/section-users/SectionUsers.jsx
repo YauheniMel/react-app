@@ -19,12 +19,12 @@ export default function SectionUsers({
     return (
       // <Link key={user.id} path={`/users/${user.id}`}>
         <CardUser
-          id={user.id}
+          userId={user.id}
           key={user.id}
           firstName={user.firstName}
           lastName={user.lastName}
           photo={user.avatar}
-          isFriend={user.isFriend}
+          isFriend={user.isFriend} // state changed
           setFollow={follow}
           setUnfollow={unfollow}
         />
