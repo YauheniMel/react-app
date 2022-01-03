@@ -6,7 +6,8 @@
     "code": "QOH",
     "avatar": "https://baxcompany.com/wp-content/uploads/2019/07/1-number-one-in-circle-png-15-300x300.png",
     "sex": "male",
-    "dateOfBirth": "29.06.1991"
+    "dateOfBirth": "29.06.1991",
+    "friends": [2,3]
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "code": "OHW",
     "avatar": "https://w7.pngwing.com/pngs/990/675/png-transparent-number-information-skill-number-2-english-text-trademark.png",
     "sex": "female",
-    "dateOfBirth": "13.11.1996"
+    "dateOfBirth": "13.11.1996",
+    "friends": [3]
   },
   {
     "id": 3,
@@ -24,6 +26,7 @@
     "code": "HW`",
     "avatar": "https://w7.pngwing.com/pngs/35/303/png-transparent-number-3-text-trademark-logo.png",
     "sex": "male",
-    "dateOfBirth": "21.06.1991"
+    "dateOfBirth": "21.06.1991",
+    "friends": [1]
   }
 ]

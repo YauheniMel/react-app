@@ -17,7 +17,7 @@ function photoReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content.photos], // bad path
+        photos: [...action.content]
       };
 
       return stateCopy;

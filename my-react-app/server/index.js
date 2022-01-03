@@ -1,29 +1,26 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-// const cors = require('cors'); // How can I use it?
 const app = express();
 const port = process.env.PORT || 5000;
 const encrypt = require('./encrypt');
 
 app.use(express.json());
 app.use(express.urlencoded());
-// app.use(cors());
 
 const photoData = path.resolve(__dirname, './data/photo-data.json');
-const friendsData = path.resolve(__dirname, './data/friends-data.json');
 const usersData = path.resolve(__dirname, './data/users-data.json');
 const dialogsData = path.resolve(__dirname, './data/dialogs-data.json');
 
 //Photo page
 
-app.get('/photos/:pageNumber', (req, res) => {
-  const { pageNumber } = req.params;
-
+app.get('/photos/id:id/:pageNumber', (req, res) => {
+  const { pageNumber, id } = req.params;
   fs.readFile(photoData, (err, data) => {
     if (err) throw new Error(err);
 
-    const resData = JSON.parse(data).splice(
+    let resData = JSON.parse(data).filter(item => item.userId == id);
+    resData = resData[0].photos.splice(
       (pageNumber - 1) * 5,
       pageNumber * 5
     );
@@ -46,13 +43,23 @@ app.get('/photo/:photoId', (req, res) => {
 
 //Friends Page
 
-app.get('/friends/:pageNumber', (req, res) => {
-  const { pageNumber } = req.params;
+app.get('/friends/id:id/:pageNumber', (req, res) => {
+  const { pageNumber, id } = req.params;
 
-  fs.readFile(friendsData, (err, data) => {
+  fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
-    const resData = JSON.parse(data).splice(
+    const arrFriendId = JSON.parse(data).filter(item => item.id == id)[0].friends;
+
+    const friends = [];
+
+    arrFriendId.forEach(item => {
+      JSON.parse(data).forEach(item2 => {
+        if(item2.id == item) friends.push(item2);
+      })
+    })
+
+    const resData = friends.splice(
       (pageNumber - 1) * 5,
       pageNumber * 5
     );
@@ -64,7 +71,7 @@ app.get('/friends/:pageNumber', (req, res) => {
 app.get('/friend/:friendId', (req, res) => {
   const { friendId } = req.params;
 
-  fs.readFile(friendsData, (err, data) => {
+  fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
     const resData = JSON.parse(data).filter((item) => item.id == friendId);
@@ -75,12 +82,13 @@ app.get('/friend/:friendId', (req, res) => {
 
 // Users Page
 
-app.get('/users/:pageNumber', (req, res) => {
-  const { pageNumber } = req.params;
+app.get('/users/:id/:pageNumber', (req, res) => {
+  const { pageNumber, id } = req.params;
+
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
-    const resData = JSON.parse(data).splice(
+    const resData = JSON.parse(data).filter(item => item.id != id).splice(
       (pageNumber - 1) * 5,
       pageNumber * 5
     );
@@ -101,10 +109,58 @@ app.get('/user/:targetUser', (req, res) => {
   });
 });
 
+app.post('/user/:id', (req, res) => {
+  const { id } = req.params;
+console.log(id);
+  // fs.readFile(usersData, (err, data) => {
+  //   if (err) throw new Error(err);
+
+  //   const resData = JSON.parse(data).filter((item) => item.id == targetUser);
+
+  //   res.send(resData);
+  // });
+});
+
 //Dialogs Page
 
-app.get('/dialogs', (req, res) => {
-  res.sendFile(dialogsData);
+app.get('/dialogs/:id', (req, res) => {
+  const id = req.params.id;
+
+  fs.readFile(dialogsData, (err, data) => {
+    if (err) throw new Error(err);
+
+    const arrId = [];
+    JSON.parse(data).forEach((item) => {
+      if(item.userId == id) {
+        const id = item.dialogs.map(item => item.userId);
+
+        arrId.push(...id);
+      }
+    })
+
+    fs.readFile(usersData, (err, data) => {
+      if (err) throw new Error(err);
+
+      let usersName = [];
+
+      arrId.forEach(item => {
+
+        JSON.parse(data).forEach((item2) => {
+          if(item2.id == item) {
+            const userName = {
+              firstName: item2.firstName,
+              lastName: item2.lastName,
+              id: item2.id
+            }
+
+            usersName.push(userName);
+          }
+        })
+      })
+
+      res.send(usersName);
+    });
+  });
 });
 
 app.get('*', (req, res) => {

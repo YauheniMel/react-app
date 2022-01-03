@@ -7,9 +7,10 @@ import {
   setPostContent,
 } from '../../../../redux/home-reducer';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     state: state.homePage,
+    avatar: ownProps.avatar
   };
 }
 

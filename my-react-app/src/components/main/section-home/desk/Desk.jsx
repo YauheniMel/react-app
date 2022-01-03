@@ -10,13 +10,14 @@ export default function Desk({
   createPostContent,
   setCredo,
   setPost,
+  avatar
 }) {
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
         <div className={style.desk}>
           <div className={style.image_wrap}>
-            <img className={style.image} src="shared/photo.jpg" alt="foto" />
+            <img className={style.image} src={avatar} alt="foto" />
           </div>
           <div className={style.profile}>
             <TextInput

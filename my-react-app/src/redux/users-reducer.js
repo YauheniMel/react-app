@@ -55,7 +55,7 @@ function usersReducer(state = initState, action) {
     case 'GET-USERS': {
       const stateCopy = {
         ...state,
-        users: [...action.users],
+        users: [...action.content],
       };
 
       return stateCopy;

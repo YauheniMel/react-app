@@ -1,10 +1,10 @@
 import style from '../SectionHome.module.scss';
 
-function Head(props) {
+function Head({firstName, lastName, dateOfBirth, sex}) {
   return (
     <div className={style.user}>
-      <p>{`${props.firstName} ${props.lastName}`}</p>
-      <p>{props.date}</p>
+      <p>{`${firstName} ${lastName}`}</p>
+      <p>{dateOfBirth} {sex}</p>
     </div>
   );
 }
