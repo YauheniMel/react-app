@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { getPhotos } from '../../../redux/photo-reducer';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import SectionPhotos from './SectionPhotos';
 import { withRouter } from 'react-router';
 import useUser from '../../../hooks/useUser';
+import { requestAPI } from '../../../api/api';
 
 function mapStateToProps(state) {
   return {
@@ -25,13 +25,15 @@ function mapDispatchToProps(dispatch) {
 function SectionPhotosAPIContainer({ photos, getPhotos, match }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
-  const { user: {id} } = useUser();
+  const {
+    user: { id },
+  } = useUser();
 
   function handleChangePage() {
     setIsLoading(true);
-    axios
-      .get(`/photos/id${id}/${currentPage}`)
-      .then((response) => response.data)
+
+    requestAPI
+      .getPhotos(id, currentPage)
       .then((data) => getPhotos(data))
       .catch((err) => console.error(err));
 

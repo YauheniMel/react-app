@@ -3,7 +3,14 @@ import Head from './head/Head';
 import Carousel from '../../../common/carousel/Carousel';
 import { DeskContainer } from './desk/DeskContainer';
 
-export default function SectionHome({ state, firstName, lastName, sex, dateOfBirth, avatar }) {
+export default function SectionHome({
+  state,
+  firstName,
+  lastName,
+  sex,
+  dateOfBirth,
+  avatar,
+}) {
   return (
     <div className="section_wrap">
       <section className={style.section}>
@@ -16,7 +23,7 @@ export default function SectionHome({ state, firstName, lastName, sex, dateOfBir
           dateOfBirth={dateOfBirth}
           sex={sex}
         />
-        <DeskContainer avatar={avatar}/>
+        <DeskContainer avatar={avatar} />
         <Carousel photos={state.photos} />
       </section>
     </div>

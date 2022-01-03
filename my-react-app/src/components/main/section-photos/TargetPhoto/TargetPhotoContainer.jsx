@@ -1,25 +1,25 @@
-import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
+import { requestAPI } from '../../../../api/api';
 import { getTargetPhoto } from '../../../../redux/photo-reducer';
 import TargetPhoto from './TargetPhoto';
 
 function TargetPhotoApiContainer({ targetPhoto, match, getTargetPhoto }) {
   const [isLoading, setIsLoading] = useState();
-  const [targetId, setTargetId] = useState();
+  // const [targetId, setTargetId] = useState();
 
   useEffect(() => {
     setIsLoading(true);
     if (!match.params.photoId) return;
 
-    axios
-      .get(`/photo/${match.params.photoId}`)
-      .finally(() => setIsLoading(false))
-      .then((response) => response.data)
+    requestAPI
+      .getTargetPhoto(match.params.photoId)
       .then((data) => getTargetPhoto(...data))
       .catch((err) => console.error(err));
+
+    setIsLoading(false);
   }, [match.params.photoId]);
 
   return (

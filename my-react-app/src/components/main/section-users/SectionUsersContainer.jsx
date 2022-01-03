@@ -6,9 +6,9 @@ import {
 } from '../../../redux/users-reducer';
 import { useEffect, useState } from 'react';
 import SectionUsers from './SectionUsers';
-import axios from 'axios';
 import { withRouter } from 'react-router';
 import useUser from '../../../hooks/useUser';
+import { requestAPI } from '../../../api/api';
 
 function SectionUsersAPIContainer({
   users,
@@ -19,14 +19,15 @@ function SectionUsersAPIContainer({
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState();
-  const { user: {id} } = useUser();
+  const {
+    user: { id },
+  } = useUser();
 
-  function handleChangePage(num) {
+  function handleChangePage(currentPage) {
     setIsLoading(true);
 
-    axios
-      .get(`/users/${id}/${num}`)
-      .then((response) => response.data)
+    requestAPI
+      .getUsers(id, currentPage)
       .then((data) => getUsers(data))
       .catch((err) => console.error(err));
 

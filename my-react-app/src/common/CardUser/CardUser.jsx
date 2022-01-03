@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './CardUser.module.scss';
 import { LinguaContext } from '../../contexts/LinguaContext';
-import axios from 'axios';
 import useUser from '../../hooks/useUser';
+import { requestAPI } from '../../api/api';
 
 export default function CardUser({
   photo,
@@ -12,10 +12,11 @@ export default function CardUser({
   isFriend,
   setFollow,
   setUnfollow,
-  userId
+  userId,
 }) {
-
-  const { user: {id} } = useUser();
+  const {
+    user: { id },
+  } = useUser();
 
   return (
     <LinguaContext.Consumer>
@@ -32,31 +33,29 @@ export default function CardUser({
           </div>
           <p>{post}</p>
           {isFriend ? (
-            <button onClick={(e) => {
-              e.stopPropagation();
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
 
-              axios.delete(`/user/id${id}/${userId}`)
-                .then((response) => {
-                  setUnfollow(userId);
-
-                  return response.data
-                })
-                .catch(err => console.error(err));
-            }}>
+                requestAPI
+                  .delFriend(id, userId) // need to refact names
+                  .then(() => setUnfollow(userId))
+                  .catch((err) => console.error(err));
+              }}
+            >
               {language.usersCard.unfollow}
             </button>
           ) : (
-            <button onClick={(e) => {
-              e.stopPropagation();
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
 
-              axios.post(`/user/id${id}/${userId}`)
-                .then((response) => {
-                  setFollow(userId);
-
-                  return response.data
-                })
-                .catch(err => console.error(err));
-            }}>
+                requestAPI
+                  .addFriend(id, userId)
+                  .then(() => setFollow(userId))
+                  .catch((err) => console.error(err));
+              }}
+            >
               {language.usersCard.follow}
             </button>
           )}

@@ -49,7 +49,6 @@ function homeReducer(state = initState, action) {
       return stateCopy;
     }
     case 'GET-PHOTOS': {
-
       const stateCopy = { ...state };
       stateCopy.photos = [...action.content];
 

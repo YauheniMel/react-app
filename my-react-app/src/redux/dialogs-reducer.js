@@ -41,7 +41,7 @@ function dialogsReducer(state = initState, action) {
     case 'GET-DIALOG-PERSONS': {
       const stateCopy = {
         ...state,
-        persons: [...action.content]
+        persons: [...action.content],
       };
 
       return stateCopy;

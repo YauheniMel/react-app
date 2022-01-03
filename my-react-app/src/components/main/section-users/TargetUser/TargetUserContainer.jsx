@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import TargetUser from './TargetUser';
 import { connect } from 'react-redux';
 import { getTargetUser } from '../../../../redux/users-reducer';
+import { requestAPI } from '../../../../api/api';
 
 function TargetUserApiContainer({ user, getTargetUser, match }) {
   const [isLoading, setIsLoading] = useState();
@@ -15,12 +15,12 @@ function TargetUserApiContainer({ user, getTargetUser, match }) {
 
     if (!targetUser) return;
 
-    axios
-      .get(`/user/${match.params.userId}`) // maybe there's bad practice
-      .finally(() => setIsLoading(false))
-      .then((response) => response.data)
+    requestAPI
+      .getTargetUser(match.params.userId) // maybe there's bad practice
       .then((data) => getTargetUser(...data))
       .catch((err) => console.error(err));
+
+    setIsLoading(false);
   }, [targetUser, match.params.userId]);
 
   return (

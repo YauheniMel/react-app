@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { requestAPI } from '../../../../api/api';
 import { getTargetFriend } from '../../../../redux/friend-reducer';
 import TargetFriend from './TargetFriend';
 
@@ -12,12 +12,12 @@ function TargetFriendApiContainer({ match, targetFriend, getTargetFriend }) {
     if (!match.params.friendId) return;
     setIsLoading(true);
 
-    axios
-      .get(`/friend/${match.params.friendId}`)
-      .finally(() => setIsLoading(false))
-      .then((response) => response.data)
+    requestAPI
+      .getTargetFriend(match.params.friendId) // it need to refactor a target requests everywhere
       .then((data) => getTargetFriend(...data))
       .catch((err) => console.error(err));
+
+    setIsLoading(false);
   }, [match.params.friendId]);
 
   return (

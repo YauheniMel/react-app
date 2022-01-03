@@ -19,11 +19,8 @@ app.get('/photos/id:id/:pageNumber', (req, res) => {
   fs.readFile(photoData, (err, data) => {
     if (err) throw new Error(err);
 
-    let resData = JSON.parse(data).filter(item => item.userId == id);
-    resData = resData[0].photos.splice(
-      (pageNumber - 1) * 5,
-      pageNumber * 5
-    );
+    let resData = JSON.parse(data).filter((item) => item.userId == id);
+    resData = resData[0].photos.splice((pageNumber - 1) * 5, pageNumber * 5);
 
     res.send(resData);
   });
@@ -49,20 +46,18 @@ app.get('/friends/id:id/:pageNumber', (req, res) => {
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
-    const arrFriendId = JSON.parse(data).filter(item => item.id == id)[0].friends;
+    const arrFriendId = JSON.parse(data).filter((item) => item.id == id)[0]
+      .friends;
 
     const friends = [];
 
-    arrFriendId.forEach(item => {
-      JSON.parse(data).forEach(item2 => {
-        if(item2.id == item) friends.push(item2);
-      })
-    })
+    arrFriendId.forEach((item) => {
+      JSON.parse(data).forEach((item2) => {
+        if (item2.id == item) friends.push(item2);
+      });
+    });
 
-    const resData = friends.splice(
-      (pageNumber - 1) * 5,
-      pageNumber * 5
-    );
+    const resData = friends.splice((pageNumber - 1) * 5, pageNumber * 5);
 
     res.send(resData);
   });
@@ -88,23 +83,20 @@ app.get('/users/:id/:pageNumber', (req, res) => {
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
-    let users = JSON.parse(data).filter(item => item.id != id);
+    let users = JSON.parse(data).filter((item) => item.id != id);
 
-    const usersId = JSON.parse(data).filter(item => item.id == id)[0].friends;
+    const usersId = JSON.parse(data).filter((item) => item.id == id)[0].friends;
 
-    usersId.forEach(item => {
-      users.forEach(item2 => {
-        if(item2.id == item) {
+    usersId.forEach((item) => {
+      users.forEach((item2) => {
+        if (item2.id == item) {
           item2.isFriend = true;
           return;
         }
-      })
-    })
+      });
+    });
 
-    const resData = users.splice(
-      (pageNumber - 1) * 5,
-      pageNumber * 5
-    );
+    const resData = users.splice((pageNumber - 1) * 5, pageNumber * 5);
 
     res.send(resData);
   });
@@ -130,8 +122,7 @@ app.post('/user/id:id/:userId', (req, res) => {
     if (err) throw new Error(err);
 
     const users = JSON.parse(data).map((item) => {
-      if(item.id == id) {
-
+      if (item.id == id) {
         item.friends.push(+userId);
       }
 
@@ -141,7 +132,7 @@ app.post('/user/id:id/:userId', (req, res) => {
     fs.writeFile(usersData, JSON.stringify(users), (err) => {
       if (err) throw new Error(err);
 
-      res.send("Done");
+      res.send('Done');
     });
   });
 });
@@ -153,9 +144,8 @@ app.delete('/user/id:id/:userId', (req, res) => {
     if (err) throw new Error(err);
 
     const users = JSON.parse(data).map((item) => {
-      if(item.id == id) {
-
-        item.friends = item.friends.filter(item => item != userId);
+      if (item.id == id) {
+        item.friends = item.friends.filter((item) => item != userId);
       }
 
       return item;
@@ -164,7 +154,7 @@ app.delete('/user/id:id/:userId', (req, res) => {
     fs.writeFile(usersData, JSON.stringify(users), (err) => {
       if (err) throw new Error(err);
 
-      res.send("Done");
+      res.send('Done');
     });
   });
 });
@@ -179,32 +169,31 @@ app.get('/dialogs/:id', (req, res) => {
 
     const arrId = [];
     JSON.parse(data).forEach((item) => {
-      if(item.userId == id) {
-        const id = item.dialogs.map(item => item.userId);
+      if (item.userId == id) {
+        const id = item.dialogs.map((item) => item.userId);
 
         arrId.push(...id);
       }
-    })
+    });
 
     fs.readFile(usersData, (err, data) => {
       if (err) throw new Error(err);
 
       let usersName = [];
 
-      arrId.forEach(item => {
-
+      arrId.forEach((item) => {
         JSON.parse(data).forEach((item2) => {
-          if(item2.id == item) {
+          if (item2.id == item) {
             const userName = {
               firstName: item2.firstName,
               lastName: item2.lastName,
-              id: item2.id
-            }
+              id: item2.id,
+            };
 
             usersName.push(userName);
           }
-        })
-      })
+        });
+      });
 
       res.send(usersName);
     });

@@ -10,7 +10,7 @@ import {
 function mapStateToProps(state, ownProps) {
   return {
     state: state.homePage,
-    avatar: ownProps.avatar
+    avatar: ownProps.avatar,
   };
 }
 

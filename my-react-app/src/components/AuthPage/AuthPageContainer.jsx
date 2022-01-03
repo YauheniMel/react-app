@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { requestAPI } from '../../api/api';
 import useUser from '../../hooks/useUser';
 import {
   createUserLogin,
@@ -25,11 +25,7 @@ function AuthPageApiContainer({
   }, [user]);
 
   async function getUser(credentials) {
-    return axios
-      .post('/login', {
-        body: JSON.stringify(credentials),
-      })
-      .then((response) => response.data);
+    return requestAPI.login(credentials);
   }
 
   async function handleSubmit() {

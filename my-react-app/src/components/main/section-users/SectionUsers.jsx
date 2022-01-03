@@ -13,21 +13,21 @@ export default function SectionUsers({
   currentPage,
   setCurrentPage,
   isLoading,
-  match
+  match,
 }) {
   const list = users.map((user) => {
     return (
       // <Link key={user.id} path={`/users/${user.id}`}>
-        <CardUser
-          userId={user.id}
-          key={user.id}
-          firstName={user.firstName}
-          lastName={user.lastName}
-          photo={user.avatar}
-          isFriend={user.isFriend} // state changed
-          setFollow={follow}
-          setUnfollow={unfollow}
-        />
+      <CardUser
+        userId={user.id}
+        key={user.id}
+        firstName={user.firstName}
+        lastName={user.lastName}
+        photo={user.avatar}
+        isFriend={user.isFriend} // state changed
+        setFollow={follow}
+        setUnfollow={unfollow}
+      />
       // </Link>
     );
   });
