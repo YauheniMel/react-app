@@ -2,6 +2,7 @@ import React from 'react';
 import style from './CardUser.module.scss';
 import { LinguaContext } from '../../contexts/LinguaContext';
 import axios from 'axios';
+import useUser from '../../hooks/useUser';
 
 export default function CardUser({
   photo,
@@ -11,8 +12,11 @@ export default function CardUser({
   isFriend,
   setFollow,
   setUnfollow,
-  id,
+  userId
 }) {
+
+  const { user: {id} } = useUser();
+
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
@@ -31,10 +35,9 @@ export default function CardUser({
             <button onClick={(e) => {
               e.stopPropagation();
 
-              axios.post(`/user/${id}`, {})
+              axios.delete(`/user/id${id}/${userId}`)
                 .then((response) => {
-                  debugger;
-                  setUnfollow(id);
+                  setUnfollow(userId);
 
                   return response.data
                 })
@@ -45,10 +48,10 @@ export default function CardUser({
           ) : (
             <button onClick={(e) => {
               e.stopPropagation();
-              axios.post(`/user/${id}`, {})
+
+              axios.post(`/user/id${id}/${userId}`)
                 .then((response) => {
-                  debugger;
-                  setFollow(id);
+                  setFollow(userId);
 
                   return response.data
                 })

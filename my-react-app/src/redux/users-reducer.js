@@ -27,6 +27,7 @@ function usersReducer(state = initState, action) {
         ...state,
         users: [...state.users],
       };
+
       stateCopy.users = state.users.map((item) => {
         if (item.id === action.id) {
           item.isFriend = true;

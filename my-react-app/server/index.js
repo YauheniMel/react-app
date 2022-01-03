@@ -88,7 +88,20 @@ app.get('/users/:id/:pageNumber', (req, res) => {
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
-    const resData = JSON.parse(data).filter(item => item.id != id).splice(
+    let users = JSON.parse(data).filter(item => item.id != id);
+
+    const usersId = JSON.parse(data).filter(item => item.id == id)[0].friends;
+
+    usersId.forEach(item => {
+      users.forEach(item2 => {
+        if(item2.id == item) {
+          item2.isFriend = true;
+          return;
+        }
+      })
+    })
+
+    const resData = users.splice(
       (pageNumber - 1) * 5,
       pageNumber * 5
     );
@@ -109,16 +122,51 @@ app.get('/user/:targetUser', (req, res) => {
   });
 });
 
-app.post('/user/:id', (req, res) => {
-  const { id } = req.params;
-console.log(id);
-  // fs.readFile(usersData, (err, data) => {
-  //   if (err) throw new Error(err);
+// follow/unfollow
+app.post('/user/id:id/:userId', (req, res) => {
+  const { id, userId } = req.params;
 
-  //   const resData = JSON.parse(data).filter((item) => item.id == targetUser);
+  fs.readFile(usersData, (err, data) => {
+    if (err) throw new Error(err);
 
-  //   res.send(resData);
-  // });
+    const users = JSON.parse(data).map((item) => {
+      if(item.id == id) {
+
+        item.friends.push(+userId);
+      }
+
+      return item;
+    });
+
+    fs.writeFile(usersData, JSON.stringify(users), (err) => {
+      if (err) throw new Error(err);
+
+      res.send("Done");
+    });
+  });
+});
+
+app.delete('/user/id:id/:userId', (req, res) => {
+  const { id, userId } = req.params;
+
+  fs.readFile(usersData, (err, data) => {
+    if (err) throw new Error(err);
+
+    const users = JSON.parse(data).map((item) => {
+      if(item.id == id) {
+
+        item.friends = item.friends.filter(item => item != userId);
+      }
+
+      return item;
+    });
+
+    fs.writeFile(usersData, JSON.stringify(users), (err) => {
+      if (err) throw new Error(err);
+
+      res.send("Done");
+    });
+  });
 });
 
 //Dialogs Page
