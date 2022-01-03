@@ -2,22 +2,23 @@ import SectionDialogs from './SectionDialogs';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { getDialogs } from '../../../redux/dialogs-reducer';
+import { getDialogPersons } from '../../../redux/dialogs-reducer';
+import useUser from '../../../hooks/useUser';
 
-function SectionDialogsApiContainer({ state, dispatch, getDialogs }) {
+function SectionDialogsApiContainer({ state, getDialogPersons }) {
   const [isLoading, setIsLoading] = useState(true); // maybe should make global useState
-
+  const { user: {id} } = useUser();
+  // need to fetch person's dialog
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get('/dialogs')
-      .finally(() => setIsLoading(false))
+      .get(`/dialogs/${id}`)
       .then((response) => response.data)
-      .then((data) => getDialogs(...data))
+      .then((data) => getDialogPersons(data))
       .catch((err) => console.error(err));
   }, []);
 
-  return <SectionDialogs state={state} dispatch={dispatch} />;
+  return <SectionDialogs state={state} />;
 }
 
 function mapStateToProps(state) {
@@ -28,9 +29,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch: dispatch,
-    getDialogs: (arr) => {
-      const action = getDialogs(arr);
+    getDialogPersons: (arr) => {
+      const action = getDialogPersons(arr);
 
       dispatch(action);
     },

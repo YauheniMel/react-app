@@ -3,8 +3,8 @@ export const createMessage = (content) => ({
   type: 'CREATE-MESSAGE',
   content,
 });
-export const getDialogs = (content) => ({
-  type: 'GET-DIALOGS',
+export const getDialogPersons = (content) => ({
+  type: 'GET-DIALOG-PERSONS',
   content,
 });
 
@@ -38,13 +38,11 @@ function dialogsReducer(state = initState, action) {
 
       return stateCopy;
     }
-    case 'GET-DIALOGS': {
+    case 'GET-DIALOG-PERSONS': {
       const stateCopy = {
         ...state,
-        persons: [...action.content.persons],
-        messages: [...action.content.messages],
+        persons: [...action.content]
       };
-      stateCopy.messageContent = action.content;
 
       return stateCopy;
     }

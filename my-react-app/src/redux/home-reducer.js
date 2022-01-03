@@ -14,11 +14,11 @@ export const getPhotos = (content) => ({
 });
 
 const initState = {
-  firstName: 'Yauheni',
-  lastName: 'Melnik',
-  date: '29.06.1991',
-  postContent: 'play guitar',
-  credoContent: 'always work on yourself',
+  firstName: '',
+  lastName: '',
+  date: '',
+  postContent: '',
+  credoContent: '',
   initCredo: '',
   initPost: '',
   photos: [],
@@ -49,10 +49,10 @@ function homeReducer(state = initState, action) {
       return stateCopy;
     }
     case 'GET-PHOTOS': {
-      const stateCopy = {
-        ...state,
-        photos: [...action.content],
-      };
+
+      const stateCopy = { ...state };
+      stateCopy.photos = [...action.content];
+
       return stateCopy;
     }
     default:
