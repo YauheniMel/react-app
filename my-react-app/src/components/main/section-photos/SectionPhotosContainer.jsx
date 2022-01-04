@@ -35,11 +35,15 @@ function SectionPhotosAPIContainer({ photos, getPhotos, match }) {
     requestAPI
       .getPhotos(id, currentPage)
       .then((data) => {
-        getPhotos(data)
+        getPhotos(data);
 
         setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {

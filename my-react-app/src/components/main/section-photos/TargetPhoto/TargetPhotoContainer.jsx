@@ -21,7 +21,11 @@ function TargetPhotoApiContainer({ targetPhoto, match, getTargetPhoto }) {
 
         setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }, [match.params.photoId]);
 
   return (

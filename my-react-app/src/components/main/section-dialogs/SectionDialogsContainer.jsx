@@ -21,10 +21,14 @@ function SectionDialogsApiContainer({ state, getDialogPersons }) {
 
         setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }, []);
 
-  return <SectionDialogs state={state} isLoading={isLoading}/>;
+  return <SectionDialogs state={state} isLoading={isLoading} />;
 }
 
 function mapStateToProps(state) {

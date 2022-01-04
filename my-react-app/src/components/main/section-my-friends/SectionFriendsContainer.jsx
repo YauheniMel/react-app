@@ -23,7 +23,11 @@ function SectionFriendsApiContainer({ friends, getFriends, match }) {
 
         setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {
