@@ -17,10 +17,12 @@ function TargetUserApiContainer({ user, getTargetUser, match }) {
 
     requestAPI
       .getTargetUser(match.params.userId) // maybe there's bad practice
-      .then((data) => getTargetUser(...data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getTargetUser(...data);
 
-    setIsLoading(false);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
   }, [targetUser, match.params.userId]);
 
   return (

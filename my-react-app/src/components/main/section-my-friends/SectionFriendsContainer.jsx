@@ -18,10 +18,12 @@ function SectionFriendsApiContainer({ friends, getFriends, match }) {
 
     requestAPI
       .getFriends(id, currentPage)
-      .then((data) => getFriends(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getFriends(data);
 
-    setIsLoading(false);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {

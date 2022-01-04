@@ -28,10 +28,12 @@ function SectionUsersAPIContainer({
 
     requestAPI
       .getUsers(id, currentPage)
-      .then((data) => getUsers(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getUsers(data);
 
-    setIsLoading(false);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {

@@ -34,10 +34,12 @@ function SectionPhotosAPIContainer({ photos, getPhotos, match }) {
 
     requestAPI
       .getPhotos(id, currentPage)
-      .then((data) => getPhotos(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getPhotos(data)
 
-    setIsLoading(false);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
