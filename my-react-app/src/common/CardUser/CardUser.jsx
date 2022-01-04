@@ -2,7 +2,6 @@ import React from 'react';
 import style from './CardUser.module.scss';
 import { LinguaContext } from '../../contexts/LinguaContext';
 import useUser from '../../hooks/useUser';
-import { requestAPI } from '../../api/api';
 
 export default function CardUser({
   photo,
@@ -13,6 +12,7 @@ export default function CardUser({
   setFollow,
   setUnfollow,
   userId,
+  followingInProgress,
 }) {
   const {
     user: { id },
@@ -34,27 +34,15 @@ export default function CardUser({
           <p>{post}</p>
           {isFriend ? (
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-
-                requestAPI
-                  .delFriend(id, userId) // need to refact names
-                  .then(() => setUnfollow(userId))
-                  .catch((err) => console.error(err));
-              }}
+              disabled={followingInProgress.some((item) => item == userId)}
+              onClick={() => setUnfollow(id, userId)}
             >
               {language.usersCard.unfollow}
             </button>
           ) : (
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-
-                requestAPI
-                  .addFriend(id, userId)
-                  .then(() => setFollow(userId))
-                  .catch((err) => console.error(err));
-              }}
+              disabled={followingInProgress.some((item) => item == userId)}
+              onClick={() => setFollow(id, userId)}
             >
               {language.usersCard.follow}
             </button>

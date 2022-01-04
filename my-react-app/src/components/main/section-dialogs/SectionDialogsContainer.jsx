@@ -16,11 +16,19 @@ function SectionDialogsApiContainer({ state, getDialogPersons }) {
 
     requestAPI
       .getDialogPersons(id)
-      .then((data) => getDialogPersons(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getDialogPersons(data);
+
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }, []);
 
-  return <SectionDialogs state={state} />;
+  return <SectionDialogs state={state} isLoading={isLoading} />;
 }
 
 function mapStateToProps(state) {

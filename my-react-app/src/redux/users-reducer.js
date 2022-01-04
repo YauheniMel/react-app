@@ -14,10 +14,21 @@ export const getTargetUser = (content) => ({
   type: 'GET-TARGET-USER',
   content,
 });
+export const usersIsFetching = (content) => ({
+  type: 'USERS-IS-FETCHING',
+  content: content,
+});
+export const toggleIsFollowing = (isActive, id) => ({
+  type: 'TOGGLE-IS-FOLLOWING',
+  isActive: isActive,
+  id: id,
+});
 
 const initState = {
   users: [],
   targetUser: {},
+  isFetching: false,
+  followingInProgress: [],
 };
 
 function usersReducer(state = initState, action) {
@@ -65,6 +76,24 @@ function usersReducer(state = initState, action) {
       const stateCopy = {
         ...state,
         targetUser: { ...action.targetUser },
+      };
+
+      return stateCopy;
+    }
+    case 'USERS-IS-FETCHING': {
+      const stateCopy = {
+        ...state,
+        isFetching: action.content,
+      };
+
+      return stateCopy;
+    }
+    case 'TOGGLE-IS-FOLLOWING': {
+      const stateCopy = {
+        ...state,
+        followingInProgress: action.isActive
+          ? [...state.followingInProgress, action.id]
+          : state.followingInProgress.filter((item) => item != action.id),
       };
 
       return stateCopy;

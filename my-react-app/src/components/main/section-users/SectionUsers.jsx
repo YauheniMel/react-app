@@ -12,8 +12,9 @@ export default function SectionUsers({
   unfollow,
   currentPage,
   setCurrentPage,
-  isLoading,
+  isFetching,
   match,
+  followingInProgress,
 }) {
   const list = users.map((user) => {
     return (
@@ -27,6 +28,7 @@ export default function SectionUsers({
         isFriend={user.isFriend} // state changed
         setFollow={follow}
         setUnfollow={unfollow}
+        followingInProgress={followingInProgress}
       />
       // </Link>
     );
@@ -37,7 +39,7 @@ export default function SectionUsers({
       <TargetUserContainer match={match} />
       <div className={style.users}>{list}</div>
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {isLoading && <Spinner />}
+      {isFetching && <Spinner />}
     </section>
   );
 }

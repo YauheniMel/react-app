@@ -16,10 +16,16 @@ function TargetPhotoApiContainer({ targetPhoto, match, getTargetPhoto }) {
 
     requestAPI
       .getTargetPhoto(match.params.photoId)
-      .then((data) => getTargetPhoto(...data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getTargetPhoto(...data);
 
-    setIsLoading(false);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }, [match.params.photoId]);
 
   return (

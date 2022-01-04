@@ -2,6 +2,7 @@ import style from './SectionHome.module.scss';
 import Head from './head/Head';
 import Carousel from '../../../common/carousel/Carousel';
 import { DeskContainer } from './desk/DeskContainer';
+import Spinner from '../../../common/Spinner/Spinner';
 
 export default function SectionHome({
   state,
@@ -10,6 +11,7 @@ export default function SectionHome({
   sex,
   dateOfBirth,
   avatar,
+  isLoading,
 }) {
   return (
     <div className="section_wrap">
@@ -25,6 +27,7 @@ export default function SectionHome({
         />
         <DeskContainer avatar={avatar} />
         <Carousel photos={state.photos} />
+        {isLoading && <Spinner />}
       </section>
     </div>
   );

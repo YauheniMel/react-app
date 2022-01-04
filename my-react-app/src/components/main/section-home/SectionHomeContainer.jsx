@@ -16,10 +16,16 @@ function SectionHomeApiContainer({ state, getPhotos }) {
 
     requestAPI
       .getPhotos(id)
-      .then((data) => getPhotos(data))
-      .catch((err) => console.error(err));
+      .then((data) => {
+        getPhotos(data);
 
-    setIsLoading(false); // async func!
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -30,6 +36,7 @@ function SectionHomeApiContainer({ state, getPhotos }) {
       avatar={avatar}
       sex={sex}
       dateOfBirth={dateOfBirth}
+      isLoading={isLoading}
     />
   );
 }
