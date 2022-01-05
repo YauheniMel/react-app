@@ -1,33 +1,23 @@
 import SectionFriends from './SectionFriends';
 import { connect } from 'react-redux';
-import { getFriends } from '../../../redux/friend-reducer';
+import { getAllFriends } from '../../../redux/friend-reducer';
 import { useEffect, useState } from 'react';
 import useUser from '../../../hooks/useUser';
 import { withRouter } from 'react-router';
-import { requestAPI } from '../../../api/api';
 
-function SectionFriendsApiContainer({ friends, getFriends, match }) {
+function SectionFriendsApiContainer({
+  friends,
+  getFriends,
+  match,
+  isFetching,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState();
   const {
     user: { id },
   } = useUser();
 
-  function handleChangePage() {
-    setIsLoading(true);
-
-    requestAPI
-      .getFriends(id, currentPage)
-      .then((data) => {
-        getFriends(data);
-
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setIsLoading(false);
-      });
+  function handleChangePage(currentPage) {
+    getFriends(id, currentPage);
   }
 
   useEffect(() => {
@@ -37,7 +27,7 @@ function SectionFriendsApiContainer({ friends, getFriends, match }) {
   return (
     <SectionFriends
       friends={friends}
-      isLoading={isLoading}
+      isFetching={isFetching}
       setCurrentPage={setCurrentPage}
       currentPage={currentPage}
       match={match}
@@ -48,16 +38,13 @@ function SectionFriendsApiContainer({ friends, getFriends, match }) {
 function mapStateToProps(state) {
   return {
     friends: state.friendPage.friends,
+    isFetching: state.friendPage.isFetching,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getFriends: (arr) => {
-      const action = getFriends(arr);
-
-      dispatch(action);
-    },
+    getFriends: (id, currentPage) => dispatch(getAllFriends(id, currentPage)),
   };
 }
 

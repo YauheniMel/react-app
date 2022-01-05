@@ -9,7 +9,7 @@ export default function SectionPhotos({
   photos,
   currentPage,
   setCurrentPage,
-  isLoading,
+  isFetching,
   match,
 }) {
   const photoList = photos.map((photo) => {
@@ -25,7 +25,7 @@ export default function SectionPhotos({
       <TargetPhotoContainer match={match} />
       {photoList}
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {isLoading && <Spinner />}
+      {isFetching && <Spinner />}
     </section>
   );
 }

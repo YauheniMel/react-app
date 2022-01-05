@@ -11,15 +11,18 @@ import useUser from './hooks/useUser.js';
 function App() {
   const [language, setLanguage] = useState(languages.on);
   const [theme, setTheme] = useState(themes.on);
-  const { user } = useUser();
-
+  const { user, setUser } = useUser();
+  // there is a problem with auth
   return (
     <LinguaContext.Provider
       value={{ language: language, setLanguage: setLanguage }}
     >
       <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
         {user ? <Redirect to="/reactproject" /> : <Redirect to="/login" />}
-        <Route path="/login" render={() => <AuthPageContainer />} />
+        <Route
+          path="/login"
+          render={() => <AuthPageContainer setUser={setUser} />}
+        />
         <Route path="/signup" render={() => <SignUpPageContainer />} />
         <Route
           path="/reactproject"

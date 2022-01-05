@@ -1,31 +1,16 @@
 import SectionHome from './SectionHome';
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { getPhotos } from '../../../redux/home-reducer';
+import { useEffect } from 'react';
+import { getUser } from '../../../redux/home-reducer';
 import useUser from '../../../hooks/useUser';
-import { requestAPI } from '../../../api/api';
 
-function SectionHomeApiContainer({ state, getPhotos }) {
-  const [isLoading, setIsLoading] = useState();
+function SectionHomeApiContainer({ state, isFetching }) {
   const {
     user: { id, firstName, lastName, avatar, sex, dateOfBirth },
   } = useUser();
 
   useEffect(() => {
-    setIsLoading(true);
-
-    requestAPI
-      .getPhotos(id)
-      .then((data) => {
-        getPhotos(data);
-
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setIsLoading(false);
-      });
+    getUser(id);
   }, []);
 
   return (
@@ -36,7 +21,7 @@ function SectionHomeApiContainer({ state, getPhotos }) {
       avatar={avatar}
       sex={sex}
       dateOfBirth={dateOfBirth}
-      isLoading={isLoading}
+      isFetching={isFetching}
     />
   );
 }
@@ -44,16 +29,13 @@ function SectionHomeApiContainer({ state, getPhotos }) {
 function mapStateToProps(state) {
   return {
     state: state.homePage,
+    isFetching: state.homePage.isFetching,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPhotos: (arr) => {
-      const action = getPhotos(arr);
-
-      dispatch(action);
-    },
+    getUser: (id) => dispatch(getUser(id)),
   };
 }
 

@@ -7,7 +7,7 @@ import { TargetFriendContainer } from './TargetFriend/TargetFriendContainer';
 
 export default function SectionFriends({
   friends,
-  isLoading,
+  isFetching,
   currentPage,
   setCurrentPage,
   match,
@@ -29,7 +29,7 @@ export default function SectionFriends({
       <TargetFriendContainer match={match} />
       {friendList}
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {isLoading && <Spinner />}
+      {isFetching && <Spinner />}
     </section>
   );
 }

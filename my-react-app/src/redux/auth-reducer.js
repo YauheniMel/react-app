@@ -1,3 +1,5 @@
+import { requestAPI } from '../api/api';
+
 export const loginUser = () => ({ type: 'LOGIN-USER' });
 export const createUserLogin = (content) => ({
   type: 'CREATE-USER-LOGIN',
@@ -29,12 +31,6 @@ function authReducer(state = initState, action) {
     case 'LOGIN-USER': {
       const stateCopy = {
         ...state,
-        id: action.content.id,
-        firstName: action.content.firstName,
-        lastName: action.content.lastName,
-        dateOfBirth: action.content.dateOfBirth,
-        avatar: action.content.avatar,
-        sex: action.content.sex,
         isAuth: true,
       };
 
@@ -77,5 +73,13 @@ function authReducer(state = initState, action) {
       return state;
   }
 }
+
+export const login = (credentials, callback) => (dispatch) => {
+  requestAPI.login(credentials).then((data) => {
+    dispatch(setUserInfo(data));
+    dispatch(loginUser());
+    callback(data);
+  });
+};
 
 export default authReducer;

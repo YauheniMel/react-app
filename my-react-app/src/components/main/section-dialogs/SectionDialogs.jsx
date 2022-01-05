@@ -4,7 +4,7 @@ import ColumnPerson from './column_person/ColumnPerson';
 import { RedactorMessageContainer } from './redactor-message/RedactorMessageContainer';
 import style from './SectionDialogs.module.css';
 
-export default function SectionDialogs({ state, isLoading }) {
+export default function SectionDialogs({ state, isFetching }) {
   return (
     <div className="section_wrap">
       <section className={style.section}>
@@ -12,7 +12,7 @@ export default function SectionDialogs({ state, isLoading }) {
         <ColumnDialog messages={state.messages} />
         <RedactorMessageContainer state={state} />
       </section>
-      {isLoading && <Spinner />}
+      {isFetching && <Spinner />}
     </div>
   );
 }
