@@ -11,7 +11,7 @@ export default function SectionHome({
   sex,
   dateOfBirth,
   avatar,
-  isLoading,
+  isFetching,
 }) {
   return (
     <div className="section_wrap">
@@ -27,7 +27,7 @@ export default function SectionHome({
         />
         <DeskContainer avatar={avatar} />
         <Carousel photos={state.photos} />
-        {isLoading && <Spinner />}
+        {isFetching && <Spinner />}
       </section>
     </div>
   );

@@ -1,3 +1,5 @@
+import { requestAPI } from '../api/api';
+
 export const followUser = (id) => ({
   type: 'FOLLOW-USER',
   id,
@@ -102,5 +104,56 @@ function usersReducer(state = initState, action) {
       return state;
   }
 }
+
+export const getAllUsers = (id, currentPage) => (dispatch) => {
+  dispatch(usersIsFetching(true));
+
+  requestAPI
+    .getUsers(id, currentPage)
+    .then((data) => {
+      dispatch(getUsers(data));
+
+      dispatch(usersIsFetching(false));
+    })
+    .catch((err) => {
+      console.error(err);
+
+      dispatch(usersIsFetching(false));
+    });
+};
+
+export const unfollow = (id, userId) => (dispatch) => {
+  dispatch(toggleIsFollowing(true, userId));
+
+  requestAPI
+    .delFriend(id, userId)
+    .then(() => {
+      dispatch(unFollowUser(userId));
+
+      dispatch(toggleIsFollowing(false, userId));
+    })
+    .catch((err) => {
+      console.error(err);
+
+      dispatch(toggleIsFollowing(false, userId));
+    });
+};
+
+export const follow = (id, userId) => (dispatch) => {
+  dispatch(toggleIsFollowing(true, userId));
+
+  requestAPI
+    .addFriend(id, userId)
+    .then(() => {
+      dispatch(followUser(userId));
+
+      dispatch(toggleIsFollowing(false, userId));
+    })
+    .catch((err) => {
+      console.error(err);
+
+      dispatch(toggleIsFollowing(false, userId));
+    });
+};
 
 export default usersReducer;

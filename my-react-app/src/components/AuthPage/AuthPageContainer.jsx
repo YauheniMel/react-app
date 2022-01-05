@@ -1,43 +1,28 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { requestAPI } from '../../api/api';
-import useUser from '../../hooks/useUser';
 import {
   createUserLogin,
   createUserPassword,
-  loginUser,
-  setUserInfo,
+  login,
 } from '../../redux/auth-reducer';
 import AuthPage from './AuthPage';
 
 function AuthPageApiContainer({
   createUserLogin,
   createUserPassword,
-  loginUser,
+  login,
   state,
-  setUserInfo,
+  setUser,
 }) {
-  const { user, setUser } = useUser();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-  useEffect(() => {
-    if (user) setUserInfo(user);
-  }, [user]);
-
-  async function getUser(credentials) {
-    return requestAPI.login(credentials);
-  }
-
-  async function handleSubmit() {
     const credentials = {
       login: state.loginValue,
       password: state.passwordValue,
     };
 
-    const user = await getUser(credentials);
-    setUser(user);
-
-    loginUser();
+    login(credentials, setUser);
   }
 
   return (
@@ -59,13 +44,6 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loginUser: () => {
-      event.preventDefault();
-
-      const action = loginUser();
-
-      dispatch(action);
-    },
     createUserPassword: (elem) => {
       const value = elem.current.value;
 
@@ -80,11 +58,7 @@ function mapDispatchToProps(dispatch) {
 
       dispatch(action);
     },
-    setUserInfo: (obj) => {
-      const action = setUserInfo(obj);
-
-      dispatch(action);
-    },
+    login: (credentials, callback) => dispatch(login(credentials, callback)),
   };
 }
 
