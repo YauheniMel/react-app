@@ -6,7 +6,7 @@ import useUser from '../../../hooks/useUser';
 
 function SectionHomeApiContainer({ state, isFetching }) {
   const {
-    user: { id, firstName, lastName, avatar, sex, dateOfBirth },
+    user: { id, firstName, lastName, avatar, sex, dateOfBirth }
   } = useUser();
 
   useEffect(() => {
@@ -29,13 +29,13 @@ function SectionHomeApiContainer({ state, isFetching }) {
 function mapStateToProps(state) {
   return {
     state: state.homePage,
-    isFetching: state.homePage.isFetching,
+    isFetching: state.homePage.isFetching
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getUser: (id) => dispatch(getUser(id)),
+    getUser: (id) => dispatch(getUser(id))
   };
 }
 

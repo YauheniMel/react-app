@@ -1,16 +1,14 @@
 @import '../../../../../styles/variables';
 
 .person {
-	border-top: 2px solid $bg_main-light;
-
-	font-size: 16px;
-	font-weight: 500;
-	padding: 3px 4px;
+  border-top: 2px solid $bg_main-light;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 3px 4px;
 }
 
 .link {
-
-	color: $tx_dark;
-	font-size: 16px;
-	text-decoration: none;
+  color: $tx_dark;
+  font-size: 16px;
+  text-decoration: none;
 }

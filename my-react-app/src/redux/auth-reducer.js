@@ -3,15 +3,15 @@ import { requestAPI } from '../api/api';
 export const loginUser = () => ({ type: 'LOGIN-USER' });
 export const createUserLogin = (content) => ({
   type: 'CREATE-USER-LOGIN',
-  content,
+  content
 });
 export const createUserPassword = (content) => ({
   type: 'CREATE-USER-PASSWORD',
-  content,
+  content
 });
 export const setUserInfo = (content) => ({
   type: 'SET-USER-INFO',
-  content,
+  content
 });
 
 const initState = {
@@ -23,7 +23,7 @@ const initState = {
   lastName: '',
   avatar: '',
   dateOfBirth: '',
-  sex: '',
+  sex: ''
 };
 
 function authReducer(state = initState, action) {
@@ -31,7 +31,7 @@ function authReducer(state = initState, action) {
     case 'LOGIN-USER': {
       const stateCopy = {
         ...state,
-        isAuth: true,
+        isAuth: true
       };
 
       stateCopy.loginValue = '';
@@ -42,7 +42,7 @@ function authReducer(state = initState, action) {
     case 'CREATE-USER-LOGIN': {
       const stateCopy = {
         ...state,
-        loginValue: action.content,
+        loginValue: action.content
       };
 
       return stateCopy;
@@ -50,7 +50,7 @@ function authReducer(state = initState, action) {
     case 'CREATE-USER-PASSWORD': {
       const stateCopy = {
         ...state,
-        passwordValue: action.content,
+        passwordValue: action.content
       };
 
       return stateCopy;
@@ -64,7 +64,7 @@ function authReducer(state = initState, action) {
         dateOfBirth: action.content.dateOfBirth,
         avatar: action.content.avatar,
         sex: action.content.sex,
-        isAuth: true,
+        isAuth: true
       };
 
       return stateCopy;

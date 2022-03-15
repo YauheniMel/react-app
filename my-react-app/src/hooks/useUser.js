@@ -15,6 +15,6 @@ export default function useUser() {
 
   return {
     setUser: saveUser,
-    user,
+    user
   };
 }

@@ -12,10 +12,10 @@ export default function CardUser({
   setFollow,
   setUnfollow,
   userId,
-  followingInProgress,
+  followingInProgress
 }) {
   const {
-    user: { id },
+    user: { id }
   } = useUser();
 
   return (

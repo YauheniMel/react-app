@@ -1,10 +1,9 @@
 .wrapper {
-	margin: auto;
+  margin: auto;
+  max-width: 400px;
+  overflow: hidden;
 
-	max-width: 400px;
-	overflow: hidden;
-
-	img {
-		height: 400px;
-	}
+  img {
+    height: 400px;
+  }
 }

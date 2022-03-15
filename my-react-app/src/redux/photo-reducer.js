@@ -2,21 +2,21 @@ import { requestAPI } from '../api/api';
 
 export const getPhotos = (content) => ({
   type: 'GET-PHOTOS',
-  content,
+  content
 });
 export const getTargetPhoto = (content) => ({
   type: 'GET-TARGET-PHOTO',
-  content,
+  content
 });
 export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
-  content: value,
+  content: value
 });
 
 const initState = {
   photos: [],
   targetPhoto: {},
-  isFetching: false,
+  isFetching: false
 };
 
 function photoReducer(state = initState, action) {
@@ -24,7 +24,7 @@ function photoReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content],
+        photos: [...action.content]
       };
 
       return stateCopy;
@@ -32,7 +32,7 @@ function photoReducer(state = initState, action) {
     case 'GET-TARGET-PHOTO': {
       const stateCopy = {
         ...state,
-        targetPhoto: { ...action.content },
+        targetPhoto: { ...action.content }
       };
 
       return stateCopy;

@@ -22,7 +22,7 @@ export const requestAPI = {
   login(credentials) {
     return axios
       .post('/login', {
-        body: JSON.stringify(credentials),
+        body: JSON.stringify(credentials)
       })
       .then((response) => response.data);
   },
@@ -44,5 +44,5 @@ export const requestAPI = {
   },
   getTargetUser(userId) {
     return axios.get(`/user/${userId}`).then((response) => response.data);
-  },
+  }
 };

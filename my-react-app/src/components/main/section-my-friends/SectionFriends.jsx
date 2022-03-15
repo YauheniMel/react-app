@@ -10,7 +10,7 @@ export default function SectionFriends({
   isFetching,
   currentPage,
   setCurrentPage,
-  match,
+  match
 }) {
   const friendList = friends.map((friend) => {
     return (

@@ -7,11 +7,11 @@ function SidebarApiContainer({ state }) {
 
 function mapStateToProps(state) {
   return {
-    state: state,
+    state: state
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
   return {};
 }
 

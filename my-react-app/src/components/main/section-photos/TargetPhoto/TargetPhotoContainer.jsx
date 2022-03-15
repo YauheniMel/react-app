@@ -39,7 +39,7 @@ function TargetPhotoApiContainer({ targetPhoto, match, getTargetPhoto }) {
 
 function mapStateToProps(state) {
   return {
-    targetPhoto: state.photoPage.targetPhoto,
+    targetPhoto: state.photoPage.targetPhoto
   };
 }
 
@@ -49,7 +49,7 @@ function mapDispatchToProps(dispatch) {
       const action = getTargetPhoto(obj);
 
       dispatch(action);
-    },
+    }
   };
 }
 

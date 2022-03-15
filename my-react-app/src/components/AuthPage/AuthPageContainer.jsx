@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   createUserLogin,
   createUserPassword,
-  login,
+  login
 } from '../../redux/auth-reducer';
 import AuthPage from './AuthPage';
 
@@ -12,14 +12,14 @@ function AuthPageApiContainer({
   createUserPassword,
   login,
   state,
-  setUser,
+  setUser
 }) {
   function handleSubmit(event) {
     event.preventDefault();
 
     const credentials = {
       login: state.loginValue,
-      password: state.passwordValue,
+      password: state.passwordValue
     };
 
     login(credentials, setUser);
@@ -38,7 +38,7 @@ function AuthPageApiContainer({
 function mapStateToProps(state, ownProps) {
   return {
     state: state.auth,
-    setUser: ownProps.setUser,
+    setUser: ownProps.setUser
   };
 }
 
@@ -58,7 +58,7 @@ function mapDispatchToProps(dispatch) {
 
       dispatch(action);
     },
-    login: (credentials, callback) => dispatch(login(credentials, callback)),
+    login: (credentials, callback) => dispatch(login(credentials, callback))
   };
 }
 

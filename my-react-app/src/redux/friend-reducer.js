@@ -2,21 +2,21 @@ import { requestAPI } from '../api/api';
 
 export const getFriends = (content) => ({
   type: 'GET-FRIENDS',
-  content,
+  content
 });
 export const getTargetFriend = (content) => ({
   type: 'GET-TARGET-FRIEND',
-  content,
+  content
 });
 export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
-  content: value,
+  content: value
 });
 
 const initState = {
   friends: [],
   targetFriend: {},
-  isFetching: false,
+  isFetching: false
 };
 
 function friendReducer(state = initState, action) {
@@ -24,21 +24,21 @@ function friendReducer(state = initState, action) {
     case 'GET-FRIENDS': {
       const stateCopy = {
         ...state,
-        friends: [...action.content],
+        friends: [...action.content]
       };
       return stateCopy;
     }
     case 'GET-TARGET-FRIEND': {
       const stateCopy = {
         ...state,
-        targetFriend: { ...action.content },
+        targetFriend: { ...action.content }
       };
       return stateCopy;
     }
     case 'SET-IS-FETCHING': {
       const stateCopy = {
         ...state,
-        isFetching: action.content,
+        isFetching: action.content
       };
 
       return stateCopy;

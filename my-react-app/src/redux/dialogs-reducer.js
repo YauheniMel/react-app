@@ -3,22 +3,22 @@ import { requestAPI } from '../api/api';
 export const sendMessage = () => ({ type: 'SEND-MESSAGE' });
 export const createMessage = (content) => ({
   type: 'CREATE-MESSAGE',
-  content,
+  content
 });
 export const getDialogPersons = (content) => ({
   type: 'GET-DIALOG-PERSONS',
-  content,
+  content
 });
 export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
-  content: value,
+  content: value
 });
 
 const initState = {
   persons: [],
   messages: [],
   messageContent: '',
-  isFetching: false,
+  isFetching: false
 };
 
 function dialogsReducer(state = initState, action) {
@@ -27,12 +27,12 @@ function dialogsReducer(state = initState, action) {
       const newMessage = {
         id: +new Date(),
         content: state.messageContent,
-        isMy: true,
+        isMy: true
       };
 
       const stateCopy = {
         ...state,
-        messages: [...state.messages, newMessage],
+        messages: [...state.messages, newMessage]
       };
 
       stateCopy.messageContent = '';
@@ -48,7 +48,7 @@ function dialogsReducer(state = initState, action) {
     case 'GET-DIALOG-PERSONS': {
       const stateCopy = {
         ...state,
-        persons: [...action.content],
+        persons: [...action.content]
       };
 
       return stateCopy;
@@ -56,7 +56,7 @@ function dialogsReducer(state = initState, action) {
     case 'SET-IS-FETCHING': {
       const stateCopy = {
         ...state,
-        isFetching: action.content,
+        isFetching: action.content
       };
 
       return stateCopy;

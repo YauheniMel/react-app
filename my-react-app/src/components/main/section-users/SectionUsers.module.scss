@@ -1,11 +1,10 @@
 .section {
+  height: inherit;
+  overflow: auto;
 
-	height: inherit;
-	overflow: auto;
-
-	.users {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-	}
+  .users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }

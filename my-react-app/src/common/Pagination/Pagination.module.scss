@@ -1,18 +1,18 @@
 .wrap {
-	bottom: 50px;
-	display: flex;
-	font-size: 16px;
-	font-weight: bold;
-	justify-content: space-between;
-	padding: 10px;
-	position: absolute;
-	width: 100px;
+  bottom: 50px;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: space-between;
+  padding: 10px;
+  position: absolute;
+  width: 100px;
 }
 
 .arrow {
-	cursor: pointer;
+  cursor: pointer;
 
-	:hover {
-		font-weight: bolder;
-	}
+  :hover {
+    font-weight: bolder;
+  }
 }

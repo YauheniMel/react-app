@@ -187,7 +187,7 @@ app.get('/dialogs/:id', (req, res) => {
             const userName = {
               firstName: item2.firstName,
               lastName: item2.lastName,
-              id: item2.id,
+              id: item2.id
             };
 
             usersName.push(userName);
@@ -220,7 +220,7 @@ app.post('/login', (req, res) => {
     if (user) {
       // check login
       res.status(200).send({
-        ...user,
+        ...user
       });
     } else {
       res.status(300).send('Fail'); // what kind of error?

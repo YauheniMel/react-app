@@ -4,7 +4,7 @@ export const languages = {
   off: {
     header: {
       language: 'Выберите язык',
-      theme: 'Выбрать тему',
+      theme: 'Выбрать тему'
     },
     sidebar: {
       home: 'Главная',
@@ -12,25 +12,25 @@ export const languages = {
       myFriends: 'Мои друзья',
       photos: 'Фото',
       settings: 'Настройки',
-      users: 'Пользователи',
+      users: 'Пользователи'
     },
     desk: {
       credo: 'Мое кредо:',
-      post: 'Мой пост:',
+      post: 'Мой пост:'
     },
     redactorDialog: {
       send: 'Отправить',
-      cancel: 'Отмена',
+      cancel: 'Отмена'
     },
     usersCard: {
       follow: 'Дружить',
-      unfollow: 'Не дружить',
-    },
+      unfollow: 'Не дружить'
+    }
   },
   on: {
     header: {
       language: 'Select language',
-      theme: 'Select theme',
+      theme: 'Select theme'
     },
     sidebar: {
       home: 'Home',
@@ -38,21 +38,21 @@ export const languages = {
       myFriends: 'My friend',
       photos: 'Photos',
       settings: 'Settings',
-      users: 'Users',
+      users: 'Users'
     },
     desk: {
       credo: 'My credo:',
-      post: 'My post:',
+      post: 'My post:'
     },
     redactorDialog: {
       send: 'Send',
-      cancel: 'Cancel',
+      cancel: 'Cancel'
     },
     usersCard: {
       follow: 'Follow',
-      unfollow: 'Unfollow',
-    },
-  },
+      unfollow: 'Unfollow'
+    }
+  }
 };
 
 export const LinguaContext = React.createContext();

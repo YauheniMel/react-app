@@ -6,7 +6,7 @@ import useUser from '../../../hooks/useUser';
 
 function SectionDialogsApiContainer({ state, getPersons, isFetching }) {
   const {
-    user: { id },
+    user: { id }
   } = useUser();
   // need to fetch person's dialog
   useEffect(() => {
@@ -19,13 +19,13 @@ function SectionDialogsApiContainer({ state, getPersons, isFetching }) {
 function mapStateToProps(state) {
   return {
     state: state.dialogsPage,
-    isFetching: state.dialogsPage.isFetching,
+    isFetching: state.dialogsPage.isFetching
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPersons: (id) => dispatch(getPersons(id)),
+    getPersons: (id) => dispatch(getPersons(id))
   };
 }
 

@@ -4,13 +4,13 @@ import {
   createCredoContent,
   createPostContent,
   setCredoContent,
-  setPostContent,
+  setPostContent
 } from '../../../../redux/home-reducer';
 
 function mapStateToProps(state, ownProps) {
   return {
     state: state.homePage,
-    avatar: ownProps.avatar,
+    avatar: ownProps.avatar
   };
 }
 
@@ -43,7 +43,7 @@ function mapDispatchToProps(dispatch) {
       const action = setPostContent();
 
       dispatch(action);
-    },
+    }
   };
 }
 

@@ -1,11 +1,13 @@
-.wrapper {
-	border: 2px solid gray;
-	height: 500px;
-	margin: auto;
-	overflow: hidden;
-	width: 300px;
+@import '../../../../styles/variables';
 
-	img {
-		width: 300px;
-	}
+.wrapper {
+  border: 2px solid $bg_light-light;
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+  width: 300px;
+
+  img {
+    width: 300px;
+  }
 }

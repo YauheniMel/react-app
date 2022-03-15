@@ -8,7 +8,7 @@ import useUser from '../../../hooks/useUser';
 function SectionPhotosAPIContainer({ photos, getPhotos, match, isFetching }) {
   const [currentPage, setCurrentPage] = useState(1);
   const {
-    user: { id },
+    user: { id }
   } = useUser();
 
   function handleChangePage(currentPage) {
@@ -33,13 +33,13 @@ function SectionPhotosAPIContainer({ photos, getPhotos, match, isFetching }) {
 function mapStateToProps(state) {
   return {
     photos: state.photoPage.photos,
-    isFetching: state.photoPage.isFetching,
+    isFetching: state.photoPage.isFetching
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPhotos: (id, currentPage) => dispatch(getAllPhotos(id, currentPage)),
+    getPhotos: (id, currentPage) => dispatch(getAllPhotos(id, currentPage))
   };
 }
 

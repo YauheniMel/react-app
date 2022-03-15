@@ -10,7 +10,7 @@ export default function Desk({
   createPostContent,
   setCredo,
   setPost,
-  avatar,
+  avatar
 }) {
   return (
     <LinguaContext.Consumer>

@@ -1,50 +1,48 @@
 .info {
-	display: inline-block;
-	font-size: 20px;
-	min-width: 300px;
+  display: inline-block;
+  font-size: 20px;
+  min-width: 300px;
 
-	.title {
-		display: inline-block;
-		position: relative;
-	}
+  .title {
+    display: inline-block;
+    position: relative;
+  }
 
-	.form {
-		position: absolute;
-		right: -100%;
-		top: 0;
+  .form {
+    position: absolute;
+    right: -100%;
+    top: 0;
 
-		.input {
-			background-color: transparent;
-			min-width: 10px;
-			// border: none;
-			outline: none;
-			width: 30px;
+    .input {
+      background-color: transparent;
+      min-width: 10px;
+      outline: none;
+      width: 30px;
 
-			&:hover {
-				border: none;
-			}
-		}
+      &:hover {
+        border: none;
+      }
+    }
 
-		.button {
-			background-color: transparent;
-			border: none;
-		}
+    .button {
+      background-color: transparent;
+      border: none;
+    }
 
-		.input:focus + .button {
-			opacity: 0;
-		}
-	}
+    .input:focus + .button {
+      opacity: 0;
+    }
+  }
 
-	.btn_editor {
-		background-color: transparent;
-		border: none;
-		font-size: 16px;
-		opacity: 0.3;
-		transform: rotate(90deg);
+  .btn_editor {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    opacity: 0.3;
+    transform: rotate(90deg);
 
-		&:hover {
-			opacity: 1;
-		}
-	}
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
-

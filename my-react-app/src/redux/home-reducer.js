@@ -2,21 +2,21 @@ import { requestAPI } from '../api/api';
 
 export const createCredoContent = (content) => ({
   type: 'CREATE-CREDO-CONTENT',
-  content,
+  content
 });
 export const createPostContent = (content) => ({
   type: 'CREATE-POST-CONTENT',
-  content,
+  content
 });
 export const setCredoContent = () => ({ type: 'SET-CREDO-CONTENT' });
 export const setPostContent = () => ({ type: 'SET-POST-CONTENT' });
 export const getPhotos = (content) => ({
   type: 'GET-PHOTOS',
-  content,
+  content
 });
 export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
-  content: value,
+  content: value
 });
 
 const initState = {
@@ -28,7 +28,7 @@ const initState = {
   initCredo: '',
   initPost: '',
   photos: [],
-  isFetching: false,
+  isFetching: false
 };
 
 function homeReducer(state = initState, action) {
@@ -64,7 +64,7 @@ function homeReducer(state = initState, action) {
     case 'SET-IS-FETCHING': {
       const stateCopy = {
         ...state,
-        isFetching: state.content,
+        isFetching: state.content
       };
 
       return stateCopy;

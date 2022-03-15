@@ -2,35 +2,35 @@ import { requestAPI } from '../api/api';
 
 export const followUser = (id) => ({
   type: 'FOLLOW-USER',
-  id,
+  id
 });
 export const unFollowUser = (id) => ({
   type: 'UNFOLLOW-USER',
-  id,
+  id
 });
 export const getUsers = (content) => ({
   type: 'GET-USERS',
-  content,
+  content
 });
 export const getTargetUser = (content) => ({
   type: 'GET-TARGET-USER',
-  content,
+  content
 });
 export const usersIsFetching = (content) => ({
   type: 'USERS-IS-FETCHING',
-  content: content,
+  content: content
 });
 export const toggleIsFollowing = (isActive, id) => ({
   type: 'TOGGLE-IS-FOLLOWING',
   isActive: isActive,
-  id: id,
+  id: id
 });
 
 const initState = {
   users: [],
   targetUser: {},
   isFetching: false,
-  followingInProgress: [],
+  followingInProgress: []
 };
 
 function usersReducer(state = initState, action) {
@@ -38,7 +38,7 @@ function usersReducer(state = initState, action) {
     case 'FOLLOW-USER': {
       const stateCopy = {
         ...state,
-        users: [...state.users],
+        users: [...state.users]
       };
 
       stateCopy.users = state.users.map((item) => {
@@ -54,7 +54,7 @@ function usersReducer(state = initState, action) {
     case 'UNFOLLOW-USER': {
       const stateCopy = {
         ...state,
-        users: [...state.users],
+        users: [...state.users]
       };
       stateCopy.users = state.users.map((item) => {
         if (item.id === action.id) {
@@ -69,7 +69,7 @@ function usersReducer(state = initState, action) {
     case 'GET-USERS': {
       const stateCopy = {
         ...state,
-        users: [...action.content],
+        users: [...action.content]
       };
 
       return stateCopy;
@@ -77,7 +77,7 @@ function usersReducer(state = initState, action) {
     case 'GET-TARGET-USER': {
       const stateCopy = {
         ...state,
-        targetUser: { ...action.targetUser },
+        targetUser: { ...action.targetUser }
       };
 
       return stateCopy;
@@ -85,7 +85,7 @@ function usersReducer(state = initState, action) {
     case 'USERS-IS-FETCHING': {
       const stateCopy = {
         ...state,
-        isFetching: action.content,
+        isFetching: action.content
       };
 
       return stateCopy;
@@ -95,7 +95,7 @@ function usersReducer(state = initState, action) {
         ...state,
         followingInProgress: action.isActive
           ? [...state.followingInProgress, action.id]
-          : state.followingInProgress.filter((item) => item != action.id),
+          : state.followingInProgress.filter((item) => item != action.id)
       };
 
       return stateCopy;

@@ -1,49 +1,40 @@
 @import '../../../styles/variables';
 
-.nav {
-}
-
 .list {
-
-	display: flex;
-	justify-content: space-between;
-	list-style: none;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
 }
 
 .item {
-	font-size: 20px;
-	font-weight: 400;
-
-	text-align: center;
-	width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
 }
 
 .link {
-
-	color: $tx_primary-light;
-	display: block;
-
-	padding: 5px;
-
-	text-decoration: none;
+  color: $tx_primary-light;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .link:hover {
-	background-color: $bg_active-light;
-	color: $tx_active-light;
+  background-color: $bg_active-light;
+  color: $tx_active-light;
 }
 
 //light theme
 
 .light {
-	background-color: $bg_main-light;
-	color: $tx_primary-light;
+  background-color: $bg_main-light;
+  color: $tx_primary-light;
 }
 
 //dark theme
 
 .dark {
-	background-color: $bg_main-dark;
-	color: $tx_primary-dark;
+  background-color: $bg_main-dark;
+  color: $tx_primary-dark;
 }
-

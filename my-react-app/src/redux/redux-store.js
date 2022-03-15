@@ -13,7 +13,7 @@ let reducers = combineReducers({
   friendPage: friendReducer,
   photoPage: photoReducer,
   usersPage: usersReducer,
-  auth: authReducer,
+  auth: authReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunk));

@@ -1,16 +1,13 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   createUserLogin,
   createUserPassword,
-  loginUser,
+  loginUser
 } from '../../redux/auth-reducer';
 import SignUpPage from './SignUpPage';
 
 function SignUpPageApiContainer() {
-  const [isLoading, setIsLoading] = useState();
-
   useEffect(() => {}, []);
 
   return (

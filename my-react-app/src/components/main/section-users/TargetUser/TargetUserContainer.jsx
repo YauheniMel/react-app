@@ -6,7 +6,7 @@ import { requestAPI } from '../../../../api/api';
 
 function TargetUserApiContainer({ user, getTargetUser, match }) {
   const [isLoading, setIsLoading] = useState();
-  const [targetUser, setTargetUser] = useState(4);
+  const [targetUser] = useState(4);
 
   useEffect(() => {
     if (!match.params.userId) return;
@@ -38,7 +38,7 @@ function TargetUserApiContainer({ user, getTargetUser, match }) {
 
 function mapStateToProps(state) {
   return {
-    user: state.usersPage.targetUser,
+    user: state.usersPage.targetUser
   };
 }
 
@@ -48,7 +48,7 @@ function mapDispatchToProps(dispatch) {
       const action = getTargetUser(obj);
 
       dispatch(action);
-    },
+    }
   };
 }
 

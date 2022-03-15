@@ -12,11 +12,11 @@ function SectionUsersAPIContainer({
   getUsers,
   match,
   isFetching,
-  followingInProgress,
+  followingInProgress
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const {
-    user: { id },
+    user: { id }
   } = useUser();
 
   function handleChangePage(currentPage) {
@@ -53,7 +53,7 @@ function mapStateToProps(state) {
   return {
     users: state.usersPage.users,
     isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    followingInProgress: state.usersPage.followingInProgress
   };
 }
 
@@ -61,7 +61,7 @@ function mapDispatchToProps(dispatch) {
   return {
     follow: (id, userId) => dispatch(follow(id, userId)),
     unfollow: (id, userId) => dispatch(unfollow(id, userId)),
-    getUsers: (id, currentPage) => dispatch(getAllUsers(id, currentPage)),
+    getUsers: (id, currentPage) => dispatch(getAllUsers(id, currentPage))
   };
 }
 

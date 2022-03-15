@@ -4,7 +4,7 @@ import style from './RedactorMessage.module.scss';
 export default function RedactorMessage({
   messageContent,
   sendMessage,
-  createMessage,
+  createMessage
 }) {
   const textareaMessageEl = React.createRef();
 

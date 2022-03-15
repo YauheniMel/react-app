@@ -1,30 +1,26 @@
+@import '../../styles/variables';
 
 .friend {
-	background: lightblue;
-
-	height: 130px;
-	margin: 3px;
-	width: 190px;
+  background: $bg_active-light;
+  height: 130px;
+  margin: 3px;
+  width: 190px;
 }
 
 .photo_wrap {
-	height: 90px;
-
-	overflow: hidden;
-
-	text-align: center;
-	width: 190px;
+  height: 90px;
+  overflow: hidden;
+  text-align: center;
+  width: 190px;
 }
 
 .photo {
-	width: 190px;
+  width: 190px;
 }
 
 .name {
-	font-size: 16px;
-
-	font-weight: 500;
-	margin: 10px;
-
-	text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  text-align: center;
 }

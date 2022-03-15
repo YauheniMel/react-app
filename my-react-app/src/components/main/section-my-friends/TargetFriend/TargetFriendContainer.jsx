@@ -35,7 +35,7 @@ function TargetFriendApiContainer({ match, targetFriend, getTargetFriend }) {
 
 function mapStateToProps(state) {
   return {
-    targetFriend: state.friendPage.targetFriend,
+    targetFriend: state.friendPage.targetFriend
   };
 }
 
@@ -45,7 +45,7 @@ function mapDispatchToProps(dispatch) {
       const action = getTargetFriend(obj);
 
       dispatch(action);
-    },
+    }
   };
 }
 

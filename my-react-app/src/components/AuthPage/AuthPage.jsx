@@ -6,7 +6,7 @@ export default function AuthPage({
   onChangeLogin,
   onChangePassword,
   state,
-  onSubmit,
+  onSubmit
 }) {
   const refLogin = React.createRef();
   const refPassword = React.createRef();

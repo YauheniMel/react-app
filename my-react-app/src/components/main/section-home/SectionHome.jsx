@@ -11,7 +11,7 @@ export default function SectionHome({
   sex,
   dateOfBirth,
   avatar,
-  isFetching,
+  isFetching
 }) {
   return (
     <div className="section_wrap">

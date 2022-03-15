@@ -9,11 +9,11 @@ function SectionFriendsApiContainer({
   friends,
   getFriends,
   match,
-  isFetching,
+  isFetching
 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const {
-    user: { id },
+    user: { id }
   } = useUser();
 
   function handleChangePage(currentPage) {
@@ -38,13 +38,13 @@ function SectionFriendsApiContainer({
 function mapStateToProps(state) {
   return {
     friends: state.friendPage.friends,
-    isFetching: state.friendPage.isFetching,
+    isFetching: state.friendPage.isFetching
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getFriends: (id, currentPage) => dispatch(getAllFriends(id, currentPage)),
+    getFriends: (id, currentPage) => dispatch(getAllFriends(id, currentPage))
   };
 }
 

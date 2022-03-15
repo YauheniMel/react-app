@@ -1,19 +1,17 @@
 @import '../../styles/variables';
 
 .wrap {
-	background-color: $bg_light-light;
-	border-radius: 14px;
-	height: 400px;
-	overflow: hidden;
-	width: 200px;
+  background-color: $bg_light-light;
+  border-radius: 14px;
+  height: 400px;
+  overflow: hidden;
+  width: 200px;
 
-	* {
-		color: $tx_dark;
-	}
+  * {
+    color: $tx_dark;
+  }
 }
 
 .photo {
-	height: 100px;
+  height: 100px;
 }
-
-

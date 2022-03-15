@@ -2,7 +2,7 @@ import style from './Person.module.scss';
 
 import { NavLink } from 'react-router-dom';
 
-function Person(props, { id, getDialog }) {
+function Person(props) {
   // make id and getDialog-action
   return (
     <div className={style.person}>

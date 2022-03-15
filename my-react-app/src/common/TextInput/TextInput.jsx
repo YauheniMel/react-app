@@ -6,7 +6,7 @@ export default function TextInput({
   content,
   value,
   onSubmit,
-  onChange,
+  onChange
 }) {
   const ref = React.createRef();
 

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    messageContent: state.dialogsPage.messageContent,
+    messageContent: state.dialogsPage.messageContent
   };
 }
 
@@ -24,7 +24,7 @@ function mapDispatchToProps(dispatch) {
       const action = createMessage(value);
 
       dispatch(action);
-    },
+    }
   };
 }
 

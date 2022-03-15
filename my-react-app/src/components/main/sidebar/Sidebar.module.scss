@@ -1,29 +1,29 @@
 @import '../../../styles/variables';
 
 .aside {
-	align-self: baseline;
-	margin: 5px;
-	position: sticky;
-	top: 155px;
-	width: 300px;
+  align-self: baseline;
+  margin: 5px;
+  position: sticky;
+  top: 155px;
+  width: 300px;
 }
 
 .list {
-	list-style: none;
+  list-style: none;
 }
 
 .item {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 //light theme
 
 .light {
-	background-color: $bg_main-light;
+  background-color: $bg_main-light;
 }
 
 //dark theme
 
 .dark {
-	background-color: $bg_dark;
+  background-color: $bg_dark;
 }

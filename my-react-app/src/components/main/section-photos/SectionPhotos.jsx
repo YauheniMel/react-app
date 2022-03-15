@@ -10,7 +10,7 @@ export default function SectionPhotos({
   currentPage,
   setCurrentPage,
   isFetching,
-  match,
+  match
 }) {
   const photoList = photos.map((photo) => {
     return (

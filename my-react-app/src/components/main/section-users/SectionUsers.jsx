@@ -4,7 +4,6 @@ import style from './SectionUsers.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { TargetUserContainer } from './TargetUser/TargetUserContainer';
-import Link from '../../../common/Link/Link';
 
 export default function SectionUsers({
   users,
@@ -14,7 +13,7 @@ export default function SectionUsers({
   setCurrentPage,
   isFetching,
   match,
-  followingInProgress,
+  followingInProgress
 }) {
   const list = users.map((user) => {
     return (
