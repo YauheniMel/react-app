@@ -1,0 +1,15 @@
+@import './variables';
+
+::-webkit-scrollbar {
+  background-color: $track;
+  height: 6px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $thumb;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $thumb_active;
+}

@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+
+.wrapper {
+  align-items: center;
+  column-gap: 10px;
+  display: flex;
+}
+
+.title {
+  color: $tx_primary-light;
+  margin: 0;
+}
+
+.toggleContainer {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  position: relative;
+  white-space: nowrap;
+  width: 76px;
+}
+
+.checkbox {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.label {
+  border-radius: 20px;
+  display: block;
+  overflow: hidden;
+}
+
+.after,
+.before {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  height: 34px;
+  line-height: 35px;
+  width: 80px;
+}
+
+.before {
+  background-color: $bg_main-light;
+  color: $tx_primary-light;
+  margin-left: -80px;
+  padding-left: 10px;
+  transition: all 0.3s ease-in;
+}
+
+.after {
+  background-color: $bg_light-light;
+  color: $tx_dark;
+  padding-right: 14px;
+  text-align: right;
+}
+
+.switch {
+  background: $dark_color;
+  border: 0 solid;
+  border-radius: 20px;
+  display: block;
+  height: 34px;
+  position: absolute;
+  right: 46px;
+  top: 0;
+  transition: right 0.3s ease-in;
+  width: 34px;
+}
+
+.checkbox:checked + .label {
+  .before {
+    margin-left: 0;
+  }
+
+  .switch {
+    right: -8px;
+  }
+}

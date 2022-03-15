@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.carousel {
+  position: relative;
+}
+
+.photos {
+  height: 186px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.image_wrap {
+  display: inline-block;
+  height: 160px;
+  margin: 10px 6px;
+  overflow: hidden;
+  width: 160px;
+}
+
+.image {
+  height: 160px;
+}
+
+.button {
+  background-color: $bg_main-light;
+  border: none;
+  font-size: 30px;
+  height: 100%;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 40px;
+}
+
+.button:hover {
+  background-color: $bg_main-light;
+  opacity: 1;
+}
+
+.button_left {
+  left: 0;
+}
+
+.button_right {
+  right: 0;
+}

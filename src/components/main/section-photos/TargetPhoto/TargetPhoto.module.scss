@@ -1,0 +1,13 @@
+@import '../../../../styles/variables';
+
+.wrapper {
+  border: 2px solid $bg_light-light;
+  height: 500px;
+  margin: auto;
+  overflow: hidden;
+  width: 300px;
+
+  img {
+    width: 300px;
+  }
+}
