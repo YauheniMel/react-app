@@ -1,10 +1,10 @@
-@import './styles/customScroll';
-@import './styles/variables';
+@import "./styles/customScroll";
+@import "./styles/variables";
 
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 html {
@@ -23,38 +23,38 @@ body {
 }
 
 .container {
-  margin: 0 auto;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .section_wrap {
   display: inline-block;
+  width: 79%;
   margin: 5px auto;
   vertical-align: top;
-  width: 79%;
-}
-
-button {
-  background-color: $bg_light-light;
-  border: none;
-  color: $tx_dark;
-  font-size: 1rem;
-
-  &:active {
-    background-color: $bg_active-light;
-    color: $bg_light-light;
-  }
-}
-
-input {
-  font-size: 1rem;
-  outline: none;
-  border: none;
-  color: $tx_dark;
 }
 
 input,
 button,
 a {
   padding: 0.3rem 0.7rem;
+}
+
+button {
+  font-size: 1rem;
+  color: $tx_dark;
+  background-color: $bg_light-light;
+  border: none;
+
+  &:active {
+    color: $bg_light-light;
+    background-color: $bg_active-light;
+  }
+}
+
+input {
+  font-size: 1rem;
+  color: $tx_dark;
+  border: none;
+  outline: none;
 }

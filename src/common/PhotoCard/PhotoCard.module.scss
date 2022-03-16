@@ -1,11 +1,11 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .photo_wrap {
-  border: 1px solid $bg_light-light;
+  width: 190px;
   height: 200px;
   margin: 3px;
   overflow: hidden;
-  width: 190px;
+  border: 1px solid $bg_light-light;
 }
 
 .photo {

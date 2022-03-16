@@ -1,10 +1,10 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .header {
-  height: 13vh;
   position: sticky;
   top: 0;
   z-index: 1;
+  height: 13vh;
 }
 
 .container {
@@ -14,22 +14,20 @@
 }
 
 .input {
+  width: 300px;
+  height: 30px;
   border: none;
   border-radius: 4px;
-  height: 30px;
-  width: 300px;
 }
 
 //light theme
-
 .light {
-  background-color: $bg_dark;
   color: $tx_primary-light;
+  background-color: $bg_dark;
 }
 
 //dark theme
-
 .dark {
-  background-color: $bg_dark;
   color: $tx_primary-dark;
+  background-color: $bg_dark;
 }

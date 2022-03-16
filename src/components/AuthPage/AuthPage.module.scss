@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .container {
   display: flex;
@@ -10,24 +10,24 @@
   flex: 1;
 
   h2 {
+    padding-top: 2rem;
     font-size: 2rem;
     color: $tx_dark;
-    padding-top: 2rem;
   }
 }
 
 form {
   flex: 1;
-  background-color: $bg_main-light;
   padding: 1rem;
+  background-color: $bg_main-light;
 
   fieldset {
-    transform: translateY(-50%);
-    border: none;
-    margin: 0 auto;
     position: relative;
     top: 50%;
     max-width: 400px;
+    margin: 0 auto;
+    border: none;
+    transform: translateY(-50%);
   }
 
   legend {
@@ -36,8 +36,8 @@ form {
   }
 
   input {
-    margin: 1rem 0;
     width: 100%;
+    margin: 1rem 0;
 
     &:focus {
       outline: none;

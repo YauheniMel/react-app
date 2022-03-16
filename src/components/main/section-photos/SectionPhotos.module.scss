@@ -1,19 +1,19 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .section {
   display: flex;
   flex-wrap: wrap;
-  height: inherit;
   justify-content: space-around;
+  height: inherit;
   overflow: auto;
 }
 
 .photo_wrap {
-  border: 1px solid $bg_light-light;
+  width: 190px;
   height: 300px;
   margin: 3px;
   overflow: hidden;
-  width: 190px;
+  border: 1px solid $bg_light-light;
 }
 
 .photo {

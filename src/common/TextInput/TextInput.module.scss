@@ -1,23 +1,23 @@
 .info {
   display: inline-block;
-  font-size: 20px;
   min-width: 300px;
+  font-size: 20px;
 
   .title {
-    display: inline-block;
     position: relative;
+    display: inline-block;
   }
 
   .form {
     position: absolute;
-    right: -100%;
     top: 0;
+    right: -100%;
 
     .input {
-      background-color: transparent;
-      min-width: 10px;
-      outline: none;
       width: 30px;
+      min-width: 10px;
+      background-color: transparent;
+      outline: none;
 
       &:hover {
         border: none;
@@ -35,9 +35,9 @@
   }
 
   .btn_editor {
+    font-size: 16px;
     background-color: transparent;
     border: none;
-    font-size: 16px;
     opacity: 0.3;
     transform: rotate(90deg);
 

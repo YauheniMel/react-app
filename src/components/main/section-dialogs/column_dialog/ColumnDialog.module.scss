@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import "../../../../styles/variables";
 
 .column {
   grid-area: column_dialog;
@@ -9,11 +9,11 @@
 }
 
 .message_received {
+  width: 300px;
+  padding: 5px;
+  margin: 3px;
   background-color: $bg_light-light;
   border-radius: 3px;
-  margin: 3px;
-  padding: 5px;
-  width: 300px;
 }
 
 .message_received p {
@@ -26,15 +26,15 @@
 }
 
 .message_sent p {
+  width: 300px;
+  padding: 5px;
+  margin: 3px;
+  font-size: 14px;
   background-color: $bg_light-light;
   border-radius: 3px;
-  font-size: 14px;
-  margin: 3px;
-  padding: 5px;
-  width: 300px;
 }
 
 .redactor {
-  background-color: $bg_main-light;
   height: 80px;
+  background-color: $bg_main-light;
 }

@@ -1,9 +1,9 @@
-@import './variables';
+@import "./variables";
 
 ::-webkit-scrollbar {
-  background-color: $track;
-  height: 6px;
   width: 6px;
+  height: 6px;
+  background-color: $track;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -1,11 +1,11 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .aside {
-  align-self: baseline;
-  margin: 5px;
   position: sticky;
   top: 155px;
+  align-self: baseline;
   width: 300px;
+  margin: 5px;
 }
 
 .list {
@@ -17,13 +17,11 @@
 }
 
 //light theme
-
 .light {
   background-color: $bg_main-light;
 }
 
 //dark theme
-
 .dark {
   background-color: $bg_dark;
 }

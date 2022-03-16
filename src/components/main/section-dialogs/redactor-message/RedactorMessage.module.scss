@@ -1,6 +1,6 @@
-@import '../../../../styles/variables';
+@import "../../../../styles/variables";
 
 .redactor {
-  background-color: $bg_main-light;
   grid-area: redactor;
+  background-color: $bg_main-light;
 }

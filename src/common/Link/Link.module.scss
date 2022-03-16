@@ -1,18 +1,18 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .active {
-  background-color: $bg_active-light;
-  color: $tx_active-light;
   font-weight: 500;
+  color: $tx_active-light;
+  background-color: $bg_active-light;
 }
 
 .link {
-  color: $tx_primary-light;
   font-size: 1rem;
+  color: $tx_primary-light;
   text-decoration: none;
 }
 
 .link:hover {
-  background-color: $bg_active-light;
   color: $tx_active-light;
+  background-color: $bg_active-light;
 }

@@ -1,12 +1,12 @@
 .wrap {
+  position: absolute;
   bottom: 50px;
   display: flex;
+  justify-content: space-between;
+  width: 100px;
+  padding: 10px;
   font-size: 16px;
   font-weight: bold;
-  justify-content: space-between;
-  padding: 10px;
-  position: absolute;
-  width: 100px;
 }
 
 .arrow {

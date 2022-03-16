@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .carousel {
   position: relative;
@@ -12,10 +12,10 @@
 
 .image_wrap {
   display: inline-block;
+  width: 160px;
   height: 160px;
   margin: 10px 6px;
   overflow: hidden;
-  width: 160px;
 }
 
 .image {
@@ -23,14 +23,14 @@
 }
 
 .button {
-  background-color: $bg_main-light;
-  border: none;
-  font-size: 30px;
-  height: 100%;
-  opacity: 0.8;
   position: absolute;
   top: 0;
   width: 40px;
+  height: 100%;
+  font-size: 30px;
+  background-color: $bg_main-light;
+  border: none;
+  opacity: 0.8;
 }
 
 .button:hover {

@@ -1,12 +1,12 @@
-@import '../../../../styles/variables';
+@import "../../../../styles/variables";
 
 .column {
-  background-color: $bg_light-light;
-  color: $tx_dark;
   grid-area: column_person;
-  overflow: auto;
   padding: 0 4px;
+  overflow: auto;
+  color: $tx_dark;
   vertical-align: top;
+  background-color: $bg_light-light;
 }
 
 .column div:first-child {
