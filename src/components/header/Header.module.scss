@@ -4,20 +4,13 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: 13vh;
 }
 
 .container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
-}
-
-.input {
-  width: 300px;
-  height: 30px;
-  border: none;
-  border-radius: 4px;
+  padding: 0.7rem 0.3rem;
 }
 
 //light theme

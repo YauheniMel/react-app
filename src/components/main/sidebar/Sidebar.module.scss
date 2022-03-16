@@ -1,10 +1,7 @@
 @import "../../../styles/variables";
 
 .aside {
-  position: sticky;
-  top: 155px;
   align-self: baseline;
-  width: 300px;
   margin: 5px;
 }
 
@@ -12,8 +9,9 @@
   list-style: none;
 }
 
-.item {
-  font-size: 18px;
+.link a {
+  display: block;
+  padding: 1rem 0.7rem;
 }
 
 //light theme

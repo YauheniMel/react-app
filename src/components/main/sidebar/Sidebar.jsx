@@ -12,30 +12,30 @@ function Sidebar({ state }) {
           {({ theme }) => (
             <aside className={`${style.aside} ${style[theme]}`}>
               <ul className={style.list}>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/home">{language.sidebar.home}</Link>
                 </li>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/dialogs">
                     {language.sidebar.dialogs}
                   </Link>
                 </li>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/friends">
                     {language.sidebar.myFriends}
                   </Link>
                 </li>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/users">
                     {language.sidebar.users}
                   </Link>
                 </li>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/photos">
                     {language.sidebar.photos}
                   </Link>
                 </li>
-                <li className={style.item}>
+                <li className={style.link}>
                   <Link path="/reactproject/settings">
                     {language.sidebar.settings}
                   </Link>

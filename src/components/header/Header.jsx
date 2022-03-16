@@ -2,8 +2,6 @@ import Toggle from '../../common/Toggle/Toggle.jsx';
 import { LinguaContext, languages } from '../../contexts/LinguaContext.jsx';
 import { ThemeContext, themes } from '../../contexts/ThemeContext.jsx';
 import style from './Header.module.scss';
-import Input from './input/Input.jsx';
-import Nav from './nav/Nav.jsx';
 
 export default function Header() {
   return (
@@ -36,10 +34,8 @@ export default function Header() {
                 </>
               )}
             </LinguaContext.Consumer>
-            <Input />
-            <h3>#####</h3>
+            <h3>Yauheni</h3>
           </div>
-          <Nav />
         </header>
       )}
     </ThemeContext.Consumer>

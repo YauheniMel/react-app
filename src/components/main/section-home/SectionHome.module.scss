@@ -3,13 +3,12 @@
 .section {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
-  height: inherit;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .panorama {
   height: 80px;
-  margin-bottom: 5px;
   overflow: hidden;
 
   & img {

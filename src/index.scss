@@ -13,7 +13,8 @@ html {
 
 html,
 body,
-#root {
+#root,
+.App {
   height: 100%;
 }
 
@@ -22,16 +23,19 @@ body {
   background-color: $bg_light-light;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
 }
 
 .section_wrap {
-  display: inline-block;
-  width: 79%;
-  margin: 5px auto;
-  vertical-align: top;
+  flex: 1;
+  margin: 5px;
 }
 
 input,

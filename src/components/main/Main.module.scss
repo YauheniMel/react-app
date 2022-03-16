@@ -1,8 +1,12 @@
 @import "../../styles/variables";
 
+.main {
+  flex: 1;
+}
+
 .container {
   display: flex;
-  min-height: 87vh;
+  height: 100%;
 }
 
 //light theme

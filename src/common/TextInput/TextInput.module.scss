@@ -24,11 +24,6 @@
       }
     }
 
-    .button {
-      background-color: transparent;
-      border: none;
-    }
-
     .input:focus + .button {
       opacity: 0;
     }
