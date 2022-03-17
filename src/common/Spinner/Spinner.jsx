@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Spinner.module.scss';
-import spinnerURL from '../../assets/svg/spinner.svg';
+import spinnerURL from '../../assets/svg/loader.gif';
 
 export default function Spinner() {
   return (

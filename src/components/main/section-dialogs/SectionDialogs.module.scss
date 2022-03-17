@@ -4,7 +4,9 @@
   width: 100%;
   height: inherit;
 
-  .wrap {
+  .dialog {
+    display: flex;
     flex: 1;
+    flex-direction: column;
   }
 }

@@ -1,15 +1,14 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .section {
   display: flex;
   flex-direction: column;
-  height: inherit;
-  row-gap: 20px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .panorama {
   height: 80px;
-  margin-bottom: 5px;
   overflow: hidden;
 
   & img {
@@ -18,9 +17,9 @@
 }
 
 .user {
-  background-color: $bg_light-light;
-  color: $tx_dark;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0.7rem;
+  color: $tx_dark;
+  background-color: $bg_light-light;
 }

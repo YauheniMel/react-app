@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.friend {
+  display: inline-block;
+  background: $bg_active-light;
+}
+
+.photo_wrap {
+  width: 190px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.photo {
+  width: 190px;
+}
+
+.name {
+  margin: 0.7rem;
+  font-size: 1rem;
+  text-align: center;
+}

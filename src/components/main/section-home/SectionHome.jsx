@@ -14,21 +14,19 @@ export default function SectionHome({
   isFetching
 }) {
   return (
-    <div className="section_wrap">
-      <section className={style.section}>
-        <div className={style.panorama}>
-          <img alt="background" src="/shared/back.jpg" />
-        </div>
-        <Head
-          firstName={firstName}
-          lastName={lastName}
-          dateOfBirth={dateOfBirth}
-          sex={sex}
-        />
-        <DeskContainer avatar={avatar} />
-        <Carousel photos={state.photos} />
-        {isFetching && <Spinner />}
-      </section>
-    </div>
+    <section className={style.section}>
+      <div className={style.panorama}>
+        <img alt="background" src="/shared/back.jpg" />
+      </div>
+      <Head
+        firstName={firstName}
+        lastName={lastName}
+        dateOfBirth={dateOfBirth}
+        sex={sex}
+      />
+      <DeskContainer avatar={avatar} />
+      <Carousel photos={state.photos} />
+      {isFetching && <Spinner />}
+    </section>
   );
 }

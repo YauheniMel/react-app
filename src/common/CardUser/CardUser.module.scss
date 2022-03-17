@@ -1,17 +1,10 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .wrap {
-  background-color: $bg_light-light;
-  border-radius: 14px;
-  height: 400px;
-  overflow: hidden;
-  width: 200px;
-
-  * {
-    color: $tx_dark;
-  }
+  display: inline-block;
+  color: $tx_dark;
 }
 
 .photo {
-  height: 100px;
+  width: 190px;
 }

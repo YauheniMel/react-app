@@ -12,11 +12,13 @@ export default function AuthPage({
   const refPassword = React.createRef();
 
   return (
-    <div className={style.wrapper}>
-      <h2>Welcome! Please Log In!</h2>
-      <form onSubmit={onSubmit} action="">
-        <legend>
-          Login form
+    <div className={`${style.container} container`}>
+      <div className={style.wrapper}>
+        <h2>Welcome!</h2>
+      </div>
+      <form onSubmit={onSubmit} action="" className={style.form}>
+        <fieldset>
+          <legend>Login form</legend>
           <input
             className={style.login}
             value={state.loginValue}
@@ -33,16 +35,20 @@ export default function AuthPage({
             ref={refPassword}
             required
           />
-          <button className={style.button_submit} type="submit">
-            Authorization
-          </button>
-          <button className={style.button_restore}>
-            Forget your password?
-          </button>
-          <Link path="/signup" className={style.button_restore}>
-            SignUp
-          </Link>
-        </legend>
+          <div className={style.action}>
+            <div className={style.buttons}>
+              <button className={style.button_submit} type="submit">
+                Authorization
+              </button>
+              <button className={style.button_restore} type="button">
+                Forget your password?
+              </button>
+            </div>
+            <Link path="/signup" className={style.link}>
+              SignUp
+            </Link>
+          </div>
+        </fieldset>
       </form>
     </div>
   );

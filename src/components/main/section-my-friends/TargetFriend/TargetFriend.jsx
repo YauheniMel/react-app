@@ -1,13 +1,11 @@
 import React from 'react';
-import Spinner from '../../../../common/Spinner/Spinner';
 import style from './TargetFriend.module.scss';
 
-export default function TargetFriend({ targetFriend, isLoading }) {
+export default function TargetFriend({ targetFriend }) {
   // need destructuring assignment
 
   return (
     <>
-      {isLoading && <Spinner />}
       <div className={style.wrapper}>
         <img src={targetFriend.photo} alt="photo" />
         <p>

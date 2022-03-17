@@ -1,9 +1,0 @@
-.section {
-  display: grid;
-  grid-template-areas:
-    'column_person column_dialog'
-    'column_person column_dialog'
-    'column_person redactor';
-  grid-template-columns: 30% 70%;
-  height: inherit;
-}

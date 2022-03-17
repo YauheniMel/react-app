@@ -11,7 +11,6 @@ export const languages = {
       dialogs: 'Диалоги',
       myFriends: 'Мои друзья',
       photos: 'Фото',
-      settings: 'Настройки',
       users: 'Пользователи'
     },
     desk: {
@@ -37,7 +36,6 @@ export const languages = {
       dialogs: 'Dialogs',
       myFriends: 'My friend',
       photos: 'Photos',
-      settings: 'Settings',
       users: 'Users'
     },
     desk: {
