@@ -1,0 +1,25 @@
+@import "../../../styles/variables";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.panorama {
+  height: 80px;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  color: $tx_dark;
+  background-color: $bg_light-light;
+}

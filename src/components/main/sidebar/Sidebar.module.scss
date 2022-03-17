@@ -1,0 +1,26 @@
+@import "../../../styles/variables";
+
+.aside {
+  align-self: baseline;
+  width: 17%;
+  margin: 0.3rem;
+}
+
+.list {
+  list-style: none;
+}
+
+.link a {
+  display: block;
+  padding: 1rem 0.7rem;
+}
+
+//light theme
+.light {
+  background-color: $bg_main-light;
+}
+
+//dark theme
+.dark {
+  background-color: $bg_dark;
+}

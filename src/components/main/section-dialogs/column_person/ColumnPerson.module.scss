@@ -1,0 +1,13 @@
+@import "../../../../styles/variables";
+
+.column {
+  padding: 0 0.3rem;
+  overflow: auto;
+  color: $tx_dark;
+  vertical-align: top;
+  background-color: $bg_light-light;
+}
+
+.column div:first-child {
+  border: none;
+}

@@ -1,0 +1,42 @@
+.info {
+  display: inline-block;
+  font-size: 1rem;
+
+  .title {
+    position: relative;
+    display: inline-block;
+  }
+
+  .form {
+    position: absolute;
+    top: 0;
+    right: -100%;
+
+    .input {
+      width: 30px;
+      min-width: 10px;
+      background-color: transparent;
+      outline: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    .input:focus + .button {
+      opacity: 0;
+    }
+  }
+
+  .btn_editor {
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    opacity: 0.3;
+    transform: rotate(90deg);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: inherit;
+
+  .dialog {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+}
