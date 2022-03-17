@@ -1,6 +1,6 @@
-import style from './FriendModule.module.scss';
+import style from './FriendCard.module.scss';
 
-export default function FriendModule({ firstName, lastName, photoURL }) {
+export default function FriendCard({ firstName, lastName, photoURL }) {
   return (
     <div className={style.friend}>
       <div className={style.photo_wrap}>

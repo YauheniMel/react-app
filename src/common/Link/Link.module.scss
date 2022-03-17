@@ -1,12 +1,12 @@
 @import "../../styles/variables";
 
 .active {
-  font-weight: 500;
   color: $tx_active-light;
   background-color: $bg_active-light;
 }
 
 .link {
+  padding: 0.3rem 0.7rem;
   font-size: 1rem;
   color: $tx_primary-light;
   text-decoration: none;

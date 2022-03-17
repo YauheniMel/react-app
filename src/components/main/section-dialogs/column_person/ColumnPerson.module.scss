@@ -1,8 +1,7 @@
 @import "../../../../styles/variables";
 
 .column {
-  grid-area: column_person;
-  padding: 0 4px;
+  padding: 0 0.3rem;
   overflow: auto;
   color: $tx_dark;
   vertical-align: top;

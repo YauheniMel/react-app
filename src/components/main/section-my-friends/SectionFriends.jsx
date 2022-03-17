@@ -1,9 +1,9 @@
 import style from './SectionFriends.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
-import FriendModule from '../../../common/FriendModule/FriendModule';
-import Link from '../../../common/Link/Link';
+import FriendCard from '../../../common/FriendCard/FriendCard';
 import { TargetFriendContainer } from './TargetFriend/TargetFriendContainer';
+import { NavLink } from 'react-router-dom';
 
 export default function SectionFriends({
   friends,
@@ -14,22 +14,28 @@ export default function SectionFriends({
 }) {
   const friendList = friends.map((friend) => {
     return (
-      <Link key={friend.id} path={`/friends/${friend.id}`}>
-        <FriendModule
+      <NavLink key={friend.id} to={`/friends/${friend.id}`}>
+        <FriendCard
           firstName={friend.firstName}
           lastName={friend.lastName}
           photoURL={friend.avatar}
         />
-      </Link>
+      </NavLink>
     );
   });
 
   return (
-    <section className={`section_wrap ${style.section}`}>
-      <TargetFriendContainer match={match} />
-      {friendList}
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    <>
       {isFetching && <Spinner />}
-    </section>
+      <section className={style.section}>
+        <TargetFriendContainer match={match} />
+        <div className={style.wrap}>{friendList}</div>
+        <Pagination
+          className={style.spinner}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </section>
+    </>
   );
 }

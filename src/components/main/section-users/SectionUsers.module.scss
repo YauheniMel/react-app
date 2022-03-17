@@ -1,10 +1,10 @@
 .section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: inherit;
-  overflow: auto;
 
-  .users {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  .wrap {
+    flex: 1;
   }
 }

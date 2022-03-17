@@ -2,8 +2,8 @@ import Pagination from '../../../common/Pagination/Pagination';
 import PhotoCard from '../../../common/PhotoCard/PhotoCard';
 import style from './SectionPhotos.module.scss';
 import Spinner from '../../../common/Spinner/Spinner';
-import Link from '../../../common/Link/Link';
 import { TargetPhotoContainer } from './TargetPhoto/TargetPhotoContainer';
+import { NavLink } from 'react-router-dom';
 
 export default function SectionPhotos({
   photos,
@@ -14,16 +14,16 @@ export default function SectionPhotos({
 }) {
   const photoList = photos.map((photo) => {
     return (
-      <Link key={photo.id} path={`/photos/${photo.id}`}>
+      <NavLink key={photo.id} to={`/photos/${photo.id}`}>
         <PhotoCard content={photo.title} photoURL={photo.url} />
-      </Link>
+      </NavLink>
     );
   });
 
   return (
-    <section className={`section_wrap ${style.section}`}>
+    <section className={style.section}>
       <TargetPhotoContainer match={match} />
-      {photoList}
+      <div className={style.wrap}>{photoList}</div>
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {isFetching && <Spinner />}
     </section>

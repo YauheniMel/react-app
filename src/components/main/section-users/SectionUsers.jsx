@@ -4,6 +4,7 @@ import style from './SectionUsers.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { TargetUserContainer } from './TargetUser/TargetUserContainer';
+import { NavLink } from 'react-router-dom';
 
 export default function SectionUsers({
   users,
@@ -17,26 +18,26 @@ export default function SectionUsers({
 }) {
   const list = users.map((user) => {
     return (
-      // <Link key={user.id} path={`/users/${user.id}`}>
-      <CardUser
-        userId={user.id}
-        key={user.id}
-        firstName={user.firstName}
-        lastName={user.lastName}
-        photo={user.avatar}
-        isFriend={user.isFriend} // state changed
-        setFollow={follow}
-        setUnfollow={unfollow}
-        followingInProgress={followingInProgress}
-      />
-      // </Link>
+      <NavLink key={user.id} to={`/users/${user.id}`}>
+        <CardUser
+          userId={user.id}
+          key={user.id}
+          firstName={user.firstName}
+          lastName={user.lastName}
+          photo={user.avatar}
+          isFriend={user.isFriend} // state changed
+          setFollow={follow}
+          setUnfollow={unfollow}
+          followingInProgress={followingInProgress}
+        />
+      </NavLink>
     );
   });
 
   return (
-    <section className={`section_wrap ${style.section}`}>
+    <section className={style.section}>
       <TargetUserContainer match={match} />
-      <div className={style.users}>{list}</div>
+      <div className={style.wrap}>{list}</div>
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {isFetching && <Spinner />}
     </section>

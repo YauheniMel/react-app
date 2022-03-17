@@ -1,10 +1,9 @@
 import style from './Sidebar.module.scss';
-import GamesArea from './Games-Area/GamesArea';
 import { LinguaContext } from '../../../contexts/LinguaContext';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import Link from '../../../common/Link/Link';
 
-function Sidebar({ state }) {
+function Sidebar() {
   return (
     <LinguaContext.Consumer>
       {({ language }) => (
@@ -35,13 +34,7 @@ function Sidebar({ state }) {
                     {language.sidebar.photos}
                   </Link>
                 </li>
-                <li className={style.link}>
-                  <Link path="/reactproject/settings">
-                    {language.sidebar.settings}
-                  </Link>
-                </li>
               </ul>
-              <GamesArea friends={state.friends} />
             </aside>
           )}
         </ThemeContext.Consumer>

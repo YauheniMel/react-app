@@ -6,7 +6,6 @@ import { SectionHomeContainer } from './section-home/SectionHomeContainer';
 import { SectionFriendsContainer } from './section-my-friends/SectionFriendsContainer';
 import { SectionDialogsContainer } from './section-dialogs/SectionDialogsContainer';
 import { SectionPhotosContainer } from './section-photos/SectionPhotosContainer';
-import { SectionSettingsContainer } from './section-settings/SectionSettingsContainer';
 import { SectionUsersContainer } from './section-users/SectionUsersContainer';
 
 function Main() {
@@ -36,10 +35,6 @@ function Main() {
               <Route
                 path="/reactproject/photos/:photoId?"
                 render={() => <SectionPhotosContainer />}
-              />
-              <Route
-                path="/reactproject/settings"
-                render={() => <SectionSettingsContainer />}
               />
             </Switch>
           </div>

@@ -1,23 +1,20 @@
 @import "../../../../styles/variables";
 
 .column {
-  grid-area: column_dialog;
-  height: 100%;
-  overflow: auto;
-  overflow-x: auto;
-  vertical-align: top;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .message_received {
   width: 300px;
-  padding: 5px;
-  margin: 3px;
+  padding: 0.3rem;
+  margin: 0.2rem;
   background-color: $bg_light-light;
   border-radius: 3px;
 }
 
 .message_received p {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .message {
@@ -27,9 +24,9 @@
 
 .message_sent p {
   width: 300px;
-  padding: 5px;
-  margin: 3px;
-  font-size: 14px;
+  padding: 0.3rem;
+  margin: 0.2rem;
+  font-size: 0.8rem;
   background-color: $bg_light-light;
   border-radius: 3px;
 }

@@ -1,21 +1,11 @@
-@import "../../../styles/variables";
-
 .section {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
   height: inherit;
-  overflow: auto;
-}
 
-.photo_wrap {
-  width: 190px;
-  height: 300px;
-  margin: 3px;
-  overflow: hidden;
-  border: 1px solid $bg_light-light;
-}
-
-.photo {
-  width: 190px;
+  .wrap {
+    flex: 1;
+    overflow-y: auto;
+  }
 }

@@ -33,14 +33,14 @@ body {
   margin: 0 auto;
 }
 
-.section_wrap {
-  flex: 1;
-  margin: 5px;
+section {
+  height: inherit;
+  padding: 0.3rem;
 }
 
 input,
 button,
-a {
+textarea {
   padding: 0.3rem 0.7rem;
 }
 
