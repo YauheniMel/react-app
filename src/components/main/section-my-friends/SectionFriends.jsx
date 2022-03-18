@@ -1,4 +1,3 @@
-import style from './SectionFriends.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import FriendCard from '../../../common/FriendCard/FriendCard';
@@ -27,11 +26,10 @@ export default function SectionFriends({
   return (
     <>
       {isFetching && <Spinner />}
-      <section className={style.section}>
+      <section className="section">
         <TargetFriendContainer match={match} />
-        <div className={style.wrap}>{friendList}</div>
+        <div className="wrap">{friendList}</div>
         <Pagination
-          className={style.spinner}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />

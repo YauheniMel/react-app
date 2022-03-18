@@ -1,6 +1,5 @@
 import React from 'react';
 import CardUser from '../../../common/CardUser/CardUser';
-import style from './SectionUsers.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { TargetUserContainer } from './TargetUser/TargetUserContainer';
@@ -35,10 +34,13 @@ export default function SectionUsers({
   });
 
   return (
-    <section className={style.section}>
+    <section className="section">
       <TargetUserContainer match={match} />
-      <div className={style.wrap}>{list}</div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <div className="wrap">{list}</div>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       {isFetching && <Spinner />}
     </section>
   );
