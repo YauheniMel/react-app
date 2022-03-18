@@ -37,10 +37,7 @@ export default function SectionUsers({
     <section className="section">
       <TargetUserContainer match={match} />
       <div className="wrap">{list}</div>
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {isFetching && <Spinner />}
     </section>
   );

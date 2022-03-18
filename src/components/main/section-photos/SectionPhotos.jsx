@@ -23,10 +23,7 @@ export default function SectionPhotos({
     <section className="section">
       <TargetPhotoContainer match={match} />
       <div className="wrap">{photoList}</div>
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {isFetching && <Spinner />}
     </section>
   );

@@ -29,10 +29,7 @@ export default function SectionFriends({
       <section className="section">
         <TargetFriendContainer match={match} />
         <div className="wrap">{friendList}</div>
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </section>
     </>
   );
