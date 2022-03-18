@@ -62,3 +62,19 @@ input {
   border: none;
   outline: none;
 }
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: inherit;
+
+  .wrap {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+}

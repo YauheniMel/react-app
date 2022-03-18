@@ -13,10 +13,6 @@ export const languages = {
       photos: 'Фото',
       users: 'Пользователи'
     },
-    desk: {
-      credo: 'Мое кредо:',
-      post: 'Мой пост:'
-    },
     redactorDialog: {
       send: 'Отправить',
       cancel: 'Отмена'
@@ -37,10 +33,6 @@ export const languages = {
       myFriends: 'My friend',
       photos: 'Photos',
       users: 'Users'
-    },
-    desk: {
-      credo: 'My credo:',
-      post: 'My post:'
     },
     redactorDialog: {
       send: 'Send',
