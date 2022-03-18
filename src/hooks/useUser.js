@@ -6,11 +6,12 @@ export default function useUser() {
     const user = JSON.parse(userJSON);
     return user;
   };
+
   const [user, setUser] = useState(getUser());
 
-  const saveUser = (userUser) => {
-    sessionStorage.setItem('user', JSON.stringify(userUser));
-    setUser(userUser);
+  const saveUser = (userInfo) => {
+    sessionStorage.setItem('user', JSON.stringify(userInfo));
+    setUser(userInfo);
   };
 
   return {
