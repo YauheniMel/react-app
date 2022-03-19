@@ -44,8 +44,9 @@ function friendReducer(state = initState, action) {
 
       return stateCopy;
     }
+    default:
+      return state;
   }
-  return state;
 }
 
 export const getAllFriends = (id, currentPage) => (dispatch) => {

@@ -37,9 +37,17 @@ function photoReducer(state = initState, action) {
 
       return stateCopy;
     }
-  }
+    case 'SET-IS-FETCHING': {
+      const stateCopy = {
+        ...state,
+        isFetching: action.content
+      };
 
-  return state;
+      return stateCopy;
+    }
+    default:
+      return state;
+  }
 }
 
 export const getAllPhotos = (id, currentPage) => (dispatch) => {
