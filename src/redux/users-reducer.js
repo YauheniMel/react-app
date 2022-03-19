@@ -77,7 +77,7 @@ function usersReducer(state = initState, action) {
     case 'GET-TARGET-USER': {
       const stateCopy = {
         ...state,
-        targetUser: { ...action.targetUser }
+        targetUser: { ...action.content }
       };
 
       return stateCopy;
@@ -110,16 +110,9 @@ export const getAllUsers = (id, currentPage) => (dispatch) => {
 
   requestAPI
     .getUsers(id, currentPage)
-    .then((data) => {
-      dispatch(getUsers(data));
-
-      dispatch(usersIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(usersIsFetching(false));
-    });
+    .then((data) => dispatch(getUsers(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(usersIsFetching(false)));
 };
 
 export const unfollow = (id, userId) => (dispatch) => {
@@ -127,16 +120,9 @@ export const unfollow = (id, userId) => (dispatch) => {
 
   requestAPI
     .delFriend(id, userId)
-    .then(() => {
-      dispatch(unFollowUser(userId));
-
-      dispatch(toggleIsFollowing(false, userId));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(toggleIsFollowing(false, userId));
-    });
+    .then(() => dispatch(unFollowUser(userId)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(toggleIsFollowing(false, userId)));
 };
 
 export const follow = (id, userId) => (dispatch) => {
@@ -144,16 +130,9 @@ export const follow = (id, userId) => (dispatch) => {
 
   requestAPI
     .addFriend(id, userId)
-    .then(() => {
-      dispatch(followUser(userId));
-
-      dispatch(toggleIsFollowing(false, userId));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(toggleIsFollowing(false, userId));
-    });
+    .then(() => dispatch(followUser(userId)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(toggleIsFollowing(false, userId)));
 };
 
 export default usersReducer;

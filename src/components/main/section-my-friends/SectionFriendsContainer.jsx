@@ -12,6 +12,7 @@ function SectionFriendsApiContainer({
   isFetching
 }) {
   const [currentPage, setCurrentPage] = useState(1);
+
   const {
     user: { id }
   } = useUser();

@@ -26,18 +26,6 @@ app.get('/photos/id:id/:pageNumber', (req, res) => {
   });
 });
 
-app.get('/photo/:photoId', (req, res) => {
-  const { photoId } = req.params;
-
-  fs.readFile(photoData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == photoId);
-
-    res.send(resData);
-  });
-});
-
 //Friends Page
 
 app.get('/friends/id:id/:pageNumber', (req, res) => {

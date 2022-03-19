@@ -71,16 +71,9 @@ export const getPersons = (id) => (dispatch) => {
 
   requestAPI
     .getDialogPersons(id)
-    .then((data) => {
-      dispatch(getDialogPersons(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
+    .then((data) => dispatch(getDialogPersons(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(setIsFetching(false)));
 };
 
 export default dialogsReducer;

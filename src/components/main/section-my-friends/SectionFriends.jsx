@@ -3,6 +3,7 @@ import Spinner from '../../../common/Spinner/Spinner';
 import FriendCard from '../../../common/FriendCard/FriendCard';
 import { TargetFriendContainer } from './TargetFriend/TargetFriendContainer';
 import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default function SectionFriends({
   friends,
@@ -13,7 +14,7 @@ export default function SectionFriends({
 }) {
   const friendList = friends.map((friend) => {
     return (
-      <NavLink key={friend.id} to={`/friends/${friend.id}`}>
+      <NavLink key={friend.id} to={`/reactproject/friends/${friend.id}`}>
         <FriendCard
           firstName={friend.firstName}
           lastName={friend.lastName}
@@ -27,7 +28,10 @@ export default function SectionFriends({
     <>
       {isFetching && <Spinner />}
       <section className="section">
-        <TargetFriendContainer match={match} />
+        <Route
+          path="/reactproject/friends/:friendId"
+          render={() => <TargetFriendContainer match={match} />}
+        />
         <div className="wrap">{friendList}</div>
         <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </section>

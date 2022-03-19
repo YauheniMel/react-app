@@ -32,14 +32,22 @@ function photoReducer(state = initState, action) {
     case 'GET-TARGET-PHOTO': {
       const stateCopy = {
         ...state,
-        targetPhoto: { ...action.content }
+        targetPhoto: state.photos[action.content - 1]
       };
 
       return stateCopy;
     }
-  }
+    case 'SET-IS-FETCHING': {
+      const stateCopy = {
+        ...state,
+        isFetching: action.content
+      };
 
-  return state;
+      return stateCopy;
+    }
+    default:
+      return state;
+  }
 }
 
 export const getAllPhotos = (id, currentPage) => (dispatch) => {
@@ -47,16 +55,9 @@ export const getAllPhotos = (id, currentPage) => (dispatch) => {
 
   requestAPI
     .getPhotos(id, currentPage)
-    .then((data) => {
-      dispatch(getPhotos(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
+    .then((data) => dispatch(getPhotos(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(setIsFetching(false)));
 };
 
 export default photoReducer;

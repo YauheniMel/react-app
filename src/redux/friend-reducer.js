@@ -33,6 +33,7 @@ function friendReducer(state = initState, action) {
         ...state,
         targetFriend: { ...action.content }
       };
+
       return stateCopy;
     }
     case 'SET-IS-FETCHING': {
@@ -43,8 +44,9 @@ function friendReducer(state = initState, action) {
 
       return stateCopy;
     }
+    default:
+      return state;
   }
-  return state;
 }
 
 export const getAllFriends = (id, currentPage) => (dispatch) => {
@@ -53,16 +55,9 @@ export const getAllFriends = (id, currentPage) => (dispatch) => {
 
   requestAPI
     .getFriends(id, currentPage)
-    .then((data) => {
-      dispatch(getFriends(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
+    .then((data) => dispatch(getFriends(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(setIsFetching(false)));
 };
 
 export default friendReducer;
