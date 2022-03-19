@@ -4,7 +4,7 @@ import {
   createUserLogin,
   createUserPassword,
   loginUser
-} from '../../redux/auth-reducer';
+} from '../../../redux/auth-reducer';
 import SignUpPage from './SignUpPage';
 
 function SignUpPageApiContainer() {

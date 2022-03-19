@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
 .container {
   display: flex;
@@ -35,7 +35,7 @@
     color: $bg_light-light;
   }
 
-  input {
+  input:not([type="radio"]) {
     width: 100%;
     margin: 1rem 0;
 
@@ -52,5 +52,22 @@
     button {
       margin-right: 0.3rem;
     }
+  }
+}
+
+.gender {
+  color: $bg_light-light;
+
+  p {
+    display: inline-block;
+  }
+
+  input {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  span {
+    padding-left: .5rem;
   }
 }
