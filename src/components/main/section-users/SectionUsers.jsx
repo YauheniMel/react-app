@@ -3,7 +3,6 @@ import CardUser from '../../../common/CardUser/CardUser';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { TargetUserContainer } from './TargetUser/TargetUserContainer';
-import { NavLink } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 export default function SectionUsers({
@@ -18,19 +17,17 @@ export default function SectionUsers({
 }) {
   const userList = users.map((user) => {
     return (
-      <NavLink key={user.id} to={`/reactproject/users/${user.id}`}>
-        <CardUser
-          userId={user.id}
-          key={user.id}
-          firstName={user.firstName}
-          lastName={user.lastName}
-          photo={user.avatar}
-          isFriend={user.isFriend}
-          setFollow={follow}
-          setUnfollow={unfollow}
-          followingInProgress={followingInProgress}
-        />
-      </NavLink>
+      <CardUser
+        userId={user.id}
+        key={user.id}
+        firstName={user.firstName}
+        lastName={user.lastName}
+        photo={user.avatar}
+        isFriend={user.isFriend}
+        setFollow={follow}
+        setUnfollow={unfollow}
+        followingInProgress={followingInProgress}
+      />
     );
   });
 
