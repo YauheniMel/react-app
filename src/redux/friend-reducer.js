@@ -54,16 +54,9 @@ export const getAllFriends = (id, currentPage) => (dispatch) => {
 
   requestAPI
     .getFriends(id, currentPage)
-    .then((data) => {
-      dispatch(getFriends(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
+    .then((data) => dispatch(getFriends(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(setIsFetching(false)));
 };
 
 export default friendReducer;

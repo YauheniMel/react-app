@@ -14,15 +14,9 @@ function TargetFriendApiContainer({ match, targetFriend, getTargetFriend }) {
 
     requestAPI
       .getTargetFriend(match.params.friendId)
-      .then((data) => {
-        setIsLoading(false);
-        getTargetFriend(...data);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setIsLoading(false);
-      });
+      .then((data) => getTargetFriend(...data))
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [match.params.friendId]);
 
   return (

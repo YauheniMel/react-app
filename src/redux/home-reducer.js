@@ -43,16 +43,9 @@ export const getUser = (id) => (dispatch) => {
 
   requestAPI
     .getPhotos(id)
-    .then((data) => {
-      dispatch(getPhotos(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
+    .then((data) => dispatch(getPhotos(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(setIsFetching(false)));
 };
 
 export default homeReducer;

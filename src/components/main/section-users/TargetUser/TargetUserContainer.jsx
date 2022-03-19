@@ -13,16 +13,9 @@ function TargetUserApiContainer({ targetUser, getTargetUser, match }) {
 
     requestAPI
       .getTargetUser(match.params.userId) // maybe there's bad practice
-      .then((data) => {
-        getTargetUser(...data);
-
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setIsLoading(false);
-      });
+      .then((data) => getTargetUser(...data))
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [match.params.userId]);
 
   return (

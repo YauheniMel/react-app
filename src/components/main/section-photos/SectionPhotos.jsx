@@ -22,13 +22,13 @@ export default function SectionPhotos({
 
   return (
     <section className="section">
+      {isFetching && <Spinner />}
       <Route
         path="/reactproject/photos/:photoId"
         render={() => <TargetPhotoContainer match={match} />}
       />
       <div className="wrap">{photoList}</div>
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {isFetching && <Spinner />}
     </section>
   );
 }
