@@ -13,15 +13,16 @@ function TargetFriendApiContainer({ match, targetFriend, getTargetFriend }) {
     setIsLoading(true);
 
     requestAPI
-      .getTargetFriend(match.params.friendId) // it need to refactor a target requests everywhere
-      .then((data) => getTargetFriend(...data))
+      .getTargetFriend(match.params.friendId)
+      .then((data) => {
+        setIsLoading(false);
+        getTargetFriend(...data);
+      })
       .catch((err) => {
         console.error(err);
 
         setIsLoading(false);
       });
-
-    setIsLoading(false);
   }, [match.params.friendId]);
 
   return (

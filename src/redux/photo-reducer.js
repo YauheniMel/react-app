@@ -32,7 +32,7 @@ function photoReducer(state = initState, action) {
     case 'GET-TARGET-PHOTO': {
       const stateCopy = {
         ...state,
-        targetPhoto: { ...action.content }
+        targetPhoto: state.photos[action.content - 1]
       };
 
       return stateCopy;

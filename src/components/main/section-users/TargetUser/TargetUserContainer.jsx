@@ -4,16 +4,12 @@ import { connect } from 'react-redux';
 import { getTargetUser } from '../../../../redux/users-reducer';
 import { requestAPI } from '../../../../api/api';
 
-function TargetUserApiContainer({ user, getTargetUser, match }) {
+function TargetUserApiContainer({ targetUser, getTargetUser, match }) {
   const [isLoading, setIsLoading] = useState();
-  const [targetUser] = useState(4);
 
   useEffect(() => {
     if (!match.params.userId) return;
-
     setIsLoading(true);
-
-    if (!targetUser) return;
 
     requestAPI
       .getTargetUser(match.params.userId) // maybe there's bad practice
@@ -27,18 +23,20 @@ function TargetUserApiContainer({ user, getTargetUser, match }) {
 
         setIsLoading(false);
       });
-  }, [targetUser, match.params.userId]);
+  }, [match.params.userId]);
 
   return (
     <>
-      {match.params.userId && <TargetUser data={user} isLoading={isLoading} />}
+      {match.params.userId && (
+        <TargetUser targetUser={targetUser} isLoading={isLoading} />
+      )}
     </>
   );
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.usersPage.targetUser
+    targetUser: state.usersPage.targetUser
   };
 }
 

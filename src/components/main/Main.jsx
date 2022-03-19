@@ -25,7 +25,7 @@ function Main() {
                 render={() => <SectionDialogsContainer />}
               />
               <Route
-                path="/reactproject/friends/:friendId?"
+                path="/reactproject/friends/:friend?"
                 render={() => <SectionFriendsContainer />}
               />
               <Route

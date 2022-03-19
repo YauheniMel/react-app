@@ -33,6 +33,7 @@ function friendReducer(state = initState, action) {
         ...state,
         targetFriend: { ...action.content }
       };
+
       return stateCopy;
     }
     case 'SET-IS-FETCHING': {

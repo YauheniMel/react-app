@@ -34,9 +34,6 @@ export const requestAPI = {
       .get(`/photos/id${id}/${currentPage}`)
       .then((response) => response.data);
   },
-  getTargetPhoto(photoId) {
-    return axios.get(`/photo/${photoId}`).then((response) => response.data);
-  },
   getUsers(id, currentPage) {
     return axios
       .get(`/users/${id}/${currentPage}`)
