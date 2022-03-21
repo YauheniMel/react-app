@@ -35,6 +35,23 @@
     color: $bg_light-light;
   }
 
+  .gender {
+    color: $bg_light-light;
+
+    p {
+      display: inline-block;
+    }
+
+    input {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+
+    span {
+      padding-left: 0.5rem;
+    }
+  }
+
   input:not([type="radio"]) {
     width: 100%;
     margin: 1rem 0;
@@ -52,22 +69,5 @@
     button {
       margin-right: 0.3rem;
     }
-  }
-}
-
-.gender {
-  color: $bg_light-light;
-
-  p {
-    display: inline-block;
-  }
-
-  input {
-    display: inline-block;
-    margin-left: 1rem;
-  }
-
-  span {
-    padding-left: .5rem;
   }
 }

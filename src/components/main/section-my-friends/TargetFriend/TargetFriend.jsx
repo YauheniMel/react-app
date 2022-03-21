@@ -7,7 +7,7 @@ export default function TargetFriend({ targetFriend, isLoading }) {
     <>
       {isLoading && <Spinner />}
       <div className={style.wrapper}>
-        <img src={targetFriend.avatar} alt="photo" />
+        <img src={targetFriend.photo} alt="photo" />
         <p>
           {targetFriend.firstName} {targetFriend.lastName}
         </p>

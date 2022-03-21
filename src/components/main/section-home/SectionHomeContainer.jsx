@@ -6,7 +6,7 @@ import useUser from '../../../hooks/useUser';
 
 function SectionHomeApiContainer({ state, isFetching }) {
   const {
-    user: { id, firstName, lastName, avatar, sex, dateOfBirth }
+    user: { id, firstName, lastName, photo, sex, dateOfBirth }
   } = useUser();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function SectionHomeApiContainer({ state, isFetching }) {
       state={state}
       firstName={firstName}
       lastName={lastName}
-      avatar={avatar}
+      photo={photo}
       sex={sex}
       dateOfBirth={dateOfBirth}
       isFetching={isFetching}
