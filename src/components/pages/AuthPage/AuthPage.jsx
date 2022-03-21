@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '../../common/Link/Link';
+import Link from '../../../common/Link/Link';
 import style from './AuthPage.module.scss';
 
 export default function AuthPage({

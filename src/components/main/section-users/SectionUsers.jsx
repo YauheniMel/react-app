@@ -22,7 +22,7 @@ export default function SectionUsers({
         key={user.id}
         firstName={user.firstName}
         lastName={user.lastName}
-        photo={user.avatar}
+        photo={user.photo}
         isFriend={user.isFriend}
         setFollow={follow}
         setUnfollow={unfollow}

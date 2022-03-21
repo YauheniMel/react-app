@@ -7,11 +7,11 @@ export default function SectionHome({
   sex,
   dateOfBirth,
   isFetching,
-  avatar
+  photo
 }) {
   return (
     <section className={style.section}>
-      <img src={avatar} alt="" />
+      <img src={photo} alt="" />
       <div className={style.user}>
         <p>{`${firstName} ${lastName}`}</p>
         <p>{dateOfBirth}</p>

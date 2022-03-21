@@ -21,7 +21,7 @@ const initState = {
   passwordValue: '',
   firstName: '',
   lastName: '',
-  avatar: '',
+  photo: '',
   dateOfBirth: '',
   sex: ''
 };
@@ -56,13 +56,15 @@ function authReducer(state = initState, action) {
       return stateCopy;
     }
     case 'SET-USER-INFO': {
+      debugger;
+
       const stateCopy = {
         ...state,
         id: action.content.id,
         firstName: action.content.firstName,
         lastName: action.content.lastName,
         dateOfBirth: action.content.dateOfBirth,
-        avatar: action.content.avatar,
+        photo: action.content.photo,
         sex: action.content.sex,
         isAuth: true
       };

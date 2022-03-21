@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import {
   createUserLogin,
   createUserPassword,
-  loginUser
-} from '../../redux/auth-reducer';
+  setUserInfo
+} from '../../../redux/auth-reducer';
 import SignUpPage from './SignUpPage';
 
-function SignUpPageApiContainer() {
-  useEffect(() => {}, []);
+function SignUpPageApiContainer({ setUserInfo }) {
+  function handleSubmit(formData) {
+    const data = {};
+
+    formData.forEach((value, name) => {
+      data[name] = value;
+    });
+
+    setUserInfo(data);
+  }
 
   return (
     <SignUpPage
-      onSubmit={loginUser}
+      handleSubmit={handleSubmit}
       onChangeLogin={createUserLogin}
       onChangePassword={createUserPassword}
     />
@@ -23,8 +31,10 @@ function mapStateToProps() {
   return {};
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    setUserInfo: (content) => dispatch(setUserInfo(content))
+  };
 }
 
 export const SignUpPageContainer = connect(

@@ -18,7 +18,7 @@ export default function SectionFriends({
         <FriendCard
           firstName={friend.firstName}
           lastName={friend.lastName}
-          photoURL={friend.avatar}
+          photoURL={friend.photo}
         />
       </NavLink>
     );

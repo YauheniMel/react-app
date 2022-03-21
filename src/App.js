@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthPageContainer } from './components/AuthPage/AuthPageContainer.jsx';
+import { AuthPageContainer } from './components/pages/AuthPage/AuthPageContainer.jsx';
 import Header from './components/header/Header.jsx';
 import Main from './components/main/Main.jsx';
-import { SignUpPageContainer } from './components/SignUpPage/SignUpPageContainer.jsx';
+import { SignUpPageContainer } from './components/pages/SignUpPage/SignUpPageContainer.jsx';
 import { LinguaContext, languages } from './contexts/LinguaContext.jsx';
 import { ThemeContext, themes } from './contexts/ThemeContext.jsx';
 import useUser from './hooks/useUser.js';

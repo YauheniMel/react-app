@@ -10,7 +10,7 @@ export default function TargetUser({ targetUser, isLoading }) {
         <strong>
           {targetUser.firstName} {targetUser.lastName}
         </strong>
-        <img src={targetUser.avatar} alt="photo" />
+        <img src={targetUser.photo} alt="photo" />
         <p>{targetUser.body}</p>
       </div>
     </>

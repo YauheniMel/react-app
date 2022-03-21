@@ -20,19 +20,20 @@ export default function CardUser({
   } = useUser();
 
   return (
+    // bad place
     <LinguaContext.Consumer>
       {({ language }) => (
         <div className={style.wrap}>
           <NavLink to={`/reactproject/users/${userId}`}>
             <img className={style.photo} src={photo} alt="photo user" />
-              <div className={style.info}>
-                <h5>
-                  {firstName} {lastName}
-                </h5>
-                <p>
-                  Minsk: <span>Belarus</span>
-                </p>
-              </div>
+            <div className={style.info}>
+              <h5>
+                {firstName} {lastName}
+              </h5>
+              <p>
+                Minsk: <span>Belarus</span>
+              </p>
+            </div>
             <p>{post}</p>
           </NavLink>
           {isFriend ? (
