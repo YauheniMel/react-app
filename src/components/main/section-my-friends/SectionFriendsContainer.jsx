@@ -1,36 +1,43 @@
 import SectionFriends from './SectionFriends';
 import { connect } from 'react-redux';
-import { getAllFriends } from '../../../redux/friend-reducer';
-import { useEffect, useState } from 'react';
+import {
+  getTargetFriends,
+  setCurrentFriendPage
+} from '../../../redux/friend-reducer';
 import useUser from '../../../hooks/useUser';
 import { withRouter } from 'react-router';
+import { useEffect } from 'react';
 
 function SectionFriendsApiContainer({
   friends,
-  getFriends,
+  getTargetFriends,
+  setCurrentPage,
+  currentPage,
+  totalPages,
   match,
   isFetching
 }) {
-  const [currentPage, setCurrentPage] = useState(1);
-
   const {
     user: { id }
   } = useUser();
 
-  function handleChangePage(currentPage) {
-    getFriends(id, currentPage);
-  }
-
   useEffect(() => {
     handleChangePage(currentPage);
-  }, [currentPage]);
+  }, []);
+
+  function handleChangePage(currentPage) {
+    setCurrentPage(currentPage);
+
+    getTargetFriends(id, currentPage);
+  }
 
   return (
     <SectionFriends
       friends={friends}
       isFetching={isFetching}
-      setCurrentPage={setCurrentPage}
+      changePage={handleChangePage}
       currentPage={currentPage}
+      totalPages={totalPages}
       match={match}
     />
   );
@@ -39,13 +46,17 @@ function SectionFriendsApiContainer({
 function mapStateToProps(state) {
   return {
     friends: state.friendPage.friends,
-    isFetching: state.friendPage.isFetching
+    isFetching: state.friendPage.isFetching,
+    totalPages: state.friendPage.totalPages,
+    currentPage: state.friendPage.currentPage
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getFriends: (id, currentPage) => dispatch(getAllFriends(id, currentPage))
+    getTargetFriends: (id, currentPage) =>
+      dispatch(getTargetFriends(id, currentPage)),
+    setCurrentPage: (numPage) => dispatch(setCurrentFriendPage(numPage))
   };
 }
 

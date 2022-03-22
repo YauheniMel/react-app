@@ -1,29 +1,42 @@
 import { connect } from 'react-redux';
-import { getAllPhotos } from '../../../redux/photo-reducer';
-import { useState, useEffect } from 'react';
+import {
+  getTargetPhotos,
+  setCurrentPhotoPage
+} from '../../../redux/photo-reducer';
+import { useEffect } from 'react';
 import SectionPhotos from './SectionPhotos';
 import { withRouter } from 'react-router';
 import useUser from '../../../hooks/useUser';
 
-function SectionPhotosAPIContainer({ photos, getPhotos, match, isFetching }) {
-  const [currentPage, setCurrentPage] = useState(1);
+function SectionPhotosAPIContainer({
+  photos,
+  getTargetPhotos,
+  match,
+  currentPage,
+  totalPages,
+  isFetching,
+  setCurrentPage
+}) {
   const {
     user: { id }
   } = useUser();
 
-  function handleChangePage(currentPage) {
-    getPhotos(id, currentPage);
-  }
-
   useEffect(() => {
     handleChangePage(currentPage);
-  }, [currentPage]);
+  }, []);
+
+  function handleChangePage(currentPage) {
+    setCurrentPage(currentPage);
+
+    getTargetPhotos(id, currentPage);
+  }
 
   return (
     <SectionPhotos
       photos={photos}
       currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
+      changePage={handleChangePage}
+      totalPages={totalPages}
       isFetching={isFetching}
       match={match}
     />
@@ -33,13 +46,17 @@ function SectionPhotosAPIContainer({ photos, getPhotos, match, isFetching }) {
 function mapStateToProps(state) {
   return {
     photos: state.photoPage.photos,
+    currentPage: state.photoPage.currentPage,
+    totalPages: state.photoPage.totalPages,
     isFetching: state.photoPage.isFetching
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPhotos: (id, currentPage) => dispatch(getAllPhotos(id, currentPage))
+    getTargetPhotos: (id, currentPage) =>
+      dispatch(getTargetPhotos(id, currentPage)),
+    setCurrentPage: (numPage) => dispatch(setCurrentPhotoPage(numPage))
   };
 }
 

@@ -29,7 +29,7 @@ export const requestAPI = {
   getDialogPersons(id) {
     return axios.get(`/dialogs/${id}`).then((response) => response.data);
   },
-  getPhotos(id, currentPage = 1) {
+  getPhotos(id, currentPage) {
     return axios
       .get(`/photos/id${id}/${currentPage}`)
       .then((response) => response.data);

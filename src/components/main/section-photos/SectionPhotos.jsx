@@ -7,8 +7,9 @@ import { Route } from 'react-router-dom';
 
 export default function SectionPhotos({
   photos,
+  totalPages,
   currentPage,
-  setCurrentPage,
+  changePage,
   isFetching,
   match
 }) {
@@ -28,7 +29,11 @@ export default function SectionPhotos({
         render={() => <TargetPhotoContainer match={match} />}
       />
       <div className="wrap">{photoList}</div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        changePage={changePage}
+      />
     </section>
   );
 }

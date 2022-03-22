@@ -9,10 +9,11 @@ export default function SectionUsers({
   users,
   follow,
   unfollow,
-  currentPage,
-  setCurrentPage,
+  changePage,
   isFetching,
   match,
+  totalPages,
+  currentPage,
   followingInProgress
 }) {
   const userList = users.map((user) => {
@@ -38,7 +39,11 @@ export default function SectionUsers({
         render={() => <TargetUserContainer match={match} />}
       />
       <div className="wrap">{userList}</div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        changePage={changePage}
+      />
       {isFetching && <Spinner />}
     </section>
   );
