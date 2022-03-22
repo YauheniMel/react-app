@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 export default function useUser() {
+  // need update state when reload page
+  // try use only token
   const getUser = () => {
     const userJSON = sessionStorage.getItem('user');
     const user = JSON.parse(userJSON);

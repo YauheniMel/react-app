@@ -20,7 +20,11 @@ app.get('/photos/id:id/:pageNumber', (req, res) => {
     if (err) throw new Error(err);
 
     let resData = JSON.parse(data).filter((item) => item.userId == id);
-    resData = resData[0].photos.splice((pageNumber - 1) * 5, pageNumber * 5);
+    const totalPages = Math.ceil(resData[0].photos.length / 5); // hard code
+    resData = {
+      data: resData[0].photos.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });
@@ -45,7 +49,7 @@ app.get('/friends/id:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = friends.splice((pageNumber - 1) * 5, pageNumber * 5);
+    const resData = friends.splice((pageNumber - 1) * 5, 5);
 
     res.send(resData);
   });
@@ -84,7 +88,7 @@ app.get('/users/:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = users.splice((pageNumber - 1) * 5, pageNumber * 5);
+    const resData = users.splice((pageNumber - 1) * 5, 5);
 
     res.send(resData);
   });
@@ -197,13 +201,13 @@ app.get('*', (req, res) => {
 app.post('/login', (req, res) => {
   const data = req.body.body;
   const authData = JSON.parse(data);
-  const code = encrypt(authData.login, authData.password);
+  const token = encrypt(authData.login, authData.password);
 
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
     let users = JSON.parse(data);
-    const user = users.filter((item) => item.code == code)[0];
+    const user = users.filter((item) => item.token == token)[0];
 
     if (user) {
       // check login

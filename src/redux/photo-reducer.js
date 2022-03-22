@@ -12,10 +12,16 @@ export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
   content: value
 });
+export const setCurrentPage = (numPage) => ({
+  type: 'SET-CURRENT-PAGE',
+  content: numPage
+});
 
 const initState = {
   photos: [],
   targetPhoto: {},
+  totalPages: 0,
+  currentPage: 1,
   isFetching: false
 };
 
@@ -24,7 +30,8 @@ function photoReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content]
+        photos: [...action.content.data],
+        totalPages: action.content.totalPages
       };
 
       return stateCopy;
@@ -45,19 +52,29 @@ function photoReducer(state = initState, action) {
 
       return stateCopy;
     }
+    case 'SET-CURRENT-PAGE': {
+      const stateCopy = {
+        ...state,
+        currentPage: action.content
+      };
+
+      return stateCopy;
+    }
     default:
       return state;
   }
 }
 
-export const getAllPhotos = (id, currentPage) => (dispatch) => {
-  dispatch(setIsFetching(true));
+export const changePage =
+  (id, currentPage = 1) =>
+  (dispatch) => {
+    dispatch(setIsFetching(true));
 
-  requestAPI
-    .getPhotos(id, currentPage)
-    .then((data) => dispatch(getPhotos(data)))
-    .catch((err) => console.error(err))
-    .finally(() => dispatch(setIsFetching(false)));
-};
+    requestAPI
+      .getPhotos(id, currentPage)
+      .then((data) => dispatch(getPhotos(data)))
+      .catch((err) => console.error(err))
+      .finally(() => dispatch(setIsFetching(false)));
+  };
 
 export default photoReducer;

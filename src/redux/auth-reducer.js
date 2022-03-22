@@ -56,8 +56,6 @@ function authReducer(state = initState, action) {
       return stateCopy;
     }
     case 'SET-USER-INFO': {
-      debugger;
-
       const stateCopy = {
         ...state,
         id: action.content.id,

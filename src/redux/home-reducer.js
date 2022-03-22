@@ -13,18 +13,11 @@ const initState = {
   firstName: '',
   lastName: '',
   date: '',
-  photos: [],
   isFetching: false
 };
 
 function homeReducer(state = initState, action) {
   switch (action.type) {
-    case 'GET-PHOTOS': {
-      const stateCopy = { ...state };
-      stateCopy.photos = [...action.content];
-
-      return stateCopy;
-    }
     case 'SET-IS-FETCHING': {
       const stateCopy = {
         ...state,
