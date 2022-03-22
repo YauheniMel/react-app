@@ -12,8 +12,8 @@ export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
   content: value
 });
-export const setCurrentPage = (numPage) => ({
-  type: 'SET-CURRENT-PAGE',
+export const setCurrentPhotoPage = (numPage) => ({
+  type: 'SET-CURRENT-PHOTO-PAGE',
   content: numPage
 });
 
@@ -52,7 +52,7 @@ function photoReducer(state = initState, action) {
 
       return stateCopy;
     }
-    case 'SET-CURRENT-PAGE': {
+    case 'SET-CURRENT-PHOTO-PAGE': {
       const stateCopy = {
         ...state,
         currentPage: action.content
@@ -65,7 +65,7 @@ function photoReducer(state = initState, action) {
   }
 }
 
-export const changePage =
+export const getTargetPhotos =
   (id, currentPage = 1) =>
   (dispatch) => {
     dispatch(setIsFetching(true));

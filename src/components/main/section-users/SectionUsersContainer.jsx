@@ -1,26 +1,39 @@
 import { connect } from 'react-redux';
-import { follow, getAllUsers, unfollow } from '../../../redux/users-reducer';
-import { useEffect, useState } from 'react';
+import {
+  follow,
+  getTargetUsers,
+  setCurrentUserPage,
+  unfollow
+} from '../../../redux/users-reducer';
 import SectionUsers from './SectionUsers';
 import { withRouter } from 'react-router';
 import useUser from '../../../hooks/useUser';
+import { useEffect } from 'react';
 
 function SectionUsersAPIContainer({
   users,
   follow,
   unfollow,
-  getUsers,
+  getTargetUsers,
+  setCurrentPage,
+  totalPages,
+  currentPage,
   match,
   isFetching,
   followingInProgress
 }) {
-  const [currentPage, setCurrentPage] = useState(1);
   const {
     user: { id }
   } = useUser();
 
+  useEffect(() => {
+    handleChangePage(currentPage);
+  }, []);
+
   function handleChangePage(currentPage) {
-    getUsers(id, currentPage);
+    setCurrentPage(currentPage);
+
+    getTargetUsers(id, currentPage);
   }
 
   function handleUnfollowUser(id, userId) {
@@ -31,17 +44,14 @@ function SectionUsersAPIContainer({
     follow(id, userId);
   }
 
-  useEffect(() => {
-    handleChangePage(currentPage);
-  }, [currentPage]);
-
   return (
     <SectionUsers
       currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
+      changePage={handleChangePage}
       isFetching={isFetching}
       users={users}
       unfollow={handleUnfollowUser}
+      totalPages={totalPages}
       follow={handleFollowUser}
       match={match}
       followingInProgress={followingInProgress}
@@ -53,7 +63,9 @@ function mapStateToProps(state) {
   return {
     users: state.usersPage.users,
     isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress
+    followingInProgress: state.usersPage.followingInProgress,
+    currentPage: state.usersPage.currentPage,
+    totalPages: state.usersPage.totalPages
   };
 }
 
@@ -61,7 +73,9 @@ function mapDispatchToProps(dispatch) {
   return {
     follow: (id, userId) => dispatch(follow(id, userId)),
     unfollow: (id, userId) => dispatch(unfollow(id, userId)),
-    getUsers: (id, currentPage) => dispatch(getAllUsers(id, currentPage))
+    getTargetUsers: (id, currentPage) =>
+      dispatch(getTargetUsers(id, currentPage)),
+    setCurrentPage: (numPage) => dispatch(setCurrentUserPage(numPage))
   };
 }
 

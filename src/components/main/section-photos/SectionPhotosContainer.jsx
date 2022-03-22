@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { changePage, setCurrentPage } from '../../../redux/photo-reducer';
+import {
+  getTargetPhotos,
+  setCurrentPhotoPage
+} from '../../../redux/photo-reducer';
 import { useEffect } from 'react';
 import SectionPhotos from './SectionPhotos';
 import { withRouter } from 'react-router';
@@ -7,7 +10,7 @@ import useUser from '../../../hooks/useUser';
 
 function SectionPhotosAPIContainer({
   photos,
-  changePage,
+  getTargetPhotos,
   match,
   currentPage,
   totalPages,
@@ -18,15 +21,15 @@ function SectionPhotosAPIContainer({
     user: { id }
   } = useUser();
 
-  function handleChangePage(currentPage = 1) {
-    setCurrentPage(currentPage);
-
-    changePage(id, currentPage);
-  }
-
   useEffect(() => {
     handleChangePage(currentPage);
-  }, [currentPage]);
+  }, []);
+
+  function handleChangePage(currentPage) {
+    setCurrentPage(currentPage);
+
+    getTargetPhotos(id, currentPage);
+  }
 
   return (
     <SectionPhotos
@@ -51,8 +54,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    changePage: (id, currentPage) => dispatch(changePage(id, currentPage)),
-    setCurrentPage: (numPage) => dispatch(setCurrentPage(numPage))
+    getTargetPhotos: (id, currentPage) =>
+      dispatch(getTargetPhotos(id, currentPage)),
+    setCurrentPage: (numPage) => dispatch(setCurrentPhotoPage(numPage))
   };
 }
 

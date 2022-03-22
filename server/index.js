@@ -49,7 +49,12 @@ app.get('/friends/id:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = friends.splice((pageNumber - 1) * 5, 5);
+    const totalPages = Math.ceil(friends.length / 5); // hard code
+
+    const resData = {
+      data: friends.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });
@@ -88,7 +93,12 @@ app.get('/users/:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = users.splice((pageNumber - 1) * 5, 5);
+    const totalPages = Math.ceil(users.length / 5); // hard code
+
+    const resData = {
+      data: users.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });

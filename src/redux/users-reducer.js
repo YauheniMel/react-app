@@ -25,11 +25,17 @@ export const toggleIsFollowing = (isActive, id) => ({
   isActive: isActive,
   id: id
 });
+export const setCurrentUserPage = (numPage) => ({
+  type: 'SET-CURRENT-USER-PAGE',
+  content: numPage
+});
 
 const initState = {
   users: [],
   targetUser: {},
   isFetching: false,
+  totalPages: 0,
+  currentPage: 1,
   followingInProgress: []
 };
 
@@ -69,7 +75,8 @@ function usersReducer(state = initState, action) {
     case 'GET-USERS': {
       const stateCopy = {
         ...state,
-        users: [...action.content]
+        users: [...action.content.data],
+        totalPages: action.content.totalPages
       };
 
       return stateCopy;
@@ -100,12 +107,20 @@ function usersReducer(state = initState, action) {
 
       return stateCopy;
     }
+    case 'SET-CURRENT-USER-PAGE': {
+      const stateCopy = {
+        ...state,
+        currentPage: action.content
+      };
+
+      return stateCopy;
+    }
     default:
       return state;
   }
 }
 
-export const getAllUsers = (id, currentPage) => (dispatch) => {
+export const getTargetUsers = (id, currentPage) => (dispatch) => {
   dispatch(usersIsFetching(true));
 
   requestAPI

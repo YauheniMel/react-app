@@ -9,7 +9,8 @@ export default function SectionFriends({
   friends,
   isFetching,
   currentPage,
-  setCurrentPage,
+  totalPages,
+  changePage,
   match
 }) {
   const friendList = friends.map((friend) => {
@@ -33,7 +34,11 @@ export default function SectionFriends({
           render={() => <TargetFriendContainer match={match} />}
         />
         <div className="wrap">{friendList}</div>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
       </section>
     </>
   );
