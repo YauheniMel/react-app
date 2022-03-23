@@ -15,7 +15,7 @@ export default function SectionPhotos({
 }) {
   const photoList = photos.map((photo) => {
     return (
-      <NavLink key={photo.id} to={`/reactproject/photos/${photo.id}`}>
+      <NavLink key={photo.id} to={`/react-project/photos/${photo.id}`}>
         <PhotoCard content={photo.title} photoURL={photo.url} />
       </NavLink>
     );
@@ -25,7 +25,7 @@ export default function SectionPhotos({
     <section className="section">
       {isFetching && <Spinner />}
       <Route
-        path="/reactproject/photos/:photoId"
+        path="/react-project/photos/:photoId"
         render={() => <TargetPhotoContainer match={match} />}
       />
       <div className="wrap">{photoList}</div>

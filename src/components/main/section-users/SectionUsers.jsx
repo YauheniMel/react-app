@@ -35,7 +35,7 @@ export default function SectionUsers({
   return (
     <section className="section">
       <Route
-        path="/reactproject/users/:userId"
+        path="/react-project/users/:userId"
         render={() => <TargetUserContainer match={match} />}
       />
       <div className="wrap">{userList}</div>

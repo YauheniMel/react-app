@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 function SectionFriendsApiContainer({
   friends,
   getTargetFriends,
-  setCurrentPage,
+  setCurrentFriendPage,
   currentPage,
   totalPages,
   match,
@@ -26,8 +26,7 @@ function SectionFriendsApiContainer({
   }, []);
 
   function handleChangePage(currentPage) {
-    setCurrentPage(currentPage);
-
+    setCurrentFriendPage(currentPage);
     getTargetFriends(id, currentPage);
   }
 
@@ -52,15 +51,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getTargetFriends: (id, currentPage) =>
-      dispatch(getTargetFriends(id, currentPage)),
-    setCurrentPage: (numPage) => dispatch(setCurrentFriendPage(numPage))
-  };
-}
-
-export const SectionFriendsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(SectionFriendsApiContainer));
+export const SectionFriendsContainer = connect(mapStateToProps, {
+  getTargetFriends,
+  setCurrentFriendPage
+})(withRouter(SectionFriendsApiContainer));

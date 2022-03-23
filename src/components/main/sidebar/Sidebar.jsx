@@ -12,25 +12,27 @@ function Sidebar() {
             <aside className={`${style.aside} ${style[theme]}`}>
               <ul className={style.list}>
                 <li className={style.link}>
-                  <Link path="/reactproject/home">{language.sidebar.home}</Link>
+                  <Link path="/react-project/home">
+                    {language.sidebar.home}
+                  </Link>
                 </li>
                 <li className={style.link}>
-                  <Link path="/reactproject/dialogs">
+                  <Link path="/react-project/dialogs">
                     {language.sidebar.dialogs}
                   </Link>
                 </li>
                 <li className={style.link}>
-                  <Link path="/reactproject/friends">
+                  <Link path="/react-project/friends">
                     {language.sidebar.myFriends}
                   </Link>
                 </li>
                 <li className={style.link}>
-                  <Link path="/reactproject/users">
+                  <Link path="/react-project/users">
                     {language.sidebar.users}
                   </Link>
                 </li>
                 <li className={style.link}>
-                  <Link path="/reactproject/photos">
+                  <Link path="/react-project/photos">
                     {language.sidebar.photos}
                   </Link>
                 </li>

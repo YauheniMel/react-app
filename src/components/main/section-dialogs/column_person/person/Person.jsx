@@ -7,7 +7,7 @@ function Person(props) {
   return (
     <div className={style.person}>
       <NavLink
-        to={`/reactproject/dialogs/dialog/` + props.data.id}
+        to={`/react-project/dialogs/dialog/` + props.data.id}
         className={style.link}
       >
         {props.data.firstName} {props.data.lastName}

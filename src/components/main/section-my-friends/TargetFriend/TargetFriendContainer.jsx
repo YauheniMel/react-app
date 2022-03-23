@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { requestAPI } from '../../../../api/api';
 import { getTargetFriend } from '../../../../redux/friend-reducer';
 import TargetFriend from './TargetFriend';
 
 function TargetFriendApiContainer({ match, targetFriend, getTargetFriend }) {
-  const [isLoading, setIsLoading] = useState();
-
   useEffect(() => {
+    // render earlier than parent element
     if (!match.params.friendId) return;
-    setIsLoading(true);
 
-    requestAPI
-      .getTargetFriend(match.params.friendId)
-      .then((data) => getTargetFriend(...data))
-      .catch((err) => console.error(err))
-      .finally(() => setIsLoading(false));
+    getTargetFriend(match.params.friendId);
   }, [match.params.friendId]);
 
   return (
-    <>
-      {match.params.friendId && (
-        <TargetFriend targetFriend={targetFriend} isLoading={isLoading} />
-      )}
-    </>
+    <>{match.params.friendId && <TargetFriend targetFriend={targetFriend} />}</>
   );
 }
 
@@ -34,17 +23,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getTargetFriend: (obj) => {
-      const action = getTargetFriend(obj);
-
-      dispatch(action);
-    }
-  };
-}
-
-export const TargetFriendContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(TargetFriendApiContainer));
+export const TargetFriendContainer = connect(mapStateToProps, {
+  getTargetFriend
+})(withRouter(TargetFriendApiContainer));
