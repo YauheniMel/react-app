@@ -2,6 +2,7 @@ import React from 'react';
 import style from './CardUser.module.scss';
 import { LinguaContext } from '../../contexts/LinguaContext';
 import useUser from '../../hooks/useUser';
+import { NavLink } from 'react-router-dom';
 
 export default function CardUser({
   photo,
@@ -19,19 +20,22 @@ export default function CardUser({
   } = useUser();
 
   return (
+    // bad place
     <LinguaContext.Consumer>
       {({ language }) => (
         <div className={style.wrap}>
-          <img className={style.photo} src={photo} alt="photo user" />
-          <div className={style.info}>
-            <h5>
-              {firstName} {lastName}
-            </h5>
-            <p>
-              Minsk: <span>Belarus</span>
-            </p>
-          </div>
-          <p>{post}</p>
+          <NavLink to={`/react-project/users/${userId}`}>
+            <img className={style.photo} src={photo} alt="photo user" />
+            <div className={style.info}>
+              <h5>
+                {firstName} {lastName}
+              </h5>
+              <p>
+                Minsk: <span>Belarus</span>
+              </p>
+            </div>
+            <p>{post}</p>
+          </NavLink>
           {isFriend ? (
             <button
               disabled={followingInProgress.some((item) => item == userId)}

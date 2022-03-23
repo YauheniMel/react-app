@@ -25,11 +25,17 @@ export const toggleIsFollowing = (isActive, id) => ({
   isActive: isActive,
   id: id
 });
+export const setCurrentUserPage = (numPage) => ({
+  type: 'SET-CURRENT-USER-PAGE',
+  content: numPage
+});
 
 const initState = {
   users: [],
   targetUser: {},
   isFetching: false,
+  totalPages: 0,
+  currentPage: 1,
   followingInProgress: []
 };
 
@@ -69,7 +75,8 @@ function usersReducer(state = initState, action) {
     case 'GET-USERS': {
       const stateCopy = {
         ...state,
-        users: [...action.content]
+        users: [...action.content.data],
+        totalPages: action.content.totalPages
       };
 
       return stateCopy;
@@ -77,7 +84,9 @@ function usersReducer(state = initState, action) {
     case 'GET-TARGET-USER': {
       const stateCopy = {
         ...state,
-        targetUser: { ...action.targetUser }
+        targetUser: {
+          ...state.users.filter((item) => item.id == action.content)[0]
+        }
       };
 
       return stateCopy;
@@ -100,26 +109,27 @@ function usersReducer(state = initState, action) {
 
       return stateCopy;
     }
+    case 'SET-CURRENT-USER-PAGE': {
+      const stateCopy = {
+        ...state,
+        currentPage: action.content
+      };
+
+      return stateCopy;
+    }
     default:
       return state;
   }
 }
 
-export const getAllUsers = (id, currentPage) => (dispatch) => {
+export const getTargetUsers = (id, currentPage) => (dispatch) => {
   dispatch(usersIsFetching(true));
 
   requestAPI
     .getUsers(id, currentPage)
-    .then((data) => {
-      dispatch(getUsers(data));
-
-      dispatch(usersIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(usersIsFetching(false));
-    });
+    .then((data) => dispatch(getUsers(data)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(usersIsFetching(false)));
 };
 
 export const unfollow = (id, userId) => (dispatch) => {
@@ -127,16 +137,9 @@ export const unfollow = (id, userId) => (dispatch) => {
 
   requestAPI
     .delFriend(id, userId)
-    .then(() => {
-      dispatch(unFollowUser(userId));
-
-      dispatch(toggleIsFollowing(false, userId));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(toggleIsFollowing(false, userId));
-    });
+    .then(() => dispatch(unFollowUser(userId)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(toggleIsFollowing(false, userId)));
 };
 
 export const follow = (id, userId) => (dispatch) => {
@@ -144,16 +147,9 @@ export const follow = (id, userId) => (dispatch) => {
 
   requestAPI
     .addFriend(id, userId)
-    .then(() => {
-      dispatch(followUser(userId));
-
-      dispatch(toggleIsFollowing(false, userId));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(toggleIsFollowing(false, userId));
-    });
+    .then(() => dispatch(followUser(userId)))
+    .catch((err) => console.error(err))
+    .finally(() => dispatch(toggleIsFollowing(false, userId)));
 };
 
 export default usersReducer;

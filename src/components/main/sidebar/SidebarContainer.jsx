@@ -11,11 +11,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
-}
-
-export const SidebarContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SidebarApiContainer);
+export const SidebarContainer = connect(mapStateToProps)(SidebarApiContainer);

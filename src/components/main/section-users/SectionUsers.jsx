@@ -1,44 +1,49 @@
 import React from 'react';
 import CardUser from '../../../common/CardUser/CardUser';
-import style from './SectionUsers.module.scss';
 import Pagination from '../../../common/Pagination/Pagination';
 import Spinner from '../../../common/Spinner/Spinner';
 import { TargetUserContainer } from './TargetUser/TargetUserContainer';
-import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default function SectionUsers({
   users,
   follow,
   unfollow,
-  currentPage,
-  setCurrentPage,
+  changePage,
   isFetching,
   match,
+  totalPages,
+  currentPage,
   followingInProgress
 }) {
-  const list = users.map((user) => {
+  const userList = users.map((user) => {
     return (
-      <NavLink key={user.id} to={`/users/${user.id}`}>
-        <CardUser
-          userId={user.id}
-          key={user.id}
-          firstName={user.firstName}
-          lastName={user.lastName}
-          photo={user.avatar}
-          isFriend={user.isFriend} // state changed
-          setFollow={follow}
-          setUnfollow={unfollow}
-          followingInProgress={followingInProgress}
-        />
-      </NavLink>
+      <CardUser
+        userId={user.id}
+        key={user.id}
+        firstName={user.firstName}
+        lastName={user.lastName}
+        photo={user.photo}
+        isFriend={user.isFriend}
+        setFollow={follow}
+        setUnfollow={unfollow}
+        followingInProgress={followingInProgress}
+      />
     );
   });
 
   return (
-    <section className={style.section}>
-      <TargetUserContainer match={match} />
-      <div className={style.wrap}>{list}</div>
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    <section className="section">
+      <Route
+        path="/react-project/users/:userId"
+        render={() => <TargetUserContainer match={match} />}
+      />
+      <div className="wrap">{userList}</div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        changePage={changePage}
+      />
       {isFetching && <Spinner />}
     </section>
   );

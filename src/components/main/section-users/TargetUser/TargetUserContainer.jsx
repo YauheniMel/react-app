@@ -1,58 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import TargetUser from './TargetUser';
 import { connect } from 'react-redux';
 import { getTargetUser } from '../../../../redux/users-reducer';
-import { requestAPI } from '../../../../api/api';
+import { withRouter } from 'react-router-dom';
 
-function TargetUserApiContainer({ user, getTargetUser, match }) {
-  const [isLoading, setIsLoading] = useState();
-  const [targetUser] = useState(4);
-
+function TargetUserApiContainer({ targetUser, getTargetUser, match }) {
   useEffect(() => {
     if (!match.params.userId) return;
 
-    setIsLoading(true);
+    getTargetUser(match.params.userId);
+  }, [match.params.userId]);
 
-    if (!targetUser) return;
-
-    requestAPI
-      .getTargetUser(match.params.userId) // maybe there's bad practice
-      .then((data) => {
-        getTargetUser(...data);
-
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setIsLoading(false);
-      });
-  }, [targetUser, match.params.userId]);
-
-  return (
-    <>
-      {match.params.userId && <TargetUser data={user} isLoading={isLoading} />}
-    </>
-  );
+  return <>{match.params.userId && <TargetUser targetUser={targetUser} />}</>;
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.usersPage.targetUser
+    targetUser: state.usersPage.targetUser
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getTargetUser: (obj) => {
-      const action = getTargetUser(obj);
-
-      dispatch(action);
-    }
-  };
-}
-
-export const TargetUserContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TargetUserApiContainer);
+export const TargetUserContainer = connect(mapStateToProps, { getTargetUser })(
+  withRouter(TargetUserApiContainer)
+);

@@ -17,23 +17,23 @@ function Main() {
             <SidebarContainer />
             <Switch>
               <Route
-                path="/reactproject/home"
+                path="/react-project/home"
                 render={() => <SectionHomeContainer />}
               />
               <Route
-                path="/reactproject/dialogs"
+                path="/react-project/dialogs"
                 render={() => <SectionDialogsContainer />}
               />
               <Route
-                path="/reactproject/friends/:friendId?"
+                path="/react-project/friends/:friend?"
                 render={() => <SectionFriendsContainer />}
               />
               <Route
-                path="/reactproject/users/:userId?"
+                path="/react-project/users/:userId?"
                 render={() => <SectionUsersContainer />}
               />
               <Route
-                path="/reactproject/photos/:photoId?"
+                path="/react-project/photos/:photoId?"
                 render={() => <SectionPhotosContainer />}
               />
             </Switch>

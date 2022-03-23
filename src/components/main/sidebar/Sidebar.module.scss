@@ -2,7 +2,8 @@
 
 .aside {
   align-self: baseline;
-  width: 17%;
+  height: 80%;
+  min-height: 260px;
   margin: 0.3rem;
 }
 
@@ -12,6 +13,7 @@
 
 .link a {
   display: block;
+  width: 200px;
   padding: 1rem 0.7rem;
 }
 

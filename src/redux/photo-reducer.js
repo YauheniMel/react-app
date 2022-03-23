@@ -12,10 +12,16 @@ export const setIsFetching = (value) => ({
   type: 'SET-IS-FETCHING',
   content: value
 });
+export const setCurrentPhotoPage = (numPage) => ({
+  type: 'SET-CURRENT-PHOTO-PAGE',
+  content: numPage
+});
 
 const initState = {
   photos: [],
   targetPhoto: {},
+  totalPages: 0,
+  currentPage: 1,
   isFetching: false
 };
 
@@ -24,7 +30,8 @@ function photoReducer(state = initState, action) {
     case 'GET-PHOTOS': {
       const stateCopy = {
         ...state,
-        photos: [...action.content]
+        photos: [...action.content.data],
+        totalPages: action.content.totalPages
       };
 
       return stateCopy;
@@ -32,31 +39,44 @@ function photoReducer(state = initState, action) {
     case 'GET-TARGET-PHOTO': {
       const stateCopy = {
         ...state,
-        targetPhoto: { ...action.content }
+        targetPhoto: {
+          ...state.photos.filter((item) => item.id == action.content)[0]
+        }
       };
 
       return stateCopy;
     }
-  }
+    case 'SET-IS-FETCHING': {
+      const stateCopy = {
+        ...state,
+        isFetching: action.content
+      };
 
-  return state;
+      return stateCopy;
+    }
+    case 'SET-CURRENT-PHOTO-PAGE': {
+      const stateCopy = {
+        ...state,
+        currentPage: action.content
+      };
+
+      return stateCopy;
+    }
+    default:
+      return state;
+  }
 }
 
-export const getAllPhotos = (id, currentPage) => (dispatch) => {
-  dispatch(setIsFetching(true));
+export const getTargetPhotos =
+  (id, currentPage = 1) =>
+  (dispatch) => {
+    dispatch(setIsFetching(true));
 
-  requestAPI
-    .getPhotos(id, currentPage)
-    .then((data) => {
-      dispatch(getPhotos(data));
-
-      dispatch(setIsFetching(false));
-    })
-    .catch((err) => {
-      console.error(err);
-
-      dispatch(setIsFetching(false));
-    });
-};
+    requestAPI
+      .getPhotos(id, currentPage)
+      .then((data) => dispatch(getPhotos(data)))
+      .catch((err) => console.error(err))
+      .finally(() => dispatch(setIsFetching(false)));
+  };
 
 export default photoReducer;

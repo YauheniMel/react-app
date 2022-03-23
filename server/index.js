@@ -8,7 +8,7 @@ const encrypt = require('./encrypt');
 app.use(express.json());
 app.use(express.urlencoded());
 
-const photoData = path.resolve(__dirname, './data/photo-data.json');
+const photosData = path.resolve(__dirname, './data/photo-data.json');
 const usersData = path.resolve(__dirname, './data/users-data.json');
 const dialogsData = path.resolve(__dirname, './data/dialogs-data.json');
 
@@ -16,23 +16,15 @@ const dialogsData = path.resolve(__dirname, './data/dialogs-data.json');
 
 app.get('/photos/id:id/:pageNumber', (req, res) => {
   const { pageNumber, id } = req.params;
-  fs.readFile(photoData, (err, data) => {
+  fs.readFile(photosData, (err, data) => {
     if (err) throw new Error(err);
 
     let resData = JSON.parse(data).filter((item) => item.userId == id);
-    resData = resData[0].photos.splice((pageNumber - 1) * 5, pageNumber * 5);
-
-    res.send(resData);
-  });
-});
-
-app.get('/photo/:photoId', (req, res) => {
-  const { photoId } = req.params;
-
-  fs.readFile(photoData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == photoId);
+    const totalPages = Math.ceil(resData[0].photos.length / 5); // hard code
+    resData = {
+      data: resData[0].photos.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });
@@ -57,19 +49,12 @@ app.get('/friends/id:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = friends.splice((pageNumber - 1) * 5, pageNumber * 5);
+    const totalPages = Math.ceil(friends.length / 5); // hard code
 
-    res.send(resData);
-  });
-});
-
-app.get('/friend/:friendId', (req, res) => {
-  const { friendId } = req.params;
-
-  fs.readFile(usersData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == friendId);
+    const resData = {
+      data: friends.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });
@@ -96,19 +81,12 @@ app.get('/users/:id/:pageNumber', (req, res) => {
       });
     });
 
-    const resData = users.splice((pageNumber - 1) * 5, pageNumber * 5);
+    const totalPages = Math.ceil(users.length / 5); // hard code
 
-    res.send(resData);
-  });
-});
-
-app.get('/user/:targetUser', (req, res) => {
-  const { targetUser } = req.params;
-
-  fs.readFile(usersData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == targetUser);
+    const resData = {
+      data: users.splice((pageNumber - 1) * 5, 5),
+      totalPages
+    };
 
     res.send(resData);
   });
@@ -209,13 +187,13 @@ app.get('*', (req, res) => {
 app.post('/login', (req, res) => {
   const data = req.body.body;
   const authData = JSON.parse(data);
-  const code = encrypt(authData.login, authData.password);
+  const token = encrypt(authData.login, authData.password);
 
   fs.readFile(usersData, (err, data) => {
     if (err) throw new Error(err);
 
     let users = JSON.parse(data);
-    const user = users.filter((item) => item.code == code)[0];
+    const user = users.filter((item) => item.token == token)[0];
 
     if (user) {
       // check login
