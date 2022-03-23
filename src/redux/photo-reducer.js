@@ -39,7 +39,9 @@ function photoReducer(state = initState, action) {
     case 'GET-TARGET-PHOTO': {
       const stateCopy = {
         ...state,
-        targetPhoto: state.photos[action.content - 1]
+        targetPhoto: {
+          ...state.photos.filter((item) => item.id == action.content)[0]
+        }
       };
 
       return stateCopy;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getTargetPhoto } from '../../../../redux/photo-reducer';
 import TargetPhoto from './TargetPhoto';
 
@@ -22,17 +23,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getTargetPhoto: (obj) => {
-      const action = getTargetPhoto(obj);
-
-      dispatch(action);
-    }
-  };
-}
-
-export const TargetPhotoContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TargetPhotoApiContainer);
+export const TargetPhotoContainer = connect(mapStateToProps, {
+  getTargetPhoto
+})(withRouter(TargetPhotoApiContainer));

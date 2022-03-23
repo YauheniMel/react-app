@@ -24,7 +24,7 @@ export default function CardUser({
     <LinguaContext.Consumer>
       {({ language }) => (
         <div className={style.wrap}>
-          <NavLink to={`/reactproject/users/${userId}`}>
+          <NavLink to={`/react-project/users/${userId}`}>
             <img className={style.photo} src={photo} alt="photo user" />
             <div className={style.info}>
               <h5>

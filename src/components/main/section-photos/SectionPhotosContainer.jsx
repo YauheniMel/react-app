@@ -15,7 +15,7 @@ function SectionPhotosAPIContainer({
   currentPage,
   totalPages,
   isFetching,
-  setCurrentPage
+  setCurrentPhotoPage
 }) {
   const {
     user: { id }
@@ -26,7 +26,7 @@ function SectionPhotosAPIContainer({
   }, []);
 
   function handleChangePage(currentPage) {
-    setCurrentPage(currentPage);
+    setCurrentPhotoPage(currentPage);
 
     getTargetPhotos(id, currentPage);
   }
@@ -52,15 +52,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getTargetPhotos: (id, currentPage) =>
-      dispatch(getTargetPhotos(id, currentPage)),
-    setCurrentPage: (numPage) => dispatch(setCurrentPhotoPage(numPage))
-  };
-}
-
-export const SectionPhotosContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(SectionPhotosAPIContainer));
+export const SectionPhotosContainer = connect(mapStateToProps, {
+  getTargetPhotos,
+  setCurrentPhotoPage
+})(withRouter(SectionPhotosAPIContainer));

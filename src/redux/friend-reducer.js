@@ -39,7 +39,9 @@ function friendReducer(state = initState, action) {
     case 'GET-TARGET-FRIEND': {
       const stateCopy = {
         ...state,
-        targetFriend: { ...action.content }
+        targetFriend: {
+          ...state.friends.filter((item) => item.id == action.content)[0]
+        } // need refactor
       };
 
       return stateCopy;

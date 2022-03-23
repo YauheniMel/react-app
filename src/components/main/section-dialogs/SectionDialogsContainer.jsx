@@ -23,13 +23,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getPersons: (id) => dispatch(getPersons(id))
-  };
-}
-
-export const SectionDialogsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SectionDialogsApiContainer);
+export const SectionDialogsContainer = connect(mapStateToProps, {
+  getPersons
+})(SectionDialogsApiContainer);

@@ -8,7 +8,7 @@ const encrypt = require('./encrypt');
 app.use(express.json());
 app.use(express.urlencoded());
 
-const photoData = path.resolve(__dirname, './data/photo-data.json');
+const photosData = path.resolve(__dirname, './data/photo-data.json');
 const usersData = path.resolve(__dirname, './data/users-data.json');
 const dialogsData = path.resolve(__dirname, './data/dialogs-data.json');
 
@@ -16,7 +16,7 @@ const dialogsData = path.resolve(__dirname, './data/dialogs-data.json');
 
 app.get('/photos/id:id/:pageNumber', (req, res) => {
   const { pageNumber, id } = req.params;
-  fs.readFile(photoData, (err, data) => {
+  fs.readFile(photosData, (err, data) => {
     if (err) throw new Error(err);
 
     let resData = JSON.parse(data).filter((item) => item.userId == id);
@@ -60,18 +60,6 @@ app.get('/friends/id:id/:pageNumber', (req, res) => {
   });
 });
 
-app.get('/friend/:friendId', (req, res) => {
-  const { friendId } = req.params;
-
-  fs.readFile(usersData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == friendId);
-
-    res.send(resData);
-  });
-});
-
 // Users Page
 
 app.get('/users/:id/:pageNumber', (req, res) => {
@@ -99,18 +87,6 @@ app.get('/users/:id/:pageNumber', (req, res) => {
       data: users.splice((pageNumber - 1) * 5, 5),
       totalPages
     };
-
-    res.send(resData);
-  });
-});
-
-app.get('/user/:targetUser', (req, res) => {
-  const { targetUser } = req.params;
-
-  fs.readFile(usersData, (err, data) => {
-    if (err) throw new Error(err);
-
-    const resData = JSON.parse(data).filter((item) => item.id == targetUser);
 
     res.send(resData);
   });

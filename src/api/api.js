@@ -1,24 +1,6 @@
 import axios from 'axios';
 
 export const requestAPI = {
-  delFriend(id, userId) {
-    return axios
-      .delete(`/user/id${id}/${userId}`)
-      .then((response) => response.data);
-  },
-  addFriend(id, userId) {
-    return axios
-      .post(`/user/id${id}/${userId}`)
-      .then((response) => response.data);
-  },
-  getFriends(id, currentPage) {
-    return axios
-      .get(`/friends/id${id}/${currentPage}`)
-      .then((response) => response.data);
-  },
-  getTargetFriend(friendId) {
-    return axios.get(`/friend/${friendId}`).then((response) => response.data);
-  },
   login(credentials) {
     return axios
       .post('/login', {
@@ -29,9 +11,19 @@ export const requestAPI = {
   getDialogPersons(id) {
     return axios.get(`/dialogs/${id}`).then((response) => response.data);
   },
-  getPhotos(id, currentPage) {
+  getFriends(id, currentPage) {
     return axios
-      .get(`/photos/id${id}/${currentPage}`)
+      .get(`/friends/id${id}/${currentPage}`)
+      .then((response) => response.data);
+  },
+  addFriend(id, userId) {
+    return axios
+      .post(`/user/id${id}/${userId}`)
+      .then((response) => response.data);
+  },
+  delFriend(id, userId) {
+    return axios
+      .delete(`/user/id${id}/${userId}`)
       .then((response) => response.data);
   },
   getUsers(id, currentPage) {
@@ -39,7 +31,9 @@ export const requestAPI = {
       .get(`/users/${id}/${currentPage}`)
       .then((response) => response.data);
   },
-  getTargetUser(userId) {
-    return axios.get(`/user/${userId}`).then((response) => response.data);
+  getPhotos(id, currentPage) {
+    return axios
+      .get(`/photos/id${id}/${currentPage}`)
+      .then((response) => response.data);
   }
 };

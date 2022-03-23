@@ -18,14 +18,14 @@ function App() {
       value={{ language: language, setLanguage: setLanguage }}
     >
       <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
-        {user ? <Redirect to="/reactproject" /> : <Redirect to="/login" />}
+        {user ? true : <Redirect to="/login" />}
         <Route
           path="/login"
           render={() => <AuthPageContainer setUser={setUser} />}
         />
         <Route path="/signup" render={() => <SignUpPageContainer />} />
         <Route
-          path="/reactproject"
+          path="/react-project"
           render={() => (
             <div className="App">
               <Header />

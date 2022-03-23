@@ -15,7 +15,7 @@ export default function SectionFriends({
 }) {
   const friendList = friends.map((friend) => {
     return (
-      <NavLink key={friend.id} to={`/reactproject/friends/${friend.id}`}>
+      <NavLink key={friend.id} to={`/react-project/friends/${friend.id}`}>
         <FriendCard
           firstName={friend.firstName}
           lastName={friend.lastName}
@@ -30,7 +30,7 @@ export default function SectionFriends({
       {isFetching && <Spinner />}
       <section className="section">
         <Route
-          path="/reactproject/friends/:friendId"
+          path="/react-project/friends/:friendId"
           render={() => <TargetFriendContainer match={match} />}
         />
         <div className="wrap">{friendList}</div>

@@ -33,13 +33,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getUser: (id) => dispatch(getUser(id))
-  };
-}
-
-export const SectionHomeContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SectionHomeApiContainer);
+export const SectionHomeContainer = connect(mapStateToProps, {
+  getUser
+})(SectionHomeApiContainer);

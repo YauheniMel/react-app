@@ -15,7 +15,7 @@ function SectionUsersAPIContainer({
   follow,
   unfollow,
   getTargetUsers,
-  setCurrentPage,
+  setCurrentUserPage,
   totalPages,
   currentPage,
   match,
@@ -31,7 +31,7 @@ function SectionUsersAPIContainer({
   }, []);
 
   function handleChangePage(currentPage) {
-    setCurrentPage(currentPage);
+    setCurrentUserPage(currentPage);
 
     getTargetUsers(id, currentPage);
   }
@@ -69,17 +69,9 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    follow: (id, userId) => dispatch(follow(id, userId)),
-    unfollow: (id, userId) => dispatch(unfollow(id, userId)),
-    getTargetUsers: (id, currentPage) =>
-      dispatch(getTargetUsers(id, currentPage)),
-    setCurrentPage: (numPage) => dispatch(setCurrentUserPage(numPage))
-  };
-}
-
-export const SectionUsersContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(SectionUsersAPIContainer));
+export const SectionUsersContainer = connect(mapStateToProps, {
+  follow,
+  unfollow,
+  getTargetUsers,
+  setCurrentUserPage
+})(withRouter(SectionUsersAPIContainer));
